@@ -27,10 +27,17 @@ public interface AccountService extends IService<Account> {
     public Account getAccountByNameAndPassword(String name,String psssword) throws Exception;
     
     /**
-     * @Description:
+     * @Description: 根据账号名取出账号
      * @Json: 
      * @Date: 2018/7/3
      * @Return: 
      */
     public Account getAccountByName(String name) throws Exception;
+
+    /**
+     * @Description:
+     * @Json:
+     * @Date: 2018/7/3
+     * @Return:
+     */
 }

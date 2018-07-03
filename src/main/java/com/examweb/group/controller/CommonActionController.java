@@ -2,10 +2,15 @@ package com.examweb.group.controller;
 
 import com.examweb.group.dto.Result;
 import com.examweb.group.entity.Account;
+import com.examweb.group.mapper.SchoolMapper;
 import com.examweb.group.service.AccountService;
+import com.examweb.group.service.SchoolService;
 import com.examweb.group.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author: Jessiecaicai
@@ -17,10 +22,12 @@ import org.springframework.web.bind.annotation.*;
 public class CommonActionController {
 
     private AccountService accountService;
+    private SchoolService schoolService;
 
     @Autowired
-    protected CommonActionController(AccountService accountService){
+    protected CommonActionController(AccountService accountService,SchoolService schoolService){
         this.accountService=accountService;
+        this.schoolService=schoolService;
     }
 
     /**
@@ -29,7 +36,7 @@ public class CommonActionController {
      * @Date: 2018/7/3
      * @Return:
      */
-    @GetMapping("/")
+    @GetMapping("/index")
     public String index(){
         return "/student/index";
     }
@@ -63,5 +70,26 @@ public class CommonActionController {
             e.printStackTrace();
         }
         return ResultUtil.fail("登入失败");
+    }
+
+    /**
+     * @Description: 根据province取出学校名字列表
+     * @Json:
+     * @Date: 2018/7/3
+     * @Return:
+     */
+    @PostMapping("/getSchoolNameByProvince")
+    public Result getSchoolNameByProvince(@RequestParam("province") String province){
+        try {
+            if (province==null||province.trim().isEmpty()){
+                return ResultUtil.fail("请求的省市不能为空");
+            }
+            List<String> listName=new ArrayList<>();
+            listName=schoolService.getSchoolNameByProvince(province);
+            return ResultUtil.OK(listName);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.selectError();
     }
 }
