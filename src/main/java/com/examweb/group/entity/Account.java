@@ -21,7 +21,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Account extends Model<Account>{
 
-    @TableId(type= IdType.AUTO)
+    //@TableId(type= IdType.AUTO)
     private String id;
     @NotBlank(message = "姓名不能为空")
     private String name;
@@ -31,7 +31,10 @@ public class Account extends Model<Account>{
     private String password;
     private String certificateStyle;
     private String certificateNumber;
+
+    @JsonIgnore
     private String AccountStyle;
+    @JsonIgnore
     private String isDelete;
     @JsonIgnore
     private Date createTime;

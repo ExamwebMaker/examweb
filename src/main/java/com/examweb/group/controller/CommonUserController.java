@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.sql.Date;
+import java.util.UUID;
 
 /**
  * @Author: Jessiecaicai
@@ -20,36 +21,51 @@ import java.sql.Date;
  * @Date:Created in 2018/7/2
  */
 @RestController
-@RequestMapping(value = "/account")
-public class AccountController {
+@RequestMapping(value = "/commonuser")
+public class CommonUserController {
 
     private AccountService accountService;
 
     @Autowired
-    protected AccountController(AccountService accountService){
+    protected CommonUserController(AccountService accountService){
         this.accountService=accountService;
     }
 
     /**
      * @Description: 普通用户注册
-     * @Json:
+     * @Json: {
+    "certificateNumber": "string",
+    "certificateStyle": "0",
+    "email": "string",
+    "id": "string",
+    "name": "string",
+    "password": "string",
+    "phone": "string"
+    }
      * @Date: 2018/7/3
      * @Return:
      */
-    @PostMapping("/commomUser")
-    public Result addCommomUser(@RequestBody @Valid Account account, BindingResult bindingResult){
+    @PostMapping("/rigesterCommomUser")
+    public Result rigesterCommomUser(@RequestBody @Valid Account account, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             return ResultUtil.fail(bindingResult.getAllErrors().toString());
         }
+        account.setId(UUID.randomUUID().toString().replaceAll("-",""));
         account.setAccountStyle("0");
         account.setUpdateTime(new Date(System.currentTimeMillis()));
         account.setCreateTime(new Date(System.currentTimeMillis()));
-
+        account.setIsDelete("0");
         System.out.print(account.toString());
 
-
-
-
-        return ResultUtil.OK();
+        try {
+            if (accountService.insert(account)){
+                return ResultUtil.OK();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.insertError();
     }
+
+
 }
