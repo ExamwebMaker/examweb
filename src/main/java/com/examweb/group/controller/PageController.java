@@ -2,6 +2,8 @@ package com.examweb.group.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @Author: Jessiecaicai
@@ -16,7 +18,8 @@ public class PageController {
      * @Date: 2018/7/3
      * @Return:
      */
-    @GetMapping("/index")
+    //@GetMapping("/index")
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(){
         return "student/index";
     }
@@ -27,7 +30,8 @@ public class PageController {
      * @Date: 2018/7/3
      * @Return:
      */
-    @GetMapping("/login")
+    @RequestMapping(value = "/commonUserAdmin", method = RequestMethod.GET)
+    //@GetMapping("/login")
     public String commonUserAdmin(){
         return "admin/adminlogin";
     }
@@ -38,7 +42,7 @@ public class PageController {
      * @Date: 2018/7/3
      * @Return:
      */
-    @GetMapping("/index")
+    @GetMapping("/superuserAdmin")
     public String superUserAdmin(){
         return "admin/adminlogin";
     }
