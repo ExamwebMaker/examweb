@@ -5,10 +5,7 @@ import com.examweb.group.entity.Account;
 import com.examweb.group.service.AccountService;
 import com.examweb.group.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: Jessiecaicai
@@ -16,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date:Created in 2018/7/3
  */
 @RestController
-@RequestMapping(value = "/commonAction")
+@RequestMapping(value = "/")
 public class CommonActionController {
 
     private AccountService accountService;
@@ -27,14 +24,14 @@ public class CommonActionController {
     }
 
     /**
-     * @Description:
+     * @Description: 基本主页
      * @Json:
      * @Date: 2018/7/3
      * @Return:
      */
-    @RequestMapping("/index")
-    public void index(){
-
+    @PostMapping("/")
+    public String index(){
+        return "/student/login";
     }
 
     /**

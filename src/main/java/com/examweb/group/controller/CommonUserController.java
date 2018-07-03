@@ -6,10 +6,7 @@ import com.examweb.group.service.AccountService;
 import com.examweb.group.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.sql.Date;
@@ -29,6 +26,27 @@ public class CommonUserController {
     @Autowired
     protected CommonUserController(AccountService accountService){
         this.accountService=accountService;
+    }
+
+    ///**
+    // * @Description: 普通用户主页
+    // * @Json:
+    // * @Date: 2018/7/3
+    // * @Return:
+    // */
+    //@RequestMapping(value = "/student/login", method = RequestMethod.GET)
+    //public String studentLogin(){
+    //    return "/student/login";
+    //}
+    /**
+     * @Description: 普通用户主页
+     * @Json:
+     * @Date: 2018/7/3
+     * @Return:
+     */
+    @PostMapping("/login")
+    public String studentLogin(){
+        return "/student/login";
     }
 
     /**
