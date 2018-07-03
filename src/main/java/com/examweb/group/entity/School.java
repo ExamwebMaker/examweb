@@ -1,6 +1,8 @@
 package com.examweb.group.entity;
 
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -16,8 +18,11 @@ public class School extends Model<School>{
     private String address;
     private String province;
     private String name;
+    @JsonIgnore
     private Date createTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date updateTime;
+    @JsonIgnore
     private String isDelete;
 
     @Override

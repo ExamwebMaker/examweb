@@ -1,6 +1,8 @@
 package com.examweb.group.entity;
 
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -48,9 +50,13 @@ public class Examinee extends Model<Examinee>{
     private String researchWay;
     private String examPointName;
     private String examPointAddress;
+    @JsonIgnore
     private Date createTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date updateTime;
+    @JsonIgnore
     private String isDelete;
+    @JsonIgnore
     private String isCheck;
 
     public String getId() {

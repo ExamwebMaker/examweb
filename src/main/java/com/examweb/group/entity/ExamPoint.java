@@ -1,6 +1,10 @@
 package com.examweb.group.entity;
 
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,12 +14,17 @@ import java.util.Date;
  * @Description:
  * @Date:Created in 2018/7/3
  */
+@Data
+@NoArgsConstructor
 public class ExamPoint extends Model<ExamPoint> {
-    private String  id;
-    private String   province;
-    private String  examPointName;
+    private String id;
+    private String province;
+    private String examPointName;
+    @JsonIgnore
     private Date createTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date updateTime;
+    @JsonIgnore
     private String  isDelete;
 
     @Override

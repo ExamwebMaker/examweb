@@ -21,7 +21,7 @@ import java.util.UUID;
  * @Date:Created in 2018/7/2
  */
 @RestController
-@RequestMapping(value = "/commonuser")
+@RequestMapping(value = "/commomuser")
 public class CommonUserController {
 
     private AccountService accountService;
@@ -50,13 +50,23 @@ public class CommonUserController {
         if (bindingResult.hasErrors()){
             return ResultUtil.fail(bindingResult.getAllErrors().toString());
         }
+        //判断用户名是否已存在
+        try {
+            Account accountGet;
+            accountGet=accountService.getAccountByName(account.getName());
+            if (accountGet!=null){
+                return ResultUtil.fail("账号名已经存在");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         account.setId(UUID.randomUUID().toString().replaceAll("-",""));
         account.setAccountStyle("0");
         account.setUpdateTime(new Date(System.currentTimeMillis()));
         account.setCreateTime(new Date(System.currentTimeMillis()));
         account.setIsDelete("0");
-        System.out.print(account.toString());
-
+        //System.out.print(account.toString());
         try {
             if (accountService.insert(account)){
                 return ResultUtil.OK();
