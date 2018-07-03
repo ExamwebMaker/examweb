@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎使用精品课程后台管理系统</title>
+    <link rel="stylesheet" type="text/css" href="../lib/adminlogin.css">
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap.min.css"/>
+    <script src="../lib/jquery-3.3.1.js"></script>
+    <script src="../js/adminlogin.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="login">
+
+    <div class="field"><h3 class="text-center">管理员登录</h3>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="home"
+                   aria-selected="true">管理员登录</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#superadmin" role="tab"
+                   aria-controls="profile"
+                   aria-selected="false">超级管理员登录</a>
+            </li>
+
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="home-tab">
+                <br>
+                <label>管理员用户名: </label>
+                <input class="form-control" type="text" id="adminusername" name="" placeholder="请输入用户名:" value="">
+
+                <label>管理员密码: </label>
+                <input class="form-control" type="password" id="adminpassword" name="" placeholder="请输入密码:" value="">
+            </div>
+            <div class="tab-pane fade" id="superadmin" role="tabpanel" aria-labelledby="profile-tab">
+                <br><label>超管用户名: </label>
+                <input class="form-control" type="text" name="" id="superusername" placeholder="请输入用户名:" value="">
+
+                <label>超管密码: </label>
+                <input class="form-control" type="password" id="superpassword" name="" placeholder="请输入密码:" value="">
+
+            </div>
+        </div>
+        <div class="">
+                <span class="memory">
+          <input type="checkbox" name="" id="chek" class="check"/><label for="chek">&nbsp;&nbsp;记住密码</label>
+        </span>
+            <span class="forget">
+          <a href="javascript:void(0);">忘记密码？</a>
+        </span>
+        </div>
+        <input type="button" name="next" id="loginbutton" class="action-button " value="登录"/>
+    </div>
+</div>
+</body>
+</html>
