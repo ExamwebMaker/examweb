@@ -2,6 +2,7 @@ package com.examweb.group.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,7 +21,7 @@ public class PageController {
      */
     //@GetMapping("/index")
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index(){
+    public String index() {
         return "student/index";
     }
 
@@ -32,7 +33,7 @@ public class PageController {
      */
     @RequestMapping(value = "/commonUserAdmin", method = RequestMethod.GET)
     //@GetMapping("/login")
-    public String commonUserAdmin(){
+    public String commonUserAdmin() {
         return "admin/adminlogin";
     }
 
@@ -43,7 +44,17 @@ public class PageController {
      * @Return:
      */
     @GetMapping("/superuserAdmin")
-    public String superUserAdmin(){
+    public String superUserAdmin() {
         return "admin/adminlogin";
+    }
+
+    @GetMapping("/stdlogin")
+    public String CommonUserAdmin() {
+        return "student/login";
+    }
+
+    @GetMapping("/stdsignup")
+    public String StudentUserAdmin() {
+        return "student/signup";
     }
 }

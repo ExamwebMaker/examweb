@@ -16,9 +16,8 @@ $(document).ready(function () {
         checkcredentnumber()
     });
     $("#signupbtn").click(function (event) {
-        alert($("#credentialtype").val())
         $.ajax({
-            url: "/login",
+            url: "/commomuser/rigesterCommomUser",
             type: 'POST',
             dataType: 'json',
             data: JSON.stringify({
@@ -32,13 +31,13 @@ $(document).ready(function () {
             }),
             contentType: 'application/json; charset=UTF-8',
             timeout: 1000,
-            cache: false
+            cache: false,
         })
             .done(function () {
                 console.log("success");
                 alert("注册成功!");
 
-                window.location.href = "login.html"
+                window.location.href = "/stdlogin"
             })
             .fail(function () {
                 console.log("error");

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../lib/accountedit.css">
     <script src="../lib/jquery-3.3.1.js"></script>
     <script src="../lib/bootstrap.min.js"></script>
-    <script src="../js/enroll.js"></script>
+    <script src="../js/accountedit.js"></script>
 </head>
 
 <body>
@@ -60,11 +60,11 @@
                 <li><!-- 学信网账号区域开始 -->
                     <i class="iconfont icon-iconr" title="完成"></i>
                     <h4>学信网账号</h4>
-                    <strong>18856967709&nbsp;</strong>
+                    <strong id="username">18856967709&nbsp;</strong>
                     <div class="zl-right">
 
 
-                        <a href="https://account.chsi.com.cn/account/modifymobilephone.action#setPhone"
+                        <a href="#" id="changeusername"
                            class="bind">修改</a>
 
                     </div>
@@ -72,63 +72,12 @@
                 <li><!-- 密码区域开始 -->
                     <i class="iconfont icon-iconr" title="完成"></i>
                     <h4>密码</h4>
-                    <strong>**********</strong>
-                    <div class="zl-right"><a href="javascript:void(0);" onclick="click_a('divOne_1','reglineOne_1')"
-                                             id="reglineOne_1" class="modify">
-                        <span class="setinfodivshow">修改</span>
-                        <span class="setinfodivhid">收起</span>
-                    </a></div>
-                    <div id="divOne_1" class="zl-detail clearfix" style="display:none;">
-
-
-                        <div class="form-container">
-                            <form id="user_setPsd_form" name="user_setPsd_form" action="/account/account!editPsd.action"
-                                  method="post" novalidate="novalidate">
-                                <table>
-                                    <tbody>
-                                    <tr>
-                                        <th class="td-first-short"><span class="required" aria-required="true">*</span>原密码
-                                        </th>
-                                        <td class="td-input"><input type="password" name="oldPassword" id="oldPassword"
-                                                                    class="smzc-input"></td>
-                                        <td class="validate-tips"></td>
-                                    </tr>
-                                    <tr>
-                                        <th><span class="required" aria-required="true">*</span>新密码</th>
-                                        <td><input type="password" name="password" id="password" class="smzc-input">
-                                            <div id="password_container" class="strengthMeter" style="display: block;">
-                                                <div id="password_bar" class="scoreBar" style="width: 99%;"></div>
-                                                <div id="password_tips" style="left: 292px;">非常强</div>
-                                            </div>
-                                        </td>
-                                        <td class="validate-tips"></td>
-                                    </tr>
-                                    <tr>
-                                        <th><span class="required" aria-required="true">*</span>新密码确认</th>
-                                        <td><input type="password" name="password1" id="password1" class="smzc-input">
-                                        </td>
-                                        <td class="validate-tips"></td>
-                                    </tr>
-                                    <tr>
-                                        <th class="wap-hide">&nbsp;</th>
-                                        <td colspan="2"><input type="submit" id="newbutton_pw" class="enter-btn"
-                                                               name="newbutton_pw" value="确定"></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </form>
-
-
-                        </div>
-
-                        <ul class="zl-list">
-                            <li>常见问题</li>
-                            <li>1、<a href="https://account.chsi.com.cn/account/help/index.jsp?keywords=忘记密码怎么办"
-                                     target="_blank">忘记密码怎么办？</a></li>
-                            <li>2、<a href="https://account.chsi.com.cn/account/help/index.jsp?keywords=复杂度高的密码的好处"
-                                     target="_blank">复杂度高的密码的好处？</a></li>
-                        </ul>
+                    <strong id="password">**********</strong>
+                    <div class="zl-right">
+                        <a href="#" id="changepassword"
+                        >修改</a>
                     </div>
+
                     <!-- 密码区域结束-->
                 </li>
                 <li id="setName"><!--姓名区域开始-->
@@ -136,96 +85,22 @@
 
                     <i class="iconfont icon-iconr" title="完成"></i>
                     <h4>姓名</h4>
-                    <strong>杨正谦&nbsp;</strong>
-                    <div class="zl-right"><a href="javascript:void(0);" onclick="click_a('divOne_3','reglineOne_3')"
-                                             id="reglineOne_3">
-                        <span class="setinfodivshow">修改</span>
-                        <span class="setinfodivhid">收起</span>
+                    <strong id="name">杨正谦&nbsp;</strong>
+                    <div class="zl-right"><a>
+                        <a href="#" id="changename"
+                        >修改</a>
                     </a></div>
 
-                    <div class="zl-detail clearfix" id="divOne_3" style="display:none;">
 
-
-                        <div class="form-container">
-                            <form id="user_update_xm_form" name="user_update_xm_form"
-                                  action="/account/account!editInfo.action" method="post" novalidate="novalidate">
-                                <table>
-                                    <tbody>
-                                    <tr>
-                                        <th class="td-first-short"><span class="required" aria-required="true">*</span>国籍/地区
-                                        </th>
-                                        <td class="td-input"><select name="country" id="country" class="smzc-input">
-                                            <option value="CN">中国大陆</option>
-                                            <option value="HK">香港</option>
-                                            <option value="MO">澳门</option>
-                                            <option value="TW">台湾</option>
-
-
-                                        </select>
-                                        </td>
-                                        <td class="validate-tips"></td>
-                                    </tr>
-                                    <tr>
-                                        <th><span class="required" aria-required="true">*</span>姓名</th>
-                                        <td><input type="text" name="xm" value="杨正谦" id="xm" class="smzc-input"
-                                                   onchange="checkXmInfo();" autocomplete="off"></td>
-                                        <td class="validate-tips"></td>
-                                    </tr>
-                                    <tr>
-                                        <th><span class="required" aria-required="true">*</span>证件类型</th>
-                                        <td><select name="credentialtype" id="credentialtype" class="smzc-input">
-                                            <option value="SFZ" selected="selected">中华人民共和国居民身份证</option>
-                                            <option value="QIT">其他</option>
-                                            <option value="SFZ_GAT">港澳台身份证</option>
-                                            <option value="SFZ_HQ">华侨身份证(无身份证者可填护照号)</option>
-                                            <option value="SFZ_HK">香港身份证</option>
-                                            <option value="SFZ_MO">澳门身份证</option>
-                                            <option value="SFZ_TW">台湾居民来往大陆通行证</option>
-
-
-                                        </select>
-                                        </td>
-                                        <td class="validate-tips"></td>
-                                    </tr>
-                                    <tr>
-                                        <th><span class="required" aria-required="true">*</span>证件号码</th>
-                                        <td>4****************9</td>
-                                        <td><span class="color666">证件号码不能修改，如有误请&nbsp;<a
-                                                href="http://www.chsi.com.cn/about/contact.shtml">联系客服</a>&nbsp;或</span>&nbsp;<a
-                                                href="https://account.chsi.com.cn/account/preregister.action"
-                                                target="_blank">重新注册</a></td>
-                                    </tr>
-                                    <tr>
-                                        <th class="wap-hide">&nbsp;</th>
-                                        <td><input id="newbuttonxm" name="newbuttonxm" class="enter-btn" type="submit"
-                                                   value="确定"></td>
-                                        <td></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </form>
-
-
-                        </div>
-
-
-                        <ul class="zl-list">
-                            <li>常见问题</li>
-                            <li>1、<a href="https://account.chsi.com.cn/account/help/index.jsp?keywords=为什么要填写真实姓名"
-                                     target="_blank">为什么要填写真实姓名？</a></li>
-                            <li>2、<a href="https://account.chsi.com.cn/account/help/index.jsp?keywords=为什么要填写真实身份证"
-                                     target="_blank">为什么要填写真实身份证？</a></li>
-                        </ul>
-                    </div>
                 </li>
                 <li><!--国籍/地区信息项开始-->
                     <i class="iconfont icon-iconr" title="完成"></i>
                     <h4>国籍/地区</h4>
-                    <strong>中国大陆</strong>
+                    <strong id="diqu">中国大陆</strong>
 
 
-                    <div class="zl-right"><a href="javascript:void(0);" onclick="click_a('divOne_3','reglineOne_3')"
-                                             id="reglineOne_3">修改</a></div>
+                    <div class="zl-right"><a href="#" id="changediqu"
+                    >修改</a></div>
 
                 </li>
                 <li><!--证件号码开始-->
@@ -233,109 +108,24 @@
 
                     <i class="iconfont icon-iconr" title="完成"></i>
                     <h4>证件类型/证件号码</h4>
-                    <strong>中华人民共和国居民身份证&nbsp;&nbsp;&nbsp;&nbsp;4****************9</strong>
-                    <div class="zl-right">&nbsp;</div>
-
+                    <strong id="zhengjianhao">中华人民共和国居民身份证&nbsp;&nbsp;&nbsp;&nbsp;4****************9</strong>
+                    <div class="zl-right">&nbsp;
+                    <a href="#" id="changezhengjianhao"
+                    >修改</a></div>
 
                 </li>
                 <li id="setPhone"><!-- 手机号码区域开始-->
 
                     <i class="iconfont icon-iconr" title="完成"></i>
                     <h4>手机号<span class="color2ea">（已绑定）</span></h4>
-                    <strong>188****7709</strong>
-                    &nbsp;&nbsp;&nbsp;<span class="color666 phone-en-msg">(仅绑定大陆地区手机的用户可进行图像校对、学籍/学历核验)</span>
+                    <strong id="phonenum">188****7709</strong>
+                    &nbsp;&nbsp;&nbsp;<span class="color666 phone-en-msg">(仅绑定大陆地区手机的用户)</span>
                     <div class="zl-right">
-                        <a href="javascript:void(0);" onclick="click_a('divOne_4','reglineOne_4')" id="reglineOne_4">
-                            <span class="setinfodivshow">修改</span>
-                            <span class="setinfodivhid">收起</span>
-                        </a>
+                        <a href="#" id="changephone"
+                        >修改</a>
                     </div>
 
 
-                    <div class="zl-detail clearfix" id="divOne_4" style="display:none;">
-
-
-                        <div class="form-container">
-                            <form id="user_update_fm" name="user_update_fm" action="/account/domodifymobilephone.action"
-                                  method="post" novalidate="novalidate">
-                                <table>
-
-                                    <tbody>
-                                    <tr>
-                                        <th><span class="required" aria-required="true">*</span>原手机号</th>
-                                        <td width="198">
-                                            <div class="smzc-phone">
-                                                <span id="areaoldMobilePhone" class="mobilePhoneSpan">0086</span>
-                                                <select name="mphoneareaold" id="areaoldMobilePhoneSel"
-                                                        class="mobilePhoneSel">
-                                                    <option value="0086">中国大陆（0086）</option>
-                                                    <option value="00852">香港（00852）</option>
-                                                    <option value="00853">澳门（00853）</option>
-                                                    <option value="00886">台湾（00886）</option>
-
-
-                                                </select>
-
-                                                <input type="text" name="oldMobilePhone" maxlength="11" value=""
-                                                       id="oldMobilePhone" class="smzc-input mobilePhoneInput"
-                                                       autocomplete="off">
-                                            </div>
-                                        </td>
-                                        <td class="validate-tips"></td>
-                                    </tr>
-
-                                    <tr>
-                                        <th class="td-first-short"><span class="required" aria-required="true">*</span>
-                                            新手机号
-                                        </th>
-                                        <td>
-                                            <div class="smzc-phone">
-                                                <span id="areamobilePhone" class="mobilePhoneSpan">0086</span>
-                                                <select name="mphonearea" id="areamphoneSel" class="mobilePhoneSel">
-                                                    <option value="0086">中国大陆（0086）</option>
-                                                    <option value="00852">香港（00852）</option>
-                                                    <option value="00853">澳门（00853）</option>
-                                                    <option value="00886">台湾（00886）</option>
-
-
-                                                </select>
-
-                                                <input type="text" name="mphone" maxlength="11" value="" id="mphone"
-                                                       class="smzc-input mobilePhoneInput" autocomplete="off">
-                                            </div>
-                                        </td>
-                                        <td class="validate-tips"></td>
-                                    </tr>
-
-                                    <tr>
-                                        <th><span class="required" aria-required="true">*</span>短信验证码</th>
-                                        <td><input type="hidden" id="validateType" name="validateType" value="1">
-                                            <input type="text" name="pincode" value="" id="pincode" class="smzc-input"
-                                                   style="width:80px" autocomplete="off">
-                                            <input type="button" id="show-btn" class="enter-btn white-btn"
-                                                   style="margin-left: 10px;" value="免费获取">
-                                        </td>
-                                        <td class="validate-tips"></td>
-                                    </tr>
-                                    <tr>
-                                        <th class="wap-hide">&nbsp;</th>
-                                        <td colspan="2"><input id="newbuttonmp" name="newbuttonmp" class="enter-btn"
-                                                               type="submit" value="确定"></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </form>
-
-
-                        </div>
-
-
-                        <ul class="zl-list">
-                            <li>常见问题</li>
-                            <li>1、<a href="https://account.chsi.com.cn/account/help/index.jsp?keywords=为什么要绑定手机号"
-                                     target="_blank">为什么要绑定手机号？</a></li>
-                        </ul>
-                    </div>
                 </li>
                 <li id="setEmail">
                     <!-- 安全邮箱区域开始 -->
@@ -343,35 +133,13 @@
 
                     <i class="iconfont icon-iconr" title="完成"></i>
                     <h4>安全邮箱<span class="color2ea">（已绑定）</span></h4>
-                    <strong>182***@qq.com</strong>&nbsp;
+                    <strong id="myemail">182***@qq.com</strong>&nbsp;
                     <div class="zl-right">
-                        <a href="javascript:void(0);" onclick="click_a('divOne_5','reglineOne_5')"
-                           id="reglineOne_5"><span class="setinfodivshow">修改</span><span class="setinfodivhid">收起</span></a>
+                        <a href="#" id="changeemail"
+                        >修改</a>
                     </div>
 
 
-                    <div class="zl-detail clearfix" id="divOne_5" style="display:none;">
-
-
-                        <div class="czts">
-                            <h3><i class="iconfont" title="完成"></i>电子邮箱已经实名绑定成功</h3>
-                            <div class="cz-detail">
-                                当前安全邮箱：182***@qq.com
-                                <br>
-                                <a href="https://account.chsi.com.cn/account/prebindbyemail.action?optname=edit"
-                                   class="enter-small-btn marginT10">变更安全邮箱</a><span class="color666"></span>
-                            </div>
-                        </div>
-
-
-                        <ul class="zl-list">
-                            <li>常见问题</li>
-                            <li>1、<a href="https://account.chsi.com.cn/account/help/index.jsp?keywords=为什么要绑定邮箱"
-                                     target="_blank">为什么要绑定邮箱？</a></li>
-                            <li>2、<a href="https://account.chsi.com.cn/account/help/index.jsp?keywords=还没有收到确认邮件"
-                                     target="_blank">还没有收到确认邮件？</a></li>
-                        </ul>
-                    </div>
                 </li>
                 <li><!-- 密保问题区域开始-->
 
@@ -380,136 +148,13 @@
                     <span class="color666">已设置密保问题，可用于找回密码。</span>
                     <div class="zl-right">
 
-                        <a href="https://account.chsi.com.cn/account/account!editpwdanswer" class="modify">修改</a>
+                        <a href="#" id="changemibao"
+                        >修改</a>
 
 
                     </div>
 
 
-                    <div class="zl-detail clearfix" id="divOne_2" style="display:none;">
-
-
-                        <div class="form-container">
-                            <form id="user_pd_reg_fm" name="user_pd_reg_fm"
-                                  action="/account/account!editPwdanswer.action" method="post">
-                                <table>
-                                    <tbody>
-                                    <tr>
-                                        <th class="td-first-short">密保问题1</th>
-                                        <td width="152">
-                                            <div class="select-box"><select name="pwdreq1" id="pwdreq1"
-                                                                            class="smzc-input mbwt">
-                                                <option value="">请选择</option>
-                                                <option value="1">您母亲的姓名是？</option>
-                                                <option value="2">您配偶的生日是？</option>
-                                                <option value="3">您的学号（或工号）是？</option>
-                                                <option value="4">您母亲的生日是？</option>
-                                                <option value="5">您高中班主任的名字是？</option>
-                                                <option value="6">您父亲的姓名是？</option>
-                                                <option value="7">您小学班主任的名字是？</option>
-                                                <option value="8">您父亲的生日是？</option>
-                                                <option value="9">您配偶的姓名是？</option>
-                                                <option value="10">您初中班主任的名字是？</option>
-                                                <option value="11">您最熟悉的童年好友名字是？</option>
-                                                <option value="12">您最熟悉的学校宿舍室友名字是？</option>
-                                                <option value="13">对您影响最大的人名字是？</option>
-
-
-                                            </select>
-                                            </div>
-                                        </td>
-                                        <th width="40">答案</th>
-                                        <td><input type="text" name="pwdanswer1" value="" id="pwdanswer1"
-                                                   class="smzc-input" autocomplete="off"></td>
-                                        <td class="validate-tips">
-
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>密保问题2</th>
-                                        <td>
-                                            <div class="select-box"><select name="pwdreq2" id="pwdreq2"
-                                                                            class="smzc-input mbwt">
-                                                <option value="">请选择</option>
-                                                <option value="1">您母亲的姓名是？</option>
-                                                <option value="2">您配偶的生日是？</option>
-                                                <option value="3">您的学号（或工号）是？</option>
-                                                <option value="4">您母亲的生日是？</option>
-                                                <option value="5">您高中班主任的名字是？</option>
-                                                <option value="6">您父亲的姓名是？</option>
-                                                <option value="7">您小学班主任的名字是？</option>
-                                                <option value="8">您父亲的生日是？</option>
-                                                <option value="9">您配偶的姓名是？</option>
-                                                <option value="10">您初中班主任的名字是？</option>
-                                                <option value="11">您最熟悉的童年好友名字是？</option>
-                                                <option value="12">您最熟悉的学校宿舍室友名字是？</option>
-                                                <option value="13">对您影响最大的人名字是？</option>
-
-
-                                            </select>
-                                            </div>
-                                        </td>
-                                        <th>答案</th>
-                                        <td><input type="text" name="pwdanswer2" value="" id="pwdanswer2"
-                                                   class="smzc-input" autocomplete="off"></td>
-                                        <td class="validate-tips">
-
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>密保问题3</th>
-                                        <td>
-                                            <div class="select-box"><select name="pwdreq3" id="pwdreq3"
-                                                                            class="smzc-input mbwt">
-                                                <option value="">请选择</option>
-                                                <option value="1">您母亲的姓名是？</option>
-                                                <option value="2">您配偶的生日是？</option>
-                                                <option value="3">您的学号（或工号）是？</option>
-                                                <option value="4">您母亲的生日是？</option>
-                                                <option value="5">您高中班主任的名字是？</option>
-                                                <option value="6">您父亲的姓名是？</option>
-                                                <option value="7">您小学班主任的名字是？</option>
-                                                <option value="8">您父亲的生日是？</option>
-                                                <option value="9">您配偶的姓名是？</option>
-                                                <option value="10">您初中班主任的名字是？</option>
-                                                <option value="11">您最熟悉的童年好友名字是？</option>
-                                                <option value="12">您最熟悉的学校宿舍室友名字是？</option>
-                                                <option value="13">对您影响最大的人名字是？</option>
-
-
-                                            </select>
-                                            </div>
-                                        </td>
-                                        <th>答案</th>
-                                        <td><input type="text" name="pwdanswer3" value="" id="pwdanswer3"
-                                                   class="smzc-input" autocomplete="off"></td>
-                                        <td class="validate-tips">
-
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="wap-hide">&nbsp;</th>
-                                        <td colspan="4"><input type="submit" id="newbuttonpd" name="newbuttonpd"
-                                                               class="enter-btn" value="确定"></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </form>
-
-
-                        </div>
-
-
-                        <ul class="zl-list">
-                            <li>常见问题</li>
-                            <li>1、<a href="https://account.chsi.com.cn/account/help/index.jsp?keywords=为什么要设置密保问题"
-                                     target="_blank">为什么要设置密保问题？</a></li>
-                        </ul>
-                    </div>
-                    <!--密保问题区域结束-->
                 </li>
             </ul>
         </div>
