@@ -29,9 +29,9 @@ public class CommonActionController {
      * @Date: 2018/7/3
      * @Return:
      */
-    @PostMapping("/")
+    @GetMapping("/")
     public String index(){
-        return "/student/login";
+        return "/student/index";
     }
 
     /**

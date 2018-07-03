@@ -12,25 +12,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class SuperManagerController {
 
-
-
-    ///**
-    // * @Description: 超级管理员主页
-    // * @Json:
-    // * @Date: 2018/7/3
-    // * @Return:
-    // */
-    //@RequestMapping(value = "/superUserAdmin", method = RequestMethod.GET)
-    //public String superUserAdmin(){
-    //    return "admin/adminlogin";
-    //}
     /**
      * @Description: 超级管理员主页
      * @Json:
      * @Date: 2018/7/3
      * @Return:
      */
-    @PostMapping("/login")
+    @GetMapping("")
     public String superUserAdmin(){
         return "admin/adminlogin";
     }
