@@ -28,16 +28,16 @@ public class CommonUserController {
         this.accountService=accountService;
     }
 
-    /**
-     * @Description: 普通用户主页
-     * @Json:
-     * @Date: 2018/7/3
-     * @Return:
-     */
-    @GetMapping("/")
-    public String index(){
-        return "/student/index";
-    }
+    ///**
+    // * @Description: 普通用户主页
+    // * @Json:
+    // * @Date: 2018/7/3
+    // * @Return:
+    // */
+    //@GetMapping("/")
+    //public String index(){
+    //    return "/templates/student/index";
+    //}
 
     /**
      * @Description: 普通用户注册

@@ -7,6 +7,7 @@ import com.examweb.group.service.AccountService;
 import com.examweb.group.service.SchoolService;
 import com.examweb.group.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -30,16 +31,16 @@ public class CommonActionController {
         this.schoolService=schoolService;
     }
 
-    /**
-     * @Description: 基本主页
-     * @Json:
-     * @Date: 2018/7/3
-     * @Return:
-     */
-    @GetMapping("/index")
-    public String index(){
-        return "/student/index";
-    }
+    ///**
+    // * @Description: 基本主页
+    // * @Json:
+    // * @Date: 2018/7/3
+    // * @Return:
+    // */
+    //@GetMapping("/index")
+    //public String index(){
+    //    return "student/index";
+    //}
 
     /**
      * @Description: 用于所有的用户登录的接口
@@ -79,6 +80,7 @@ public class CommonActionController {
      * @Return:
      */
     @PostMapping("/getSchoolNameByProvince")
+    @ResponseBody
     public Result getSchoolNameByProvince(@RequestParam("province") String province){
         try {
             if (province==null||province.trim().isEmpty()){
