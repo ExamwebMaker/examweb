@@ -27,6 +27,17 @@ public class CommonActionController {
     }
 
     /**
+     * @Description:
+     * @Json:
+     * @Date: 2018/7/3
+     * @Return:
+     */
+    @RequestMapping("/index")
+    public void index(){
+
+    }
+
+    /**
      * @Description: 用于所有的用户登录的接口
      * @Json: {
     "name": "string",
