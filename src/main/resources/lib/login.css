@@ -1,0 +1,12 @@
+.center-form {
+  margin: auto auto;
+  padding: 30px 50px;
+  border-color: darkgray;
+  border-radius: 5px;
+  background-color: white;
+  min-width: 400px;
+  max-width: 600px;
+}
+body {
+  background: #eee !important;
+}

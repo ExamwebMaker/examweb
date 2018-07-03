@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>主页</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../lib/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/global.css"/>
+    <link rel="stylesheet" href="../lib/mbaindex.css">
+    <link rel="shortcut icon" href="https://favicon.yandex.net/favicon/google.cn">
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <i class="iconfont icon-zhuye"></i>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">主页<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">学籍查询</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#">学历查询</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#">在线验证</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#">学历与成绩认证</a>
+            </li>
+
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="搜索..." aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="index-header">
+        <br>
+        <h2>2019硕士专业目录</h2>
+        <p>
+            <small class="text-muted">学科类别为必选项，其他至少填写一项。</small>
+        </p>
+
+    </div>
+    <table class="center-form" border="0" cellspacing="0" cellpadding="0">
+        <colgroup>
+            <col width="120">
+            <col width="260">
+            <col width="120">
+            <col width="260">
+        </colgroup>
+        <tbody>
+        <tr>
+            <td><label for="ssdm">所在省市</label></td>
+            <td align="left">
+
+                <select class="form-control" name="ssdm" id="ssdm">
+                    <option value="">--选择省市--</option>
+                    <option value="11">(11)北京市</option>
+                    <option value="12">(12)天津市</option>
+                    <option value="13">(13)河北省</option>
+                    <option value="14">(14)山西省</option>
+                    <option value="15">(15)内蒙古自治区</option>
+                    <option value="21">(21)辽宁省</option>
+                    <option value="22">(22)吉林省</option>
+                    <option value="23">(23)黑龙江省</option>
+                    <option value="31">(31)上海市</option>
+                    <option value="32">(32)江苏省</option>
+                    <option value="33">(33)浙江省</option>
+                    <option value="34">(34)安徽省</option>
+                    <option value="35">(35)福建省</option>
+                    <option value="36">(36)江西省</option>
+                    <option value="37">(37)山东省</option>
+                    <option value="41">(41)河南省</option>
+                    <option value="42">(42)湖北省</option>
+                    <option value="43">(43)湖南省</option>
+                    <option value="44">(44)广东省</option>
+                    <option value="45">(45)广西壮族自治区</option>
+                    <option value="46">(46)海南省</option>
+                    <option value="50">(50)重庆市</option>
+                    <option value="51">(51)四川省</option>
+                    <option value="52">(52)贵州省</option>
+                    <option value="53">(53)云南省</option>
+                    <option value="54">(54)西藏自治区</option>
+                    <option value="61">(61)陕西省</option>
+                    <option value="62">(62)甘肃省</option>
+                    <option value="63">(63)青海省</option>
+                    <option value="64">(64)宁夏回族自治区</option>
+                    <option value="65">(65)新疆维吾尔自治区</option>
+                    <option value="71">(71)台湾省</option>
+                    <option value="81">(81)香港特别行政区</option>
+                    <option value="82">(82)澳门特别行政区</option>
+                </select>
+            </td>
+            <td><label for="dwmc">&nbsp;&nbsp;&nbsp;&nbsp;招生单位</label></td>
+            <td align="left">
+                <input type="text" id="dwmc" name="dwmc" class="form-control" placeholder="输入招生单位名称" value=""
+                       maxlength="40" autocomplete="off">
+            </td>
+
+        </tr>
+        <tr>
+            <td><label for="mldm">门类类别</label></td>
+            <td align="left">
+                <select class="form-control" name="mldm" id="mldm" onchange="initYjxk();">
+                    <option value="">--选择门类--</option>
+                    <optgroup label="专业学位">
+                        <option value="zyxw">专业学位</option>
+                    </optgroup>
+                    <optgroup label="学术学位">
+                        <option value="01">(01)哲学</option>
+                        <option value="02">(02)经济学</option>
+                        <option value="03">(03)法学</option>
+                        <option value="04">(04)教育学</option>
+                        <option value="05">(05)文学</option>
+                        <option value="06">(06)历史学</option>
+                        <option value="07">(07)理学</option>
+                        <option value="08">(08)工学</option>
+                        <option value="09">(09)农学</option>
+                        <option value="10">(10)医学</option>
+                        <option value="11">(11)军事学</option>
+                        <option value="12">(12)管理学</option>
+                        <option value="13">(13)艺术学</option>
+                    </optgroup>
+                </select>
+                <input type="hidden" name="mlmc" id="mlmc">
+            </td>
+            <td>
+                <span class="text-danger">*</span>
+                <label  for="yjxkdm">&nbsp;&nbsp;&nbsp;学科类别</label></td>
+            <td align="left">
+                <select class="form-control" name="yjxkdm" id="yjxkdm"  onchange="initZy();">
+                    <option value="">--选择学科类别--</option>
+                    <option value="0101">(0101)哲学</option>
+                    <option value="0201">(0201)理论经济学</option>
+                    <option value="0202">(0202)应用经济学</option>
+                    <option value="0251">(0251)金融</option>
+                    <option value="0252">(0252)应用统计</option>
+                    <option value="0253">(0253)税务</option>
+                    <option value="0254">(0254)国际商务</option>
+                    <option value="0255">(0255)保险</option>
+                    <option value="0256">(0256)资产评估</option>
+                    <option value="0257">(0257)审计</option>
+                    <option value="0270">(0270)统计学</option>
+                    <option value="0301">(0301)法学</option>
+                    <option value="0302">(0302)政治学</option>
+                    <option value="0303">(0303)社会学</option>
+                    <option value="0304">(0304)民族学</option>
+                    <option value="0305">(0305)马克思主义理论</option>
+                    <option value="0306">(0306)公安学</option>
+                    <option value="0351">(0351)法律</option>
+                    <option value="0352">(0352)社会工作</option>
+                    <option value="0353">(0353)警务</option>
+                    <option value="0401">(0401)教育学</option>
+                    <option value="0402">(0402)心理学</option>
+                    <option value="0403">(0403)体育学</option>
+                    <option value="0451">(0451)教育</option>
+                    <option value="0452">(0452)体育</option>
+                    <option value="0453">(0453)汉语国际教育</option>
+                    <option value="0454">(0454)应用心理</option>
+                    <option value="0471">(0471)</option>
+                    <option value="0501">(0501)中国语言文学</option>
+                    <option value="0502">(0502)外国语言文学</option>
+                    <option value="0503">(0503)新闻传播学</option>
+                    <option value="0551">(0551)翻译</option>
+                    <option value="0552">(0552)新闻与传播</option>
+                    <option value="0553">(0553)出版</option>
+                    <option value="0601">(0601)考古学</option>
+                    <option value="0602">(0602)中国史</option>
+                    <option value="0603">(0603)世界史</option>
+                    <option value="0651">(0651)文物与博物馆</option>
+                    <option value="0701">(0701)数学</option>
+                    <option value="0702">(0702)物理学</option>
+                    <option value="0703">(0703)化学</option>
+                    <option value="0704">(0704)天文学</option>
+                    <option value="0705">(0705)地理学</option>
+                    <option value="0706">(0706)大气科学</option>
+                    <option value="0707">(0707)海洋科学</option>
+                    <option value="0708">(0708)地球物理学</option>
+                    <option value="0709">(0709)地质学</option>
+                    <option value="0710">(0710)生物学</option>
+                    <option value="0711">(0711)系统科学</option>
+                    <option value="0712">(0712)科学技术史</option>
+                    <option value="0713">(0713)生态学</option>
+                    <option value="0714">(0714)统计学</option>
+                    <option value="0771">(0771)心理学</option>
+                    <option value="0772">(0772)力学</option>
+                    <option value="0773">(0773)材料科学与工程</option>
+                    <option value="0774">(0774)电子科学与技术</option>
+                    <option value="0775">(0775)计算机科学与技术</option>
+                    <option value="0776">(0776)环境科学与工程</option>
+                    <option value="0777">(0777)生物医学工程</option>
+                    <option value="0778">(0778)基础医学</option>
+                    <option value="0779">(0779)公共卫生与预防医学</option>
+                    <option value="0780">(0780)药学</option>
+                    <option value="0781">(0781)中药学</option>
+                    <option value="0782">(0782)医学技术</option>
+                    <option value="0783">(0783)护理学</option>
+                    <option value="0784">(0784)</option>
+                    <option value="0785">(0785)</option>
+                    <option value="0786">(0786)</option>
+                    <option value="0801">(0801)力学</option>
+                    <option value="0802">(0802)机械工程</option>
+                    <option value="0803">(0803)光学工程</option>
+                    <option value="0804">(0804)仪器科学与技术</option>
+                    <option value="0805">(0805)材料科学与工程</option>
+                    <option value="0806">(0806)冶金工程</option>
+                    <option value="0807">(0807)动力工程及工程热物理</option>
+                    <option value="0808">(0808)电气工程</option>
+                    <option value="0809">(0809)电子科学与技术</option>
+                    <option value="0810">(0810)信息与通信工程</option>
+                    <option value="0811">(0811)控制科学与工程</option>
+                    <option value="0812">(0812)计算机科学与技术</option>
+                    <option value="0813">(0813)建筑学</option>
+                    <option value="0814">(0814)土木工程</option>
+                    <option value="0815">(0815)水利工程</option>
+                    <option value="0816">(0816)测绘科学与技术</option>
+                    <option value="0817">(0817)化学工程与技术</option>
+                    <option value="0818">(0818)地质资源与地质工程</option>
+                    <option value="0819">(0819)矿业工程</option>
+                    <option value="0820">(0820)石油与天然气工程</option>
+                    <option value="0821">(0821)纺织科学与工程</option>
+                    <option value="0822">(0822)轻工技术与工程</option>
+                    <option value="0823">(0823)交通运输工程</option>
+                    <option value="0824">(0824)船舶与海洋工程</option>
+                    <option value="0825">(0825)航空宇航科学与技术</option>
+                    <option value="0826">(0826)兵器科学与技术</option>
+                    <option value="0827">(0827)核科学与技术</option>
+                    <option value="0828">(0828)农业工程</option>
+                    <option value="0829">(0829)林业工程</option>
+                    <option value="0830">(0830)环境科学与工程</option>
+                    <option value="0831">(0831)生物医学工程</option>
+                    <option value="0832">(0832)食品科学与工程</option>
+                    <option value="0833">(0833)城乡规划学</option>
+                    <option value="0834">(0834)风景园林学</option>
+                    <option value="0835">(0835)软件工程</option>
+                    <option value="0836">(0836)生物工程</option>
+                    <option value="0837">(0837)安全科学与工程</option>
+                    <option value="0838">(0838)公安技术</option>
+                    <option value="0839">(0839)网络空间安全</option>
+                    <option value="0851">(0851)建筑学</option>
+                    <option value="0852">(0852)工程</option>
+                    <option value="0853">(0853)城市规划</option>
+                    <option value="0870">(0870)科学技术史</option>
+                    <option value="0871">(0871)管理科学与工程</option>
+                    <option value="0872">(0872)设计学</option>
+                    <option value="0901">(0901)作物学</option>
+                    <option value="0902">(0902)园艺学</option>
+                    <option value="0903">(0903)农业资源与环境</option>
+                    <option value="0904">(0904)植物保护</option>
+                    <option value="0905">(0905)畜牧学</option>
+                    <option value="0906">(0906)兽医学</option>
+                    <option value="0907">(0907)林学</option>
+                    <option value="0908">(0908)水产</option>
+                    <option value="0909">(0909)草学</option>
+                    <option value="0951">(0951)农业</option>
+                    <option value="0952">(0952)兽医</option>
+                    <option value="0953">(0953)风景园林</option>
+                    <option value="0954">(0954)林业</option>
+                    <option value="0970">(0970)科学技术史</option>
+                    <option value="0971">(0971)环境科学与工程</option>
+                    <option value="0972">(0972)食品科学与工程</option>
+                    <option value="0973">(0973)风景园林学</option>
+                    <option value="1001">(1001)基础医学</option>
+                    <option value="1002">(1002)临床医学</option>
+                    <option value="1003">(1003)口腔医学</option>
+                    <option value="1004">(1004)公共卫生与预防医学</option>
+                    <option value="1005">(1005)中医学</option>
+                    <option value="1006">(1006)中西医结合</option>
+                    <option value="1007">(1007)药学</option>
+                    <option value="1008">(1008)中药学</option>
+                    <option value="1009">(1009)特种医学</option>
+                    <option value="1010">(1010)医学技术</option>
+                    <option value="1011">(1011)护理学</option>
+                    <option value="1051">(1051)临床医学</option>
+                    <option value="1052">(1052)口腔医学</option>
+                    <option value="1053">(1053)公共卫生</option>
+                    <option value="1054">(1054)护理</option>
+                    <option value="1055">(1055)药学</option>
+                    <option value="1056">(1056)中药学</option>
+                    <option value="1057">(1057)中医</option>
+                    <option value="1071">(1071)科学技术史</option>
+                    <option value="1072">(1072)生物医学工程</option>
+                    <option value="1073">(1073)</option>
+                    <option value="1074">(1074)</option>
+                    <option value="1101">(1101)军事思想及军事历史</option>
+                    <option value="1102">(1102)战略学</option>
+                    <option value="1103">(1103)战役学</option>
+                    <option value="1104">(1104)战术学</option>
+                    <option value="1105">(1105)军队指挥学</option>
+                    <option value="1106">(1106)军制学</option>
+                    <option value="1107">(1107)军队政治工作学</option>
+                    <option value="1108">(1108)军事后勤学</option>
+                    <option value="1109">(1109)军事装备学</option>
+                    <option value="1110">(1110)军事训练学</option>
+                    <option value="1151">(1151)军事</option>
+                    <option value="1201">(1201)管理科学与工程</option>
+                    <option value="1202">(1202)工商管理</option>
+                    <option value="1203">(1203)农林经济管理</option>
+                    <option value="1204">(1204)公共管理</option>
+                    <option value="1205">(1205)图书情报与档案管理</option>
+                    <option value="1251">(1251)工商管理</option>
+                    <option value="1252">(1252)公共管理</option>
+                    <option value="1253">(1253)会计</option>
+                    <option value="1254">(1254)旅游管理</option>
+                    <option value="1255">(1255)图书情报</option>
+                    <option value="1256">(1256)工程管理</option>
+                    <option value="1301">(1301)艺术学理论</option>
+                    <option value="1302">(1302)音乐与舞蹈学</option>
+                    <option value="1303">(1303)戏剧与影视学</option>
+                    <option value="1304">(1304)美术学</option>
+                    <option value="1305">(1305)设计学</option>
+                    <option value="1351">(1351)艺术</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="zymc">专业名称</label></td>
+            <td align="left">
+                <select class="form-control" name="zymc" id="zymc">
+                    <option value="">--选择专业--</option>
+                </select>
+            </td>
+            <td>
+                <span class="zsml-required"></span>
+                <label for="xxfs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 学习方式</label></td>
+            <td align="left">
+                <br>
+                <select class="form-control" name="xxfs" id="xxfs">
+                    <option value="" selected="">--选择学习方式--</option>
+                    <option value="1">全日制</option>
+                    <option value="2">非全日制</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center" colspan="4"><input type="button" name="button"
+                                                       onclick="return zsmlSearchFormCheck()"
+                                                       class="btn btn-primary btn-lg"
+                                                       value="查询"></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div><footer class="foot">
+    <div class="text-center">
+        <p>由王瑞,郑秋果,张嘉欣,杨正谦制作</p>
+        <p>Copyright © 2003-2018 系统分析师们 All Rights Reserved</p>
+    </div>
+</footer>
+</body>
+</html>

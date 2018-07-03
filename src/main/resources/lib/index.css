@@ -1,0 +1,94 @@
+.enter-btn {
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 62px;
+    line-height: 62px;
+    border-bottom: 3px solid #966715;
+    font-size: 20px;
+    color: #fff;
+    background: #e8b057;
+    text-align: center;
+    font-weight: 700
+}
+
+.enter-btn:hover {
+    text-decoration: none;
+    background: #edbb6c;
+    color: #f7ffe7;
+}
+
+.callout {
+    width: 100%;
+    /*height: 400px;*/
+    color: #fff;
+    background: url(../img/callout.jpg) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.process {
+    height: 104px;
+    width: 1180px;
+    margin: 0 auto;
+    background-color: #376fa2;
+    filter: alpha(opacity=60);
+    opacity: 0.6
+}
+
+.process-current {
+    background: url("../img/step.png") no-repeat 30px 0;
+    height: 40px;
+    width: 168px;
+    position: absolute;
+    left: -30px;
+    top: 0;
+    overflow: hidden;
+    z-index: 9999
+}
+
+.masking {
+    /*position: absolute;*/
+    bottom: 0;
+    left: 0;
+    height: 104px;
+    width: 100%;
+    z-index: 1000
+}
+
+.masking .process-pic {
+    position: relative;
+    width: 1000px;
+    height: 30px;
+    margin: 25px auto 0;
+    background: url("../img/step.png") no-repeat 0 0
+}
+
+.masking ul {
+    width: 1180px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.masking ul li {
+    float: left;
+    display: block;
+    width: 195px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center
+}
+
+.head-blockquote{
+    line-height: 52px;
+    padding-left: 15px;
+    border-left: 4px solid #33ab49;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 400;
+    background: #f5f7f7;
+}

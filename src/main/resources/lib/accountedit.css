@@ -1,0 +1,157 @@
+.right-box .zhsz-tips {
+    height: 35px;
+    line-height: 35px;
+    text-align: center
+}
+
+.right-box {
+    float: right;
+    background: #fff;
+    border: 1px solid #ededed;
+    width: 858px;
+    padding: 20px 30px;
+}
+.zhsz-list li {
+    line-height: 60px;
+    border-top: 1px solid #ededed;
+    list-style: none;
+}
+.icon-iconr{
+    color: #48b325;
+}
+.zhsz-list .iconfont {
+    font-size: 20px
+}
+
+.zhsz-list h4 {
+    display: inline-block;
+    vertical-align: top;
+    color: #333;
+    font-size: 16px;
+    margin-left: 15px;
+    margin-top: 28px;
+    font-weight: 400;
+    width: 150px
+}
+
+.zhsz-list .zl-right {
+    float: right
+}
+
+.zhsz-list .zl-right .setinfodivhid {
+    display: none
+}
+
+.zhsz-list .zl-right a {
+    color: #2eafbb
+}
+
+.zhsz-list .zl-right .enter-small-btn {
+    color: #fff
+}
+
+.zhsz-list .setting {
+    float: right;
+    width: 55px;
+    height: 27px;
+    color: #fff;
+    background: #2eafbb;
+    border-radius: 4px;
+    margin-top: 16px;
+    text-align: center;
+    line-height: 27px
+}
+
+.zhsz-list .setting:hover {
+    background: #6ebcc3;
+    text-decoration: none
+}
+
+.zhsz-list .zl-list {
+    float: right;
+    margin: 20px 8px
+}
+
+.zhsz-list .zl-list li {
+    line-height: 32px;
+    border-bottom: 1px solid #ededed;
+    border-top: none
+}
+
+.zl-detail {
+    position: relative;
+    border-top: 1px solid #ededed;
+    padding-left: 12px
+}
+
+.zl-detail .form-container {
+    float: left;
+    padding: 15px 0;
+    width: 640px
+}
+
+.zl-detail .czts {
+    float: left;
+    text-align: left;
+    margin: 40px 80px;
+    color: #666;
+    font-size: 16px;
+    line-height: 23px;
+    width: 460px
+}
+
+.zl-detail .czts .iconfont {
+    font-size: 32px
+}
+
+.zl-detail .czts h3 {
+    font-size: 18px;
+    margin-left: 14px;
+    height: 40px;
+    line-height: 40px
+}
+
+.zl-detail .czts .enter-small-btn {
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px
+}
+
+.zl-detail .smzc-input {
+    width: 180px;
+    height: 32px;
+    line-height: 32px
+}
+
+.zl-detail select.smzc-input {
+    width: 180px
+}
+
+.zl-detail select.mbwt {
+    width: 150px
+}
+
+.zl-detail .td-input {
+    width: 190px
+}
+
+.zl-detail .strengthMeter {
+    width: 202px
+}
+
+.zl-detail tr {
+    height: 50px;
+    line-height: 32px
+}
+
+.zl-detail .enter-btn {
+    width: 80px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px
+}
+
+.zl-detail .validate-tips li {
+    border-bottom: none
+}
