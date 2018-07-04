@@ -2,6 +2,7 @@ package com.examweb.group.controller;
 
 import com.examweb.group.dto.Result;
 import com.examweb.group.entity.Account;
+import com.examweb.group.entity.Examinee;
 import com.examweb.group.service.AccountService;
 import com.examweb.group.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,7 @@ public class CommonUserController {
      */
     @PostMapping("/rigesterCommomUser")
     public Result rigesterCommomUser(@RequestBody @Valid Account account, BindingResult bindingResult){
-        System.out.print(account.getCertificateNumber());
+        //System.out.print(account.getCertificateNumber());
         if (bindingResult.hasErrors()){
             return ResultUtil.fail(bindingResult.getAllErrors().toString());
         }
@@ -75,7 +76,7 @@ public class CommonUserController {
         account.setUpdateTime(new Date(System.currentTimeMillis()));
         account.setCreateTime(new Date(System.currentTimeMillis()));
         account.setIsDelete("0");
-        System.out.print(account.toString());
+        //System.out.print(account.toString());
         try {
             if (accountService.insert(account)){
 
@@ -87,11 +88,18 @@ public class CommonUserController {
         return ResultUtil.insertError();
     }
 
-    /**
-     * @Description:
-     * @Json:
-     * @Date: 2018/7/3
-     * @Return:
-     */
+   ///**
+   // * @Description: 用户新增报名信息
+   // * @Json:
+   // * @Date: 2018/7/4
+   // * @Return:
+   // */
+   //@PostMapping("/addExam")
+   // public Result addExam(@ResponseBody @Valid Examinee examinee,BindingResult bindingResult){
+   //    if (bindingResult.hasErrors()){
+   //        return ResultUtil.fail(bindingResult.getAllErrors().toString());
+   //    }
+   //
+   //}
 
 }

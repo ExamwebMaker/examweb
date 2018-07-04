@@ -4,7 +4,7 @@ $(document).ready(function () {
             alert("用户名或密码不能为空!")
         } else {
             $.ajax({
-                url: "/account",
+                url: "/commonUser/login",
                 type: 'POST',
                 dataType: 'json',
                 data: JSON.stringify({
