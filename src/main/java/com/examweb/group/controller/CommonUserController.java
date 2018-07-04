@@ -140,6 +140,19 @@ public class CommonUserController {
     * @Date: 2018/7/4
     * @Return:
     */
-   //@PostMapping("/")
+   @PostMapping("/updateAccount")
+    public Result updateAccount(@RequestBody @Valid Account account,BindingResult bindingResult) {
+       if (bindingResult.hasErrors()) {
+           return ResultUtil.fail(bindingResult.getAllErrors().toString());
+       }
+       try {
+           if (accountService.updateById(account)){
+            return ResultUtil.OK();
+           }
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+       return ResultUtil.updateError();
+   }
 
 }
