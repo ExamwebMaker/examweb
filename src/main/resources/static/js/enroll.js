@@ -77,7 +77,26 @@ $(document).ready(function () {
 
         $("#announcement").hide();
         $("#commitment").show('slow', function () {
-
+            $.ajax({
+                url: '/commonUser/getSchoolNameByProvince/',
+                type: 'post',
+                dataType: 'json',
+                contentType: 'application/json; charset=UTF-8',
+                timeout: 1000,
+                cache: false
+            })
+                .done(function (data) {
+                    $("#accountid").val(data.data.account_id)
+                    $("#kaoshengminzu").val(data.data.name)
+                    $("#zhengjianleixing").val(data.data.certificateStyle)
+                    $("#zhengjianhaoma").val(data.data.certificateNumber)
+                })
+                .fail(function () {
+                    console.log("error");
+                })
+                .always(function () {
+                    console.log("complete");
+                });
         });
         /* Act on the event */
     });
@@ -192,6 +211,3 @@ $(document).ready(function () {
             });
     })
 });
-
-
-
