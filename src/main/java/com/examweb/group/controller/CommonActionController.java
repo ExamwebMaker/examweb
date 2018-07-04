@@ -8,6 +8,7 @@ import com.examweb.group.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class CommonActionController {
      * @Return:
      */
     @PostMapping("/login")
-    public Result login(@RequestBody Account account) {
+    public Result login(@RequestBody Account account, HttpSession session) {
         String name=account.getName();
         String password=account.getPassword();
         if (name==null||name.trim().isEmpty()){
@@ -62,7 +63,8 @@ public class CommonActionController {
         try {
             if (accountService.checkAccoutIsExist(name,password)==0){
                 Account accountGet=accountService.getAccountByNameAndPassword(name,password);
-                System.out.print(accountGet.toString());
+                //System.out.print(accountGet.toString());
+                session.setAttribute("account",accountGet);
                 //session.setAttribute("accountId",accountGet.getId());
                 //session.setAttribute("name",accountGet.getName());
                 //session.setAttribute("certificateStyle",accountGet.getCertificateStyle());

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.sql.Date;
@@ -59,8 +60,9 @@ public class CommonUserController {
      * @Return:
      */
     @PostMapping("/rigesterCommomUser")
-    public Result rigesterCommomUser(@RequestBody @Valid Account account, BindingResult bindingResult){
+    public Result rigesterCommomUser(HttpServletRequest request,@RequestBody @Valid Account account, BindingResult bindingResult){
         //System.out.print(account.getCertificateNumber());
+
         if (bindingResult.hasErrors()){
             return ResultUtil.fail(bindingResult.getAllErrors().toString());
         }
@@ -92,9 +94,44 @@ public class CommonUserController {
         return ResultUtil.insertError();
     }
 
-
+    /**
+     * @Description: 用户点击新增报名信息
+     * @Json:
+     * @Date: 2018/7/4
+     * @Return:
+     */
+    @PostMapping("/clickAddExam")
+    public Result clickAddExam(HttpSession session){
+        Account account=(Account) session.getAttribute("account");
+        String name=account.getName();
+        String password=account.getPassword();
+        String phone=account.getPhone();
+        String certificateStyle =account.getCertificateStyle();
+        String certificateNumber=account.getCertificateNumber();
+        String id=account.getId();
+        if (name==null||name.trim().isEmpty()){
+            return ResultUtil.fail("输入用户名不能为空");
+        }
+        if (password==null||password.trim().isEmpty()){
+            return ResultUtil.fail("输入密码不能为空");
+        }
+        if (phone==null||phone.trim().isEmpty()){
+            return ResultUtil.fail("输入密码不能为空");
+        }
+        if (certificateStyle==null||certificateStyle.trim().isEmpty()){
+            return ResultUtil.fail("输入密码不能为空");
+        }
+        if (certificateNumber==null||certificateNumber.trim().isEmpty()){
+            return ResultUtil.fail("输入密码不能为空");
+        }
+        if (id==null||id.trim().isEmpty()){
+            return ResultUtil.fail("输入密码不能为空");
+        }
+        return ResultUtil.OK(account);
+    }
+    
    /**
-    * @Description: 用户新增报名信息
+    * @Description: 用户提交报名信息
     * @Json:
     * @Date: 2018/7/4
     * @Return:
@@ -111,6 +148,8 @@ public class CommonUserController {
        try {
            System.out.print(examinee.toString());
            examinee.setId(UUID.randomUUID().toString().replaceAll("-",""));
+           //Account account=(Account) session.getAttribute("account");
+
            //Account account=new Account();
            //account=accountService.selectById(accountId);
            //String name=account.getName();

@@ -2,6 +2,7 @@ package com.examweb.group.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.examweb.group.entity.Account;
+import com.github.pagehelper.PageInfo;
 
 /**
  * @Author: Jessiecaicai
@@ -35,9 +36,10 @@ public interface AccountService extends IService<Account> {
     public Account getAccountByName(String name) throws Exception;
 
     /**
-     * @Description:
+     * @Description: 展示所有的普通管理员
      * @Json:
-     * @Date: 2018/7/3
+     * @Date: 2018/7/4
      * @Return:
      */
+    public PageInfo<Account> selectAllManager(int PageNum) throws Exception;
 }

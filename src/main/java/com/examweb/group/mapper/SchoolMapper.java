@@ -22,7 +22,7 @@ public interface SchoolMapper extends BaseMapper<School>{
      * @Date: 2018/7/3
      * @Return:
      */
-    @Select("select name from school where province=#{province}")
+    @Select("select name from school where province=#{province} where is_delete=0")
     List<String> getSchoolByProvince(@Param("province") String province);
 
     /**
@@ -31,6 +31,6 @@ public interface SchoolMapper extends BaseMapper<School>{
      * @Date: 2018/7/3
      * @Return:
      */
-    @Select("select name from school where province=#{province}")
+    @Select("select name from school where province=#{province} where is_delete=0")
     List<String> getSchoolNameByProvince(@Param("province") String province);
 }

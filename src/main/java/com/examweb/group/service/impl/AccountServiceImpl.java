@@ -5,10 +5,13 @@ import com.examweb.group.entity.Account;
 import com.examweb.group.mapper.AccountMapper;
 import com.examweb.group.service.AccountService;
 import com.examweb.group.utils.ResultUtil;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @Author: Jessiecaicai
@@ -52,6 +55,13 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper,Account> imple
     public Account getAccountByName(String name){
         Account account=accountMapper.getAccountByName(name);
         return account;
+    }
+
+    @Override
+    public PageInfo<Account> selectAllManager(int PageNum){
+        PageHelper.startPage(PageNum,2);
+        List<Account> accountList=accountMapper.selectAllManager();
+        return new PageInfo<>(accountList);
     }
 
 }

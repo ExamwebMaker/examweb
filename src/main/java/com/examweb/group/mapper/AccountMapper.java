@@ -23,7 +23,7 @@ public interface AccountMapper extends BaseMapper<Account> {
      * @Date: 2018/7/3
      * @Return:
      */
-    @Select("select * from account where name=#{name} and password=#{password}")
+    @Select("select * from account where name=#{name} and password=#{password} and is_delete=0")
     Account getAccountByNameAndPassword(@Param("name")String name,@Param("password")String password);
 
     /**
@@ -32,15 +32,17 @@ public interface AccountMapper extends BaseMapper<Account> {
      * @Date: 2018/7/3
      * @Return:
      */
-    @Select("select * from account where name=#{name}")
+    @Select("select * from account where name=#{name} and is_delete=0")
     Account getAccountByName(@Param("name")String name);
 
-    ///**
-    // * @Description: 根据
-    // * @Json:
-    // * @Date: 2018/7/4
-    // * @Return:
-    // */
+    /**
+     * @Description: 取出所有的管理员
+     * @Json:
+     * @Date: 2018/7/4
+     * @Return:
+     */
+    @Select("select * from account where account_style=1 and is_delete=0")
+    List<Account>  selectAllManager();
 
 
 
