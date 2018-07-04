@@ -82,7 +82,7 @@ public class CommonActionController {
      * @Date: 2018/7/3
      * @Return:
      */
-    @PostMapping("/getSchoolNameByProvince")
+    @GetMapping("/getSchoolNameByProvince/{province}")
     public Result getSchoolNameByProvince(@PathVariable(value = "province") String province){
         try {
             //String province=examWeb;
