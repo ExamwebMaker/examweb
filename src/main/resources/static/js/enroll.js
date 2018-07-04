@@ -165,6 +165,7 @@ $(document).ready(function () {
     })
 
     $("#zhaoshengdanwei1").change(function () {
+
         $.ajax({
             url: '/commonUser/getSchoolNameByProvince/'+$("#zhaoshengdanwei1").val(),
             type: 'post',
@@ -176,8 +177,9 @@ $(document).ready(function () {
         })
             .done(function (data) {
 
-                alert(data.data)
-                for (var i = 0; i < data.length; i++) {
+                $("#zhaoshengdanwei2").empty()
+                for (var i = 0; i < data.data.length; i++) {
+
                     $("#zhaoshengdanwei2").append("<option value='" + data.data[i] + "'>" + data.data[i] + "</option>");
                 }
             })

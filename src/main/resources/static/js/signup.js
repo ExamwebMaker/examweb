@@ -17,7 +17,7 @@ $(document).ready(function () {
     });
     $("#signupbtn").click(function (event) {
         $.ajax({
-            url: "http://ciiibv.natappfree.cc/commomuser/rigesterCommomUser",
+            url: "commomuser/rigesterCommomUser",
             type: 'POST',
             dataType: 'json',
             data: JSON.stringify({
