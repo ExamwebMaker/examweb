@@ -1,8 +1,15 @@
 $(document).ready(function () {
     $("#loginbtn").click(function (event) {
+
+
         if (($("#username").val().length == 0) || ($("#password").val().length == 0)) {
             alert("用户名或密码不能为空!")
         } else {
+            $.session.set('name', $("#username").val());
+            $.session.set('password', $("#password").val());
+            // sessionStorage.setItem('name',$('#name').va)
+            window.location.href = "center.html"
+
             $.ajax({
                 url: "/commonUser/login",
                 type: 'POST',
@@ -20,7 +27,7 @@ $(document).ready(function () {
                     console.log("success");
                     alert("登录成功!");
 
-                    window.location.href = "/stdcenter"
+                    window.location.href = "center.html"
                 })
                 .fail(function () {
                     alert("用户名或密码错误!")

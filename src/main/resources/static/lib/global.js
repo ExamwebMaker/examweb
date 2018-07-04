@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+
+    //  $.session.set(obj)
+    // alert($.session.get('obj.abc'))
     $("#jiaofei").click(function () {
         $("#jiaofei").hide();
         $("#alipayimage").show()
@@ -6,7 +10,8 @@ $(document).ready(function () {
 
         setInterval(showsuccess, 5000);
     })
-})
+});
+
 function showsuccess() {
     $("#alipayimage").addClass("d-none")
     $("#jiaofeiwarning").html("缴费成功!")
