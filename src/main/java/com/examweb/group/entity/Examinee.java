@@ -19,20 +19,20 @@ import java.util.Date;
 public class Examinee extends Model<Examinee>{
     private String id;
     private String examWay;
-    private String zhaoShengUnit;
+    private String zhaoshengUnit;
     private String specialPlan;
     private String name;
     private String nameSpell;
     private String nowSolier;
     private String nation;
     private String sex;
-    private String marrige;
+    private String marriage;
     private String policy;
     private String connectAddress;
     private String connectPostalcode;
     private String nativePlace;
-    private String huKouPlace;
-    private String huKouDetail;
+    private String hukouPlace;
+    private String hukouDetail;
     private String birthPlace;
     private String nowStudyOrWorkUnit;
     private String filePlace;
@@ -75,12 +75,12 @@ public class Examinee extends Model<Examinee>{
         this.examWay = examWay;
     }
 
-    public String getZhaoShengUnit() {
-        return zhaoShengUnit;
+    public String getZhaoshengUnit() {
+        return zhaoshengUnit;
     }
 
-    public void setZhaoShengUnit(String zhaoShengUnit) {
-        this.zhaoShengUnit = zhaoShengUnit;
+    public void setZhaoshengUnit(String zhaoshengUnit) {
+        this.zhaoshengUnit = zhaoshengUnit;
     }
 
     public String getSpecialPlan() {
@@ -131,12 +131,12 @@ public class Examinee extends Model<Examinee>{
         this.sex = sex;
     }
 
-    public String getMarrige() {
-        return marrige;
+    public String getMarriage() {
+        return marriage;
     }
 
-    public void setMarrige(String marrige) {
-        this.marrige = marrige;
+    public void setMarriage(String marriage) {
+        this.marriage = marriage;
     }
 
     public String getPolicy() {
@@ -171,20 +171,20 @@ public class Examinee extends Model<Examinee>{
         this.nativePlace = nativePlace;
     }
 
-    public String getHuKouPlace() {
-        return huKouPlace;
+    public String getHukouPlace() {
+        return hukouPlace;
     }
 
-    public void setHuKouPlace(String huKouPlace) {
-        this.huKouPlace = huKouPlace;
+    public void setHukouPlace(String hukouPlace) {
+        this.hukouPlace = hukouPlace;
     }
 
-    public String getHuKouDetail() {
-        return huKouDetail;
+    public String getHukouDetail() {
+        return hukouDetail;
     }
 
-    public void setHuKouDetail(String huKouDetail) {
-        this.huKouDetail = huKouDetail;
+    public void setHukouDetail(String hukouDetail) {
+        this.hukouDetail = hukouDetail;
     }
 
     public String getBirthPlace() {
@@ -360,20 +360,20 @@ public class Examinee extends Model<Examinee>{
         return "Examinee{" +
                 "id='" + id + '\'' +
                 ", examWay='" + examWay + '\'' +
-                ", zhaoShengUnit='" + zhaoShengUnit + '\'' +
+                ", zhaoshengUnit='" + zhaoshengUnit + '\'' +
                 ", specialPlan='" + specialPlan + '\'' +
                 ", name='" + name + '\'' +
                 ", nameSpell='" + nameSpell + '\'' +
                 ", nowSolier='" + nowSolier + '\'' +
                 ", nation='" + nation + '\'' +
                 ", sex='" + sex + '\'' +
-                ", marrige='" + marrige + '\'' +
+                ", marriage='" + marriage + '\'' +
                 ", policy='" + policy + '\'' +
                 ", connectAddress='" + connectAddress + '\'' +
                 ", connectPostalcode='" + connectPostalcode + '\'' +
                 ", nativePlace='" + nativePlace + '\'' +
-                ", huKouPlace='" + huKouPlace + '\'' +
-                ", huKouDetail='" + huKouDetail + '\'' +
+                ", hukouPlace='" + hukouPlace + '\'' +
+                ", hukouDetail='" + hukouDetail + '\'' +
                 ", birthPlace='" + birthPlace + '\'' +
                 ", nowStudyOrWorkUnit='" + nowStudyOrWorkUnit + '\'' +
                 ", filePlace='" + filePlace + '\'' +
