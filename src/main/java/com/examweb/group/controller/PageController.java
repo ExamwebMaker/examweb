@@ -19,33 +19,35 @@ public class PageController {
      * @Return:
      */
     //@GetMapping("/index")
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index() {
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index1() {
         return "student/index";
     }
 
-    /**
-     * @Description: 普通管理员
-     * @Json:
-     * @Date: 2018/7/3
-     * @Return:
-     */
-    @RequestMapping(value = "/commonUserAdmin", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index2() {
+        return "student/index";
+    }
+
+
+    @RequestMapping(value = "/adminlogin", method = RequestMethod.GET)
     //@GetMapping("/login")
     public String commonUserAdmin() {
         return "admin/adminlogin";
     }
 
-    /**
-     * @Description: 超级管理员
-     * @Json:
-     * @Date: 2018/7/3
-     * @Return:
-     */
-    @GetMapping("/superuserAdmin")
-    public String superUserAdmin() {
-        return "admin/adminlogin";
+    @RequestMapping(value = "/superindex", method = RequestMethod.GET)
+    //@GetMapping("/login")
+    public String superindex() {
+        return "admin/superindex";
     }
+
+    @RequestMapping(value = "/adminindex", method = RequestMethod.GET)
+    //@GetMapping("/login")
+    public String adminindex() {
+        return "admin/adminindex";
+    }
+
 
     @GetMapping("/stdlogin")
     public String stdlogin() {
@@ -70,10 +72,13 @@ public class PageController {
     @GetMapping("/stdenroll")
     public String stdenroll() {
         return "student/enroll";
-    }@GetMapping("/stdpay")
+    }
+
+    @GetMapping("/stdpay")
     public String stdpay() {
         return "student/pay";
     }
+
     @GetMapping("/stdaccountedit")
     public String stdaccountedit() {
         return "student/accountedit";

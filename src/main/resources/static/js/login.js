@@ -5,10 +5,10 @@ $(document).ready(function () {
         if (($("#username").val().length == 0) || ($("#password").val().length == 0)) {
             alert("用户名或密码不能为空!")
         } else {
-            $.session.set('name', $("#username").val());
-            $.session.set('password', $("#password").val());
+            // $.session.set('name', $("#username").val());
+            // $.session.set('password', $("#password").val());
             // sessionStorage.setItem('name',$('#name').va)
-            window.location.href = "center.html"
+            // window.location.href = "center.html"
 
             $.ajax({
                 url: "/commonUser/login",
@@ -27,7 +27,7 @@ $(document).ready(function () {
                     console.log("success");
                     alert("登录成功!");
 
-                    window.location.href = "center.html"
+                    window.location.href = "/stdcenter"
                 })
                 .fail(function () {
                     alert("用户名或密码错误!")
