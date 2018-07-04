@@ -7,7 +7,7 @@ $(document).ready(function () {
         } else {
             // $.session.set('name', $("#username").val());
             // $.session.set('password', $("#password").val());
-            // sessionStorage.setItem('name',$('#name').va)
+            // // sessionStorage.setItem('name',$('#name').va)
             // window.location.href = "center.html"
 
             $.ajax({
@@ -15,7 +15,7 @@ $(document).ready(function () {
                 type: 'POST',
                 dataType: 'json',
                 data: JSON.stringify({
-                    "name": $("#username").val,
+                    "name": $("#username").val(),
                     "password": $("#password").val()
 
                 }),
@@ -23,11 +23,19 @@ $(document).ready(function () {
                 timeout: 1000,
                 cache: false,
             })
-                .done(function () {
-                    console.log("success");
-                    alert("登录成功!");
+                .done(function (data) {
 
-                    window.location.href = "/stdcenter"
+                    alert(data.message);
+                    $.cookie('accountid', data.data.id)
+                    $.cookie('password', data.data.password)
+                    $.cookie('name', data.data.name)
+                    $.cookie('certificateStyle', data.data.certificateStyle)
+                    $.cookie('certificateNumber', data.data.certificateNumber)
+                    $.cookie('email', data.data.email)
+                    $.cookie('phone',data.data.phone)
+
+
+                    window.location.href = "center.html"
                 })
                 .fail(function () {
                     alert("用户名或密码错误!")
