@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../lib/global.css">
     <script src="../lib/jquery-3.3.1.js"></script>
     <script src="../lib/bootstrap.min.js"></script>
+    <script src="../lib/jquery.cookie.js"></script>
     <script src="../js/enroll.js"></script>
 
 </head>
@@ -46,7 +47,7 @@
         <!--<input class="form-control mr-sm-2" type="search" placeholder="搜索..." aria-label="Search">-->
         <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>-->
         <!--</form> -->
-        <a href="/stdaccountedit" class="btn-link">用户信息</a>
+        <a href="accountedit.html" class="btn-link">用户信息</a>
     </div>
 </nav>
 <div class="container">
@@ -150,7 +151,7 @@
                     </div>
                     <div class="col-md-5">
                         <select id="zhaoshengdanwei2" class="form-control" name="">
-
+                            <option >请选择</option>
                         </select>
                     </div>
                 </div>
@@ -158,9 +159,9 @@
                     <label class="col-md-2 text-right ">考试方式:</label>
                     <div class="col-md-10">
                         <select id="kaoshifangshi" class="form-control" name="">
-<option value="全国统考">全国统考</option>
-<option value="全国联考">全国联考</option>
-<option value="课程考核">课程考核</option>
+                            <option value="全国统考">全国统考</option>
+                            <option value="全国联考">全国联考</option>
+                            <option value="课程考核">课程考核</option>
                         </select>
                     </div>
                 </div>
@@ -224,7 +225,10 @@
                 <div class="form-group row">
                     <label class="col-md-2 text-right" for="">现役军人:</label>
                     <div class="col-md-6">
-                        <input id="xianyijunren" type="text" class="form-control">
+                        <select class="form-control" id="xianyijunren">
+                            <option value="0">现役军人</option>
+                            <option value="1">非现役军人</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -298,25 +302,25 @@
                 <div class="col-md-3">
                     <select id="kaoshengjiguan1" class="form-control" name="">
                         <option >请选择</option>
-                            <option value="北京">北京</option>
-                            <option value="天津">天津</option>
-                            <option value="福建">福建</option>
+                        <option value="北京">北京</option>
+                        <option value="天津">天津</option>
+                        <option value="福建">福建</option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <select id="kaoshengjiguan2" class="form-control" name="">
-                         <option >请选择</option>
-                            <option value="北京">北京</option>
-                            <option value="天津">天津</option>
-                            <option value="福建">福建</option>
+                        <option >请选择</option>
+                        <option value="北京">北京</option>
+                        <option value="天津">天津</option>
+                        <option value="福建">福建</option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <select id="kaoshengjiguan3" class="form-control" name="">
-                         <option >请选择</option>
-                            <option value="北京">北京</option>
-                            <option value="天津">天津</option>
-                            <option value="福建">福建</option>
+                        <option >请选择</option>
+                        <option value="北京">北京</option>
+                        <option value="天津">天津</option>
+                        <option value="福建">福建</option>
                     </select>
                 </div>
             </div><div class="form-group row">
@@ -331,25 +335,25 @@
                 <div class="col-md-3">
                     <select id="hukou1" class="form-control" name="">
                         <option >请选择</option>
-                            <option value="北京">北京</option>
-                            <option value="天津">天津</option>
-                            <option value="福建">福建</option>
+                        <option value="北京">北京</option>
+                        <option value="天津">天津</option>
+                        <option value="福建">福建</option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <select id="hukou2" class="form-control" name="">
-                   <option >请选择</option>
-                            <option value="北京">北京</option>
-                            <option value="天津">天津</option>
-                            <option value="福建">福建</option>
+                        <option >请选择</option>
+                        <option value="北京">北京</option>
+                        <option value="天津">天津</option>
+                        <option value="福建">福建</option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <select id="hukou3" class="form-control" name="">
-                       <option >请选择</option>
-                            <option value="北京">北京</option>
-                            <option value="天津">天津</option>
-                            <option value="福建">福建</option>
+                        <option >请选择</option>
+                        <option value="北京">北京</option>
+                        <option value="天津">天津</option>
+                        <option value="福建">福建</option>
                     </select>
                 </div>
             </div>
@@ -364,25 +368,25 @@
                 <div class="col-md-3">
                     <select id="chushengdi1" class="form-control" name="">
                         <option >请选择</option>
-                            <option value="北京">北京</option>
-                            <option value="天津">天津</option>
-                            <option value="福建">福建</option>
+                        <option value="北京">北京</option>
+                        <option value="天津">天津</option>
+                        <option value="福建">福建</option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <select id="chushengdi2" class="form-control" name="">
-                         <option >请选择</option>
-                            <option value="北京">北京</option>
-                            <option value="天津">天津</option>
-                            <option value="福建">福建</option>
+                        <option >请选择</option>
+                        <option value="北京">北京</option>
+                        <option value="天津">天津</option>
+                        <option value="福建">福建</option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <select id="chushengdi3" class="form-control" name="">
-                       <option >请选择</option>
-                            <option value="北京">北京</option>
-                            <option value="天津">天津</option>
-                            <option value="福建">福建</option>
+                        <option >请选择</option>
+                        <option value="北京">北京</option>
+                        <option value="天津">天津</option>
+                        <option value="福建">福建</option>
                     </select>
                 </div>
             </div>
@@ -438,10 +442,10 @@
                 <label class="col-md-2 text-right">报考院系所名称:</label>
                 <div class="col-md-10">
                     <select id="baokaoyuanxiao" class="form-control" name="">
-                         <option >请选择</option>
-                            <option value="北京">北京</option>
-                            <option value="天津">天津</option>
-                            <option value="福建">福建</option>
+                        <option >请选择</option>
+                        <option value="北京">北京</option>
+                        <option value="天津">天津</option>
+                        <option value="福建">福建</option>
                     </select>
                 </div>
             </div>
@@ -449,10 +453,10 @@
                 <label class="col-md-2 text-right">报考专业:</label>
                 <div class="col-md-10">
                     <select id="baokaozhuanye" class="form-control" name="">
-                         <option >请选择</option>
-                            <option value="北京">北京</option>
-                            <option value="天津">天津</option>
-                            <option value="福建">福建</option>
+                        <option >请选择</option>
+                        <option value="北京">北京</option>
+                        <option value="天津">天津</option>
+                        <option value="福建">福建</option>
                     </select>
                 </div>
             </div>
@@ -532,6 +536,8 @@
                     <input id="yanzhengmainput" class="form-control"value="WEwT" width="300px">
                     <br>
                     <div class="text-center ">
+                        <button id="uptobaokaodian" class="btn btn-primary ">上一步</button>
+
                         <button id="genkaoshenghao" class="btn btn-primary ">核对无误,生成报名号</button>
                     </div>
                 </div>

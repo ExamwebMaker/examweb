@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    $("#enrollnumber").append($.cookie('accountid'))
 
     //  $.session.set(obj)
     // alert($.session.get('obj.abc'))
@@ -11,6 +11,8 @@ $(document).ready(function () {
         setInterval(showsuccess, 5000);
     })
 });
+
+
 
 function showsuccess() {
     $("#alipayimage").addClass("d-none")

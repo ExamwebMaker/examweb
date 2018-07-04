@@ -1,10 +1,17 @@
 $(document).ready(function () {
+    function chekallowed() {
+        if ($("#allowed").is(":checked") == false) {
+            alert("请保证自己的信息属实!")
+        }
+    }
     $("#genkaoshenghao").click(function () {
+      chekallowed()
         $.ajax({
             url: '/commomuser/addExam',
             type: 'post',
             dataType: 'json',
             data: JSON.stringify({
+                "id": "ident",
                 "account_id": $("#accountid").val(),
                 "zhaoshengUnit": $("#zhaoshengdanwei1").val(),
                 "examWay": $("#kaoshifangshi").val(),
@@ -45,9 +52,8 @@ $(document).ready(function () {
             cache: false
         })
             .done(function (data) {
-                console.log("success");
                 alert(data.message)
-                window.location.href = ""
+                window.location.href = "pay.html"
 
             })
             .fail(function (data) {
@@ -77,27 +83,34 @@ $(document).ready(function () {
 
         $("#announcement").hide();
         $("#commitment").show('slow', function () {
-            $.ajax({
-                url: '/commonUser/getSchoolNameByProvince/',
-                type: 'post',
-                dataType: 'json',
-                contentType: 'application/json; charset=UTF-8',
-                timeout: 1000,
-                cache: false
-            })
-                .done(function (data) {
-                    $("#accountid").val(data.data.account_id)
-                    $("#kaoshengminzu").val(data.data.name)
-                    $("#zhengjianleixing").val(data.data.certificateStyle)
-                    $("#zhengjianhaoma").val(data.data.certificateNumber)
-                })
-                .fail(function () {
-                    console.log("error");
-                })
-                .always(function () {
-                    console.log("complete");
-                });
+
+            // $.ajax({
+            //     url: 'http://sc3r8b.natappfree.cc/commomuser/clickAddExam',
+            //     type: 'post',
+            //     dataType: 'json',
+            //     contentType: 'application/json; charset=UTF-8',
+            //     timeout: 1000,
+            //     cache: false
+            // })
+            //     .done(function (data) {
+            //
+            //         $("#accountid").val(data.data.id)
+            //         $("#kaoshengminzu").val(data.data.name)
+            //         $("#zhengjianleixing").val(data.data.certificateStyle)
+            //         $("#zhengjianhaoma").val(data.data.certificateNumber)
+            //     })
+            //     .fail(function (data) {
+            //         console.log("error");
+            //     })
+            //     .always(function () {
+            //         console.log("complete");
+            //     });
         });
+
+        $("#accountid").val($.cookie('accountid'))
+        $("#studentname").val($.cookie('name'))
+        $("#zhengjianleixing").val($.cookie('certificateStyle'))
+        $("#zhengjianhaoma").val($.cookie('certificateNumber'))
         /* Act on the event */
     });
     $("#uptoannouncement").click(function () {
@@ -183,11 +196,15 @@ $(document).ready(function () {
         $("#yanzhengma").show('slow')
     });
 
+    $("#uptobaokaodian").click(function () {
+        $("#yanzhengma").hide()
+        $("#baokaodian").show()
 
+    })
     $("#zhaoshengdanwei1").change(function () {
 
         $.ajax({
-            url: '/commonUser/getSchoolNameByProvince/' + $("#zhaoshengdanwei1").val(),
+            url: '/getSchoolNameByProvince/' + $("#zhaoshengdanwei1").val(),
             type: 'post',
             dataType: 'json',
 
