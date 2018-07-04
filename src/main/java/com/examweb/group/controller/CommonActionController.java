@@ -2,15 +2,12 @@ package com.examweb.group.controller;
 
 import com.examweb.group.dto.Result;
 import com.examweb.group.entity.Account;
-import com.examweb.group.mapper.SchoolMapper;
 import com.examweb.group.service.AccountService;
 import com.examweb.group.service.SchoolService;
 import com.examweb.group.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,8 +83,9 @@ public class CommonActionController {
      * @Return:
      */
     @PostMapping("/getSchoolNameByProvince")
-    public Result getSchoolNameByProvince(@RequestParam("province") String province){
+    public Result getSchoolNameByProvince(@PathVariable(value = "province") String province){
         try {
+            //String province=examWeb;
             if (province==null||province.trim().isEmpty()){
                 return ResultUtil.fail("请求的省市不能为空");
             }

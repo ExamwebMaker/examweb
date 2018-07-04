@@ -70,7 +70,8 @@ public class PageController {
     @GetMapping("/stdenroll")
     public String stdenroll() {
         return "student/enroll";
-    } @GetMapping("/stdaccountedit")
+    }
+    @GetMapping("/stdaccountedit")
     public String stdaccountedit() {
         return "student/accountedit";
     }
