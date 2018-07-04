@@ -14,7 +14,7 @@ $(document).ready(function () {
                 "nowSolier": $("#xianyijunren").val(),
                 "nation": $("#kaoshengminzu").val(),
                 "sex": $("input[name=sex]:checked").val(),
-                "marriage": $("#input[name=marriage]:checked").val(),
+                "marriage": $("input[name=marriage]:checked").val(),
                 "policy": $("#zhengzhimianmao").val(),
                 "connectAddress": $("#tongxundizhi").val(),
                 "connectPostalcode": $("#youzhengbianma").val(),

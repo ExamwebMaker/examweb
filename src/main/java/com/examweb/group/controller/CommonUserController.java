@@ -109,6 +109,7 @@ public class CommonUserController {
        //    return ResultUtil.fail("登录后才能报名哦");
        //}
        try {
+           System.out.print(examinee.toString());
            examinee.setId(UUID.randomUUID().toString().replaceAll("-",""));
            //Account account=new Account();
            //account=accountService.selectById(accountId);
