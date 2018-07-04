@@ -134,4 +134,12 @@ public class CommonUserController {
        return ResultUtil.fail("新增失败");
    }
 
+   /**
+    * @Description: 普通用户对自己账号进行修改
+    * @Json:
+    * @Date: 2018/7/4
+    * @Return:
+    */
+   //@PostMapping("/")
+
 }
