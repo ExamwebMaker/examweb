@@ -37,6 +37,7 @@ public class SuperManagerController {
      * @Return:
      */
    @PostMapping("/designAccount")
+   @CrossOrigin
     public Result designAccount(@RequestBody @Valid Account account, BindingResult bindingResult){
        if (bindingResult.hasErrors()){
            return ResultUtil.fail(bindingResult.getAllErrors().toString());
@@ -78,6 +79,7 @@ public class SuperManagerController {
     * @Return:
     */
    @PostMapping("/selectManager/{pageNum}")
+   @CrossOrigin
     public Result selectManager(@PathVariable("pageNum") Integer pageNum){
        if (pageNum<=0){
            pageNum=1;

@@ -51,6 +51,7 @@ public class CommonActionController {
      * @Return:
      */
     @PostMapping("/login")
+    @CrossOrigin
     public Result login(@RequestBody Account account, HttpSession session) {
         String name=account.getName();
         String password=account.getPassword();
@@ -85,6 +86,7 @@ public class CommonActionController {
      * @Return:
      */
     @PostMapping("/getSchoolNameByProvince/{province}")
+    @CrossOrigin
     public Result getSchoolNameByProvince(@PathVariable("province") String province){
         try {
             //String province=examWeb;

@@ -60,6 +60,7 @@ public class CommonUserController {
      * @Return:
      */
     @PostMapping("/rigesterCommomUser")
+    @CrossOrigin
     public Result rigesterCommomUser(HttpServletRequest request,@RequestBody @Valid Account account, BindingResult bindingResult){
         //System.out.print(account.getCertificateNumber());
 
@@ -101,6 +102,7 @@ public class CommonUserController {
      * @Return:
      */
     @PostMapping("/clickAddExam")
+    @CrossOrigin
     public Result clickAddExam(HttpSession session){
         Account account=(Account) session.getAttribute("account");
         String name=account.getName();
@@ -137,6 +139,7 @@ public class CommonUserController {
     * @Return:
     */
    @PostMapping("/addExam")
+   @CrossOrigin
     public Result addExam(@RequestBody @Valid Examinee examinee, BindingResult bindingResult){
        if (bindingResult.hasErrors()){
            return ResultUtil.fail(bindingResult.getAllErrors().toString());
@@ -179,6 +182,7 @@ public class CommonUserController {
     * @Return:
     */
    @PostMapping("/updateAccount")
+   @CrossOrigin
     public Result updateAccount(@RequestBody @Valid Account account,BindingResult bindingResult) {
        if (bindingResult.hasErrors()) {
            return ResultUtil.fail(bindingResult.getAllErrors().toString());

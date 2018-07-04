@@ -78,7 +78,7 @@ $(document).ready(function () {
         $("#announcement").hide();
         $("#commitment").show('slow', function () {
             $.ajax({
-                url: '/commonUser/getSchoolNameByProvince/',
+                url: '/commomuser/clickAddExam',
                 type: 'post',
                 dataType: 'json',
                 contentType: 'application/json; charset=UTF-8',

@@ -34,6 +34,7 @@ public class CommonManagerController {
      * @Return:
      */
     @GetMapping("/examinee/{zhaoshengUnit}/{pageNum}")
+    @CrossOrigin
     public Result schoolExaminee(@PathVariable(value = "zhaoshengUnit")String zhaoshengUnit,@PathVariable(value = "pageNum")Integer pageNum){
         if (pageNum<=0){
             pageNum=1;
@@ -54,6 +55,7 @@ public class CommonManagerController {
      * @Return:
      */
     @PostMapping("/updateExaminee")
+    @CrossOrigin
     public Result updateSchoolExaminee(@RequestBody @Valid Examinee examinee, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
             return ResultUtil.fail(bindingResult.getAllErrors().toString());
