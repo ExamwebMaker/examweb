@@ -67,4 +67,12 @@ public class PageController {
         return "student/mbaindex";
     }
 
+    @GetMapping("/stdenroll")
+    public String stdenroll() {
+        return "student/enroll";
+    } @GetMapping("/stdaccountedit")
+    public String stdaccountedit() {
+        return "student/accountedit";
+    }
+
 }
