@@ -35,6 +35,13 @@ public interface AccountMapper extends BaseMapper<Account> {
     @Select("select * from account where name=#{name}")
     Account getAccountByName(@Param("name")String name);
 
+    ///**
+    // * @Description: 根据
+    // * @Json:
+    // * @Date: 2018/7/4
+    // * @Return:
+    // */
+
 
 
 }

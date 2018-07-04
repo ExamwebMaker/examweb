@@ -34,11 +34,12 @@ $(document).ready(function () {
             cache: false,
         })
             .done(function (data) {
-                alert(data.message)
+                alert(data.message);
+
                 window.location.href = "/stdlogin"
             })
             .fail(function (data) {
-                alert(data.message)
+                alert(data.message);
                 window.location.href = "/stdsignup"
             })
             .always(function () {
