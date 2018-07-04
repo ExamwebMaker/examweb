@@ -20,7 +20,7 @@ $(document).ready(function () {
                     console.log("success");
                     alert("登录成功!");
 
-                    window.location.href = "center.html"
+                    window.location.href = "/stdcenter"
                 })
                 .fail(function () {
                     alert("用户名或密码错误!")

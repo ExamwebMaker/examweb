@@ -33,14 +33,13 @@ $(document).ready(function () {
             timeout: 1000,
             cache: false,
         })
-            .done(function () {
-                console.log("success");
-                alert("注册成功!");
-
+            .done(function (data) {
+                alert(data.message)
                 window.location.href = "/stdlogin"
             })
-            .fail(function () {
-                console.log("error");
+            .fail(function (data) {
+                alert(data.message)
+                window.location.href = "/stdsignup"
             })
             .always(function () {
                 console.log("complete");
