@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,8 +65,13 @@ public class CommonActionController {
         try {
             if (accountService.checkAccoutIsExist(name,password)==0){
                 Account accountGet=accountService.getAccountByNameAndPassword(name,password);
+                System.out.print(accountGet.toString());
+                //session.setAttribute("accountId",accountGet.getId());
+                //session.setAttribute("name",accountGet.getName());
+                //session.setAttribute("certificateStyle",accountGet.getCertificateStyle());
+                //session.setAttribute("crtificateNumber",accountGet.getCertificateNumber());
                 //System.out.print(accountGet.getAccountStyle());
-                return ResultUtil.OK(accountGet.getAccountStyle());
+                return ResultUtil.OK(accountGet);
             }
         }catch (Exception e){
             e.printStackTrace();
