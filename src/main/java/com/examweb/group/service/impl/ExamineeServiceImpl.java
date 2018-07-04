@@ -4,7 +4,14 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.examweb.group.entity.Examinee;
 import com.examweb.group.mapper.ExamineeMapper;
 import com.examweb.group.service.ExamineeService;
+import com.examweb.group.utils.ResultUtil;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author: Jessiecaicai
@@ -13,5 +20,23 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ExamineeServiceImpl extends ServiceImpl<ExamineeMapper,Examinee> implements ExamineeService{
+
+    @Resource
+    private ExamineeMapper examineeMapper;
+
+    @Override
+    public List<Examinee> selectExamineeByZhaoshengUnit(String zhaoshengUnit) throws Exception{
+        List<Examinee> examineeList=new ArrayList<>();
+        examineeList=examineeMapper.selectExamineeByZhaoshengUnit(zhaoshengUnit);
+        return examineeList;
+    }
+
+    @Override
+    public PageInfo<Examinee> getSchoolExaminee(int pageNum, String zhaoshengUnit){
+        PageHelper.startPage(pageNum,2);
+        List<Examinee> examineeList=examineeMapper.selectExamineeByZhaoshengUnit(zhaoshengUnit);
+        return new PageInfo<>(examineeList);
+
+    }
 
 }
