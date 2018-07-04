@@ -166,7 +166,7 @@ $(document).ready(function () {
 
     $("#zhaoshengdanwei1").change(function () {
         $.ajax({
-            url: '/commonUser/getSchoolNameByProvince?'+$("#zhaoshengdanwei1").val(),
+            url: '/commonUser/getSchoolNameByProvince/'+$("#zhaoshengdanwei1").val(),
             type: 'post',
             dataType: 'json',
           
