@@ -35,8 +35,11 @@ $(document).ready(function () {
         })
             .done(function (data) {
                 alert(data.message);
+                if (data.message == "账号名已经存在") {
+                    window.location.href = "/stdsignup"
 
-                window.location.href = "/stdlogin"
+                } else if (data.success=true)
+                    window.location.href = "/stdlogin"
             })
             .fail(function (data) {
                 alert(data.message);
