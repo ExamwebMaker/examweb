@@ -17,7 +17,7 @@ $(document).ready(function () {
     });
     $("#signupbtn").click(function (event) {
         $.ajax({
-            url: "/commomuser/rigesterCommomUser",
+            url: "http://ciiibv.natappfree.cc/commomuser/rigesterCommomUser",
             type: 'POST',
             dataType: 'json',
             data: JSON.stringify({
@@ -33,17 +33,14 @@ $(document).ready(function () {
             timeout: 1000,
             cache: false,
         })
-            .done(function (data) {
-                alert(data.message);
-                if (data.message == "账号名已经存在") {
-                    window.location.href = "/stdsignup"
+            .done(function () {
+                console.log("success");
+                alert("注册成功!");
 
-                } else if (data.success=true)
-                    window.location.href = "/stdlogin"
+                window.location.href = "/stdlogin"
             })
-            .fail(function (data) {
-                alert(data.message);
-                window.location.href = "/stdsignup"
+            .fail(function () {
+                console.log("error");
             })
             .always(function () {
                 console.log("complete");
@@ -100,7 +97,7 @@ function checktwopass() {
     var pwd1 = $("#password1").val();
     var pwd2 = $("#password2").val();
     <!-- 对比两次输入的密码 -->
-    if (pwd1.length >= 6) {
+    if (pwd1.length >= 1) {
         if (pwd1 == pwd2) {
             $("#passdismatch").hide();
             $("#passmatch").show("slow")

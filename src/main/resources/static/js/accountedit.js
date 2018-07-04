@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     $("#changeall").click(function () {
         $.ajax({
-            url: "/commonUser/accountedit",
+            url: "/commonUser/login",
             type: 'POST',
             dataType: 'json',
             data: JSON.stringify({
@@ -22,7 +22,7 @@ $(document).ready(function () {
             }),
             contentType: 'application/json; charset=UTF-8',
             timeout: 1000,
-            cache: false
+            cache: false,
         })
             .done(function () {
               alert(data.message)

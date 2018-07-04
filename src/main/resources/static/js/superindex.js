@@ -1,4 +1,11 @@
 $(document).ready(function () {
+
+
+    $("#addadminlink").click(function () {
+        $("#addadmin").show()
+    })
+
+
     $.ajax({
         url: 'https://www.easy-mock.com/mock/5b3b731adae7213852e96707/a/account',
         type: 'get',
@@ -20,9 +27,7 @@ $(document).ready(function () {
 
     //datatables的ajax方法
     function succeedFunction(data) {
-        alert("已成功")
-        alert(data.data.account.name)
-        alert(data.data.account.password)
+
         $("#userinfo").dataTable({
             "data": data.data.account,
             "columns": [
@@ -63,5 +68,27 @@ $(document).ready(function () {
 
         })
 
+    }
+
+    $("#adminpass1").on('input propertychange', function () {
+        checktwopass()
+    });
+    $("#adminpass2").on('input propertychange', function () {
+        checktwopass()
+    });
+
+    function checktwopass() {
+        var pwd1 = $("#adminpass1").val();
+        var pwd2 = $("#adminpass2").val();
+        <!-- 对比两次输入的密码 -->
+        if (pwd1.length >= 6) {
+            if (pwd1 == pwd2) {
+                $("#passdismatch").hide();
+                $("#passmatch").show("slow")
+            } else {
+                $("#passmatch").hide()
+                $("#passdismatch").show("slow")
+            }
+        }
     }
 })
