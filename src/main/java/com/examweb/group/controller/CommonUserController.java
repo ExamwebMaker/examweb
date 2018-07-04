@@ -55,6 +55,7 @@ public class CommonUserController {
      */
     @PostMapping("/rigesterCommomUser")
     public Result rigesterCommomUser(@RequestBody @Valid Account account, BindingResult bindingResult){
+        System.out.print(account.getCertificateNumber());
         if (bindingResult.hasErrors()){
             return ResultUtil.fail(bindingResult.getAllErrors().toString());
         }
@@ -74,10 +75,11 @@ public class CommonUserController {
         account.setUpdateTime(new Date(System.currentTimeMillis()));
         account.setCreateTime(new Date(System.currentTimeMillis()));
         account.setIsDelete("0");
-        //System.out.print(account.toString());
+        System.out.print(account.toString());
         try {
             if (accountService.insert(account)){
-                return ResultUtil.OK();
+
+                return ResultUtil.OK(account);
             }
         }catch (Exception e){
             e.printStackTrace();

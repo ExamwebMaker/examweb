@@ -49,12 +49,12 @@ public class PageController {
     }
 
     @GetMapping("/stdlogin")
-    public String CommonUserAdmin() {
+    public String stdlogin() {
         return "student/login";
     }
 
     @GetMapping("/stdsignup")
-    public String StudentUserAdmin() {
+    public String stdsigup() {
         return "student/signup";
     }
 }

@@ -22,7 +22,7 @@ $(document).ready(function () {
             dataType: 'json',
             data: JSON.stringify({
                 "id": "identity",
-                "name": $("#name").val,
+                "name": $("#name").val(),
                 "phone": $("#phonenumber").val(),
                 "email": $("#signemail").val(),
                 "password": $("#password1").val(),

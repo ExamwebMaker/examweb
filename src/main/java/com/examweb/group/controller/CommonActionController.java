@@ -19,7 +19,7 @@ import java.util.List;
  * @Date:Created in 2018/7/3
  */
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/commonUser")
 public class CommonActionController {
 
     private AccountService accountService;
@@ -80,7 +80,6 @@ public class CommonActionController {
      * @Return:
      */
     @PostMapping("/getSchoolNameByProvince")
-    @ResponseBody
     public Result getSchoolNameByProvince(@RequestParam("province") String province){
         try {
             if (province==null||province.trim().isEmpty()){

@@ -31,7 +31,6 @@ public class Account extends Model<Account>{
     private String password;
     private String certificateStyle;
     private String certificateNumber;
-
     @JsonIgnore
     private String AccountStyle;
     @JsonIgnore
