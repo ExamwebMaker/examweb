@@ -1,6 +1,14 @@
 package com.examweb.group.controller;
 
+import com.examweb.group.dto.Result;
+import com.examweb.group.entity.Account;
+import com.examweb.group.service.AccountService;
+import com.examweb.group.utils.ResultUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * @Author: Jessiecaicai
@@ -11,6 +19,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class SuperManagerController {
 
+    private AccountService accountService;
+
+    @Autowired
+    protected SuperManagerController(AccountService accountService){
+        this.accountService=accountService;
+    }
 
 
     /**
@@ -19,6 +33,10 @@ public class SuperManagerController {
      * @Date: 2018/7/3
      * @Return:
      */
-    //@PostMapping("/giveCommomManager")
-    //public Result addCommonManager(@RequestBody)
+//   @PostMapping("/designAccount")
+//    public Result designAccount(@RequestBody @Valid Account account, BindingResult bindingResult){
+//       if (bindingResult.hasErrors()){
+//           return ResultUtil.fail(bindingResult.getAllErrors().toString());
+//       }
+//   }
 }
