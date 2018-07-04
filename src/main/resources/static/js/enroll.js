@@ -166,12 +166,10 @@ $(document).ready(function () {
 
     $("#zhaoshengdanwei1").change(function () {
         $.ajax({
-            url: '/commonUser/getSchoolNameByProvince',
+            url: '/commonUser/getSchoolNameByProvince?'+$("#zhaoshengdanwei1").val(),
             type: 'post',
             dataType: 'json',
-            data: JSON.stringify({
-                "province": $("#zhaoshengdanwei1").val()
-            }),
+          
             contentType: 'application/json; charset=UTF-8',
             timeout: 1000,
             cache: false
