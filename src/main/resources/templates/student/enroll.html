@@ -203,9 +203,16 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-2 text-right" for="">证件类型:</label>
+                    <label class="col-md-2 text-right" for="zhengjianleixing">证件类型:</label>
                     <div class="col-md-6">
-                        <input id="zhengjianleixing" type="text" class="form-control">
+                        <select name="credentialtype" id="zhengjianleixing" aria-invalid="false" class="form-control" required>
+                            <option value="0">居民身份证</option>
+                            <option value="1">港澳台身份证</option>
+                            <option value="2">华侨身份证/Passport(无身份证者可填护照号)</option>
+                            <option value="3">其他</option>
+
+
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -229,24 +236,24 @@
                 <div class="form-group row">
                     <label class="col-md-2 text-right" for="">考生性别:</label>
                     <div class="col-md-6">
-                        <input id="boy" name="sex" type="radio" >
+                        <input value="0" id="boy" name="sex" type="radio" >
                         <label for="boy">男</label>
-                        <input id="girl" name="sex" type="radio">
+                        <input value="1" id="girl" name="sex" type="radio">
                         <label for="girl">女</label>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-2 text-right" for="">婚姻状况:</label>
                     <div class="col-md-6">
-                        <input type="radio" name="marriage">
+                        <input value="0" type="radio" name="marriage">
                         <label for="">未婚</label>
-                        <input name="marriage" type="radio">
+                        <input value="1" name="marriage" type="radio">
                         <label for="">已婚</label>
-                        <input name="marriage" type="radio">
+                        <input value="2" name="marriage" type="radio">
                         <label for="">丧偶</label>
-                        <input name="marriage" type="radio" checked>
+                        <input value="3" name="marriage" type="radio">
                         <label for="">离婚</label>
-                        <input name="marriage" type="radio">
+                        <input value="3" name="marriage" type="radio">
                         <label for="">其他</label>
                     </div>
                 </div>

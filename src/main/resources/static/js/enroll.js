@@ -18,9 +18,11 @@ $(document).ready(function () {
                 "policy": $("#zhengzhimianmao").val(),
                 "connectAddress": $("#tongxundizhi").val(),
                 "connectPostalcode": $("#youzhengbianma").val(),
+                "certificateStyle": $("#zhengjianleixing").val(),
+                "certificateNumber": $("#zhengjianhaoma").val(),
                 "nativePlace": $("#kaoshengjiguan1").val() + $("#kaoshengjiguan2").val() + $("#kaoshengjiguan3").val(),
-                "huKouPlace": $("#hukou1").val() + $("#hukou2").val() + $("#hukou3").val(),
-                "huKouDetail": $("#hukouxiangxixinxi").val(),
+                "hukouPlace": $("#hukou1").val() + $("#hukou2").val() + $("#hukou3").val(),
+                "hukouDetail": $("#hukouxiangxixinxi").val(),
                 "birthPlace": $("#chushengdi1").val() + $("#chushengdi2").val() + $("#chushengdi3").val(),
                 "nowStudyOrWorkUnit": $("#xianzaixuexi").val(),
                 "filePlace": $("#dangansuozaidi").val(),
@@ -45,6 +47,7 @@ $(document).ready(function () {
             .done(function (data) {
                 console.log("success");
                 alert(data.message)
+                window.location.href = ""
 
             })
             .fail(function (data) {
@@ -160,17 +163,15 @@ $(document).ready(function () {
         $("#baokaodian").hide('slow')
         $("#yanzhengma").show('slow')
     });
-    $("#genkaoshenghao").click(function () {
-        alert("报名成功")
-    })
+
 
     $("#zhaoshengdanwei1").change(function () {
 
         $.ajax({
-            url: '/commonUser/getSchoolNameByProvince/'+$("#zhaoshengdanwei1").val(),
+            url: '/commonUser/getSchoolNameByProvince/' + $("#zhaoshengdanwei1").val(),
             type: 'post',
             dataType: 'json',
-          
+
             contentType: 'application/json; charset=UTF-8',
             timeout: 1000,
             cache: false
