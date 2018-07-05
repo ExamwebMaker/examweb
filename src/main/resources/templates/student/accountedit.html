@@ -47,7 +47,7 @@
         <!--<input class="form-control mr-sm-2" type="search" placeholder="搜索..." aria-label="Search">-->
         <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>-->
         <!--</form>-->
-        <a class="btn-link" href="#">用户信息</a>
+        <a class="btn-link" href="#">用户信息</a><a id="logout" href="#" class="btn-link text-danger">退出登录</a>
     </div>
 </nav>
 <div class="container">
@@ -59,8 +59,7 @@
             <ul class="zhsz-list clearfix">
                 <li id="setName"><!--姓名区域开始-->
 
-
-
+<input type="text" id="accountinputd" style="display: none"/>
                     <h4>姓名</h4>
                     <strong id="name"></strong>
                     <div class="zl-right"><a>
@@ -88,6 +87,12 @@
 
                   
                     <h4>证件类型/证件号码</h4>
+                    <select name="credentialtype1" id="credentialtypeselect" class="form-control w-25 d-inline" aria-invalid="false">
+                        <option value="0" selected="selected">中华人民共和国居民身份证</option>
+                        <option value="3">其他</option>
+                        <option value="1">港澳台身份证</option>
+                        <option value="2">华侨身份证(无身份证者可填护照号)</option>
+                    </select>
                     <strong id="zhengjianhao"></strong>
                     <div class="zl-right">&nbsp;
                     <a href="#" class="change" id="changezhengjianhao"

@@ -1,6 +1,11 @@
 $(document).ready(function () {
-    $("#enrollnumber").append($.cookie('accountid'))
 
+    $("#logout").click(function () {
+        $.removeCookie('name')
+        $.removeCookie('password')
+        $.cookie('islogin','no')
+        window.location.href='/stdlogin'
+    })
     //  $.session.set(obj)
     // alert($.session.get('obj.abc'))
     $("#jiaofei").click(function () {

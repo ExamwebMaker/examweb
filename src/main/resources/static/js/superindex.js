@@ -40,36 +40,42 @@ $(document).ready(function () {
      */
 
     $("#addnewadmin").click(function () {
-        $.ajax({
-            url: local + '/superManager/designAccount',
-            type: 'post',
-            dataType: 'json',
-            data: JSON.stringify({
-                'name': $('#adminid').val(),
-                "phone": "1212121121",
-                "password": $('#adminpass1').val()
-            }),
-            contentType: 'application/json; charset=UTF-8',
-            timeout: 1000,
-            cache: false
-        })
-            .done(function (data) {
-
-                if (data.success == true) {
-                    alert(data.message)
-                    window.location.href = 'superindex.html'
-                } else if (data.success == false) {
-                    alert(data.message)
-                }
-
-
+        if ($("#adminpass1").val().length < 6 || $("#adminpass2").val().length < 6) {
+            alert("密码强度不够!")
+            $("#adminpass1").focus()
+        }
+        else {
+            $.ajax({
+                url: local + '/superManager/designAccount',
+                type: 'post',
+                dataType: 'json',
+                data: JSON.stringify({
+                    'name': $('#adminid').val(),
+                    "phone": "1212121121",
+                    "password": $('#adminpass1').val()
+                }),
+                contentType: 'application/json; charset=UTF-8',
+                timeout: 1000,
+                cache: false
             })
-            .fail(function (data) {
-                alert(data.message)
-            })
-            .always(function () {
-                console.log("complete");
-            });
+                .done(function (data) {
+
+                    if (data.success == true) {
+                        alert(data.message)
+                        window.location.href = 'superindex.html'
+                    } else if (data.success == false) {
+                        alert(data.message)
+                    }
+
+
+                })
+                .fail(function (data) {
+                    alert(data.message)
+                })
+                .always(function () {
+                    console.log("complete");
+                });
+        }
     })
     /**
      * @Author: yanni
@@ -170,7 +176,7 @@ $(document).ready(function () {
         cache: false
     })
         .done(function (data) {
-            $("#adminlist").dataTable({
+            $("#userinfo").dataTable({
                 "data": data.data.list,
                 "aLengthMenu": [5, 10, 15, 20, 25], //更改显示记录数选项     "iDisplayLength" : 2, //默认显示的记录数
                 "bLengthChange": true,                  //是否允许用户自定义每页显示条数。
@@ -212,19 +218,13 @@ $(document).ready(function () {
                 }, columnDefs: [{
                     targets: 5,
                     render: function (data, type, row, meta) {
-                        return "<a  class='btn btn-primary"
-                            + "' onclick='toupdateadmin(\""
-                            + data.id
-                            + "\")' href='#' data-toggle=\"modal\" data-target=\"#changeadmininfo\">修改</a>"
+                        return "<a  class='btn btn-primary' href='#' >修改</a>"
                     }
                 }, {
                     targets: 6,
                     render: function (data, type, row, meta) {
 
-                        return "<a  class='btn btn-danger"
-                            + "' onclick='deladmin(\""
-                            + data.id
-                            + "\")' href='#' >删除</a>"
+                        return "<a  class='btn btn-danger' href='#' >删除</a>"
                     }
                 }]
 
@@ -299,38 +299,7 @@ $(document).ready(function () {
             console.log("complete");
         });
 
-    /**
-     * @Author: yanni
-     * @Description: 添加管理员
-     * @Date: 15:39 2018/7/4
-     * @Modified By:
-     * @Params:
-     */
-    $("#addnewadmin").click(function () {
-        $.ajax({
-            url: local + "",
-            type: 'POST',
-            dataType: 'json',
-            data: JSON.stringify({
-                "id": $("#adminid").val(),
-                "password": $("#adminpass1").val()
 
-            }),
-            contentType: 'application/json; charset=UTF-8',
-            timeout: 1000,
-            cache: false,
-        })
-            .done(function (data) {
-                alert(data.message)
-            })
-            .fail(function (data) {
-                alert(data.message)
-            })
-            .always(function () {
-                console.log("complete");
-            });
-
-    });
 
     /**
      * @Author: yanni
@@ -387,6 +356,8 @@ function checktwopass() {
     var pwd1 = $("#adminpass1").val();
     var pwd2 = $("#adminpass2").val();
     <!-- 对比两次输入的密码 -->
+
+
     if (pwd1.length >= 6) {
         if (pwd1 == pwd2) {
             $("#passdismatch").hide();

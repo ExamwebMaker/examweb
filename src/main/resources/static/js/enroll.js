@@ -117,7 +117,7 @@ $(document).ready(function () {
         $("#announcement").show('slow', function () {
 
         });
-        $("#commitment").hide()
+        $("#commitment").hide('slow')
     })
     /**
      * @Author: yanni
@@ -144,6 +144,12 @@ $(document).ready(function () {
         });
         /* Act on the event */
     });
+    $("#uptobaokaodanwei").click(function () {
+        $("#baokaodian").hide('slow')
+        $("#baokaodanwei").show('slow')
+
+
+    })
     /**
      * @Author: yanni
      * @Description:填写个人信息

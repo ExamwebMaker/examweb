@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <title>超级管理员后台</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <link rel="shortcut icon" href="img/favicon.ico"/>
+    <link rel="shortcut icon" href="img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="../lib/sidebar.css">
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_529525_39813guke8h93sor.css">
     <!--<link rel="stylesheet" href="lib/global.css">-->
-    <link rel="stylesheet" type="text/css" href="../lib/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap.min.css" />
     <link rel="stylesheet" href="../lib/fontawesome.css">
-    <link rel="stylesheet" href="../lib/dataTables.bootstrap4.min.css"/>
-    <link rel="stylesheet" href="../lib/global.css"/>
+    <link rel="stylesheet" href="../lib/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="../lib/global.css" />
     <script type="text/javascript" src="../lib/jquery-3.3.1.js"></script>
 
     <script type="text/javascript" src="../lib/bootstrap.min.js"></script>
@@ -110,27 +110,14 @@
         <h2 class="text-center">欢迎登陆</h2>
 
     </div>
-    <div class="col-md-8" id="showdata" style="display:none;">
+    <div class="col-md-8" id="showadmin" style="display:none;">
         <h2 class="text-center">信息数据</h2>
-        <table id="userinfo" class="table table-striped table-bordered" style="width:100%">
-            <thead>
-            <tr>
-                <th>名字</th>
-                <th>性别</th>
-                <th>报考专业</th>
-
-            </tr>
-            </thead>
-
-        </table>
-    </div><div class="col-md-8" id="showadmin" style="display:none;">
-        <h2 class="text-center">管理员管理</h2>
         <table id="adminlist" class="table table-striped table-bordered" style="width:100%">
             <thead>
             <tr>
-                <th style="width: 220px;">id</th>
+                <th>id</th>
                 <th>用户名</th>
-                <th>密码</th><th>邮箱</th><th>电话</th>
+                <th>密码</th>
                 <th>修改</th>
                 <th>删除</th>
 
@@ -139,7 +126,26 @@
 
         </table>
     </div>
-    <div class="modal fade" id="changeadmininfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="col-md-8" id="showdata" style="display:none;">
+        <h2 class="text-center">用户管理</h2>
+        <table id="userinfo" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+            <tr>
+                <th style="width: 220px;">id</th>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>邮箱</th>
+                <th>电话</th>
+                <th>修改</th>
+                <th>删除</th>
+
+            </tr>
+            </thead>
+
+        </table>
+    </div>
+    <div class="modal fade" id="changeadmininfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -149,14 +155,14 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" id="adminidchange" style="display: none"/>
+                    <input type="text" id="adminidchange" style="display: none" />
                     <label for="adminidchange">管理员账号</label>
-                    <input class="form-control" id="adminnamechange"/>
+                    <input class="form-control" id="adminnamechange" />
                     <label for="adminpasschange">管理员密码</label>
                     <input type="text" name="" id="adminpasschange" class="form-control">
 
                     <br>
-                  </div>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
                     <button id="changeadmin" class="btn btn-outline-primary btn-block">更新</button>
@@ -171,7 +177,7 @@
             <h5 class="card-header">添加管理员</h5>
             <div class="card-body">
                 <label for="adminid">管理员账号</label>
-                <input id="adminid" class="form-control"/>
+                <input id="adminid" class="form-control" />
                 <label for="adminpass1">管理员密码</label>
                 <input type="password" name="" id="adminpass1" class="form-control"> <label
                     for="adminpass2">管确认理员密码</label>
@@ -190,7 +196,7 @@
             <h5 class="card-header">添加公告</h5>
             <div class="card-body">
                 <label for="gonggaotitle">公告标题</label>
-                <input id="gonggaotitle" class="form-control"/>
+                <input id="gonggaotitle" class="form-control" />
                 <label for="gonggaoneirong">公告内容</label>
                 <textarea class="form-control" rows="3" cols="20" id="gonggaoneirong"></textarea>
                 <br>
