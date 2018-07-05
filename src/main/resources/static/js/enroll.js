@@ -53,7 +53,7 @@ $(document).ready(function () {
         })
             .done(function (data) {
                 alert(data.message)
-                window.location.href = "pay.html"
+                window.location.href = "/stdpay"
 
             })
             .fail(function (data) {

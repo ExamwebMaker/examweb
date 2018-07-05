@@ -35,7 +35,7 @@ $(document).ready(function () {
                     $.cookie('phone',data.data.phone)
 
 
-                    window.location.href = "center.html"
+                    window.location.href = "/stdcenter"
                 })
                 .fail(function () {
                     alert("用户名或密码错误!")
