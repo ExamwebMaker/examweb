@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    local = "http://eepyuf.natappfree.cc"
+    local = ""
     welcom()
 
     function welcom() {
@@ -154,7 +154,7 @@ $(document).ready(function () {
             console.log("complete");
         });
 
- /**
+    /**
      * @Author: yanni
      * @Description:查看用户
      * @Date: 11:14 2018/7/5
@@ -172,64 +172,64 @@ $(document).ready(function () {
         .done(function (data) {
 
 
-
-    /**
-     * @Author: yanni
-     * @Description:公告列表
-     * @Date: 16:03 2018/7/4
-     * @Modified By:
-     * @Params:
-     */
-    $.ajax({
-        url: local + '',
-        type: 'get',
-        dataType: 'json',
-        timeout: 1000,
-        cache: false,
-    })
-        .done(function (data1) {
-            alert(data1.data.account.id)
-            $("#gonggaolist").dataTable({
-                "data": data1.data.account,
-                "columns": [
-                    {"data": "id"},
-                    {"data": "name"}
-
-
-                ],
-                language: {
-                    "sProcessing": "处理中...",
-                    "sLengthMenu": "显示 _MENU_ 项结果",
-                    "sZeroRecords": "没有匹配结果",
-                    "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-                    "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
-                    "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
-                    "sInfoPostFix": "",
-                    "sSearch": "搜索:",
-                    "sUrl": "",
-                    "sEmptyTable": "表中数据为空",
-                    "sLoadingRecords": "载入中...",
-                    "sInfoThousands": ",",
-                    "oPaginate": {
-                        "sFirst": "首页",
-                        "sPrevious": "上页",
-                        "sNext": "下页",
-                        "sLast": "末页"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": 以升序排列此列",
-                        "sSortDescending": ": 以降序排列此列"
-                    }
-                },
-
+            /**
+             * @Author: yanni
+             * @Description:公告列表
+             * @Date: 16:03 2018/7/4
+             * @Modified By:
+             * @Params:
+             */
+            $.ajax({
+                url: local + '',
+                type: 'get',
+                dataType: 'json',
+                timeout: 1000,
+                cache: false,
             })
+                .done(function (data1) {
+                    alert(data1.data.account.id)
+                    $("#gonggaolist").dataTable({
+                        "data": data1.data.account,
+                        "columns": [
+                            {"data": "id"},
+                            {"data": "name"}
+
+
+                        ],
+                        language: {
+                            "sProcessing": "处理中...",
+                            "sLengthMenu": "显示 _MENU_ 项结果",
+                            "sZeroRecords": "没有匹配结果",
+                            "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                            "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                            "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                            "sInfoPostFix": "",
+                            "sSearch": "搜索:",
+                            "sUrl": "",
+                            "sEmptyTable": "表中数据为空",
+                            "sLoadingRecords": "载入中...",
+                            "sInfoThousands": ",",
+                            "oPaginate": {
+                                "sFirst": "首页",
+                                "sPrevious": "上页",
+                                "sNext": "下页",
+                                "sLast": "末页"
+                            },
+                            "oAria": {
+                                "sSortAscending": ": 以升序排列此列",
+                                "sSortDescending": ": 以降序排列此列"
+                            }
+                        },
+
+                    })
+                })
+                .fail(function () {
+                    console.log("error");
+                })
+                .always(function () {
+                    console.log("complete");
+                });
         })
-        .fail(function () {
-            console.log("error");
-        })
-        .always(function () {
-            console.log("complete");
-        });
     /**
      * @Author: yanni
      * @Description: 添加管理员
@@ -302,7 +302,7 @@ $(document).ready(function () {
             .always(function () {
                 console.log("complete");
             });
-       window.location.href='superindex.html'
+        window.location.href = 'superindex.html'
     })
 
 
@@ -421,6 +421,34 @@ $(document).ready(function () {
     }
 })
 
+function deladmin(adminid) {
+    $.ajax({
+        url: local + '/superManager/deleteManager/' + adminid,
+        type: 'post',
+        dataType: 'json',
+
+        contentType: 'application/json; charset=UTF-8',
+        timeout: 1000,
+        cache: false
+    })
+        .done(function (data) {
+
+            if (data.success == true) {
+                alert(data.message)
+                window.location.href = 'superindex.html'
+            } else if (data.success == false) {
+                alert(data.message)
+            }
+
+
+        })
+        .fail(function (data) {
+            alert(data.message)
+        })
+        .always(function () {
+            console.log("complete");
+        });
+}
 /**
  * @Author: yanni
  * @Description:点击更新按钮
@@ -450,34 +478,6 @@ function toupdateadmin(id) {
         })
         .fail(function (data) {
 
-            alert(data.message)
-        })
-        .always(function () {
-            console.log("complete");
-        });
-}
-function deladmin(adminid) {
-    $.ajax({
-        url: local + '/superManager/deleteManager/'+adminid,
-        type: 'post',
-        dataType: 'json',
-
-        contentType: 'application/json; charset=UTF-8',
-        timeout: 1000,
-        cache: false
-    })
-        .done(function (data) {
-
-            if (data.success == true) {
-                alert(data.message)
-                window.location.href='superindex.html'
-            } else if (data.success == false) {
-                alert(data.message)
-            }
-
-
-        })
-        .fail(function (data) {
             alert(data.message)
         })
         .always(function () {
