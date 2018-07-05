@@ -33,10 +33,31 @@ public class ExamineeServiceImpl extends ServiceImpl<ExamineeMapper,Examinee> im
 
     @Override
     public PageInfo<Examinee> getSchoolExaminee(int pageNum, String zhaoshengUnit){
-        PageHelper.startPage(pageNum,2);
+        PageHelper.startPage(pageNum,20);
         List<Examinee> examineeList=examineeMapper.selectExamineeByZhaoshengUnit(zhaoshengUnit);
         return new PageInfo<>(examineeList);
 
+    }
+
+    @Override
+    public PageInfo<Examinee> getSchoolExamineeUnchecked(int pageNum,String zhaoshengUnit){
+        PageHelper.startPage(pageNum,20);
+        List<Examinee> examineeList=examineeMapper.selectExamineeByZhaoshengUnitUnchecked(zhaoshengUnit);
+        return new PageInfo<>(examineeList);
+    }
+
+    @Override
+    public PageInfo<Examinee> getSchoolExamineeChecked(int pageNum,String zhaoshengUnit){
+        PageHelper.startPage(pageNum,20);
+        List<Examinee> examineeList=examineeMapper.selectExamineeByZhaoshengUnitChecked(zhaoshengUnit);
+        return new PageInfo<>(examineeList);
+    }
+
+    @Override
+    public PageInfo<Examinee> getSchoolExamineeNoAgree(int pageNum,String zhaoshengUnit){
+        PageHelper.startPage(pageNum,20);
+        List<Examinee> examineeList=examineeMapper.selectExamineeByZhaoshengUnitNoAgree(zhaoshengUnit);
+        return new PageInfo<>(examineeList);
     }
 
 }

@@ -74,4 +74,12 @@ public interface AccountService extends IService<Account> {
      * @Return:
      */
     public PageInfo<Account> selectAllManager(int PageNum) throws Exception;
+
+    /**
+     * @Description: 展示所有的已注册账户
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    public PageInfo<Account> selectAllAcounts(int PageNum) throws Exception;
 }
