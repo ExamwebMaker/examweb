@@ -100,7 +100,7 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper,Account> imple
 
     @Override
     public PageInfo<Account> selectAllManager(int PageNum){
-        PageHelper.startPage(PageNum,2);
+        PageHelper.startPage(PageNum,20);
         List<Account> accountList=accountMapper.selectAllManager();
         return new PageInfo<>(accountList);
     }
@@ -115,6 +115,13 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper,Account> imple
 
         Account account=accountMapper.getSuperByNameAndPassword(name,password);
         return account;
+    }
+
+    @Override
+    public PageInfo<Account> selectAllAcounts(int PageNum){
+        PageHelper.startPage(PageNum,20);
+        List<Account> accountList=accountMapper.selectAllAccounts();
+        return new PageInfo<>(accountList);
     }
 
 }

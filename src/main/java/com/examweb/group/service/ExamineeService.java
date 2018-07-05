@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface ExamineeService extends IService<Examinee>{
     /**
-     * @Description: 根据招生单位返回报考信息（含全部审核状态），isDelete为0
+     * @Description: 根据招生单位返回报考信息（含全部审核状态），isDelete为0，无分页
      * @Json:
      * @Date: 2018/7/4
      * @Return:
@@ -28,5 +28,29 @@ public interface ExamineeService extends IService<Examinee>{
      * @Return:
      */
     public PageInfo<Examinee> getSchoolExaminee(int pageNum,String zhaoshengUnit);
+
+    /**
+     * @Description: 获取学校的报考信息，未审核，isDelete为0
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    public PageInfo<Examinee> getSchoolExamineeUnchecked(int pageNum,String zhaoshengUnit);
+
+    /**
+     * @Description: 获取学校的报考信息，已审核，isDelete为0
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    public PageInfo<Examinee> getSchoolExamineeChecked(int pageNum,String zhaoshengUnit);
+
+    /**
+     * @Description: 获取学校的报考信息，审核不通过，isCheck为2，isDelete为0
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    public PageInfo<Examinee> getSchoolExamineeNoAgree(int pageNum,String zhaoshengUnit);
 
 }

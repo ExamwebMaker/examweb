@@ -20,7 +20,7 @@ $(document).ready(function () {
         $.cookie('phone', $("#phonenum").val())
         $.cookie('email', $("#email").val())
         $.ajax({
-            url: "http://fwybgp.natappfree.cc/commomuser/updateAccount",
+            url: "/commomuser/updateAccount",
             type: 'POST',
             dataType: 'json',
             data: JSON.stringify({

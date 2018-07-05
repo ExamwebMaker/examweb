@@ -38,7 +38,7 @@ public class CommonManagerController {
      * @Date: 2018/7/4
      * @Return:
      */
-    @GetMapping("/examinee/{zhaoshengUnit}/{pageNum}")
+    @PostMapping("/examinee/{zhaoshengUnit}/{pageNum}")
     @CrossOrigin
     public Result schoolExaminee(@PathVariable(value = "zhaoshengUnit")String zhaoshengUnit,@PathVariable(value = "pageNum")Integer pageNum){
         if (pageNum<=0){
@@ -94,8 +94,42 @@ public class CommonManagerController {
 
 
     /**
-     * @Description: 普通管理员对报考本校的考生信息进行更新操作
-     * @Json:
+     * @Description: 普通管理员对成功报考本校的考生信息进行更新操作
+     * @Json: {
+    "account_id": "st",
+    "birthPlace": "string",
+    "certificateNumber": "string",
+    "certificateStyle": "0",
+    "connectAddress": "string",
+    "connectPostalcode": "string",
+    "examPointAddress": "string",
+    "examPointName": "string",
+    "examSubject": "string",
+    "examWay": "string",
+    "filePlace": "string",
+    "fileUnitAddress": "string",
+    "fileUnitName": "string",
+    "fileUnitPostalcode": "string",
+    "hukouDetail": "string",
+    "hukouPlace": "string",
+    "id": "0bf5c44498da43a6b0d15c5402bd6ce8",
+    "learnWay": "string",
+    "marriage": "0",
+    "name": "王伟伟",
+    "nameSpell": "string",
+    "nation": "string",
+    "nativePlace": "string",
+    "nowSolier": "0",
+    "nowStudyOrWorkUnit": "string",
+    "policy": "string",
+    "researchWay": "string",
+    "rewardAndPunishment": "string",
+    "sex": "0",
+    "specialPlan": "string",
+    "wantDepartmentName": "string",
+    "wantMajorName": "string",
+    "zhaoshengUnit": "string"
+    }
      * @Date: 2018/7/4
      * @Return:
      */
@@ -105,6 +139,13 @@ public class CommonManagerController {
         if (bindingResult.hasErrors()) {
             return ResultUtil.fail(bindingResult.getAllErrors().toString());
         }
+        String id=examinee.getId();
+        Examinee examineeGet=examineeService.selectById(id);
+        System.out.print(examineeGet.toString());
+        examinee.setCreateTime(examineeGet.getCreateTime());
+        examinee.setUpdateTime(examineeGet.getUpdateTime());
+        examinee.setIsCheck(examineeGet.getIsCheck());
+        examinee.setIsDelete(examineeGet.getIsDelete());
         System.out.print(examinee.toString());
         if (examineeService.updateById(examinee)){
             try {
@@ -116,6 +157,112 @@ public class CommonManagerController {
         }
 
         return ResultUtil.fail("修改考生信息失败");
+    }
+
+    /**
+     * @Description: 查看待审核的报考该校的考生信息
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    @PostMapping("/getUncheckedSchoolExaminee/{zhaoshengUnit}/{pageNum}")
+    @CrossOrigin
+    public Result getUncheckedSchoolExaminee(@PathVariable(value = "zhaoshengUnit")String zhaoshengUnit,@PathVariable("pageNum")Integer pageNum){
+        if (pageNum<=0){
+            pageNum=1;
+        }
+        try {
+            PageInfo<Examinee> examineePageInfo=examineeService.getSchoolExamineeUnchecked(pageNum,zhaoshengUnit);
+            return ResultUtil.OK(examineePageInfo);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.selectError();
+    }
+
+    /**
+     * @Description: 查看审核不通过的考生信息
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    @PostMapping("/getNoAgreeSchoolExaminee/{zhaoshengUnit}/{pageNum}")
+    @CrossOrigin
+    public Result getSchoolExamineeNoAgree(@PathVariable(value = "zhaoshengUnit")String zhaoshengUnit,@PathVariable("pageNum")Integer pageNum){
+        if (pageNum<=0){
+            pageNum=1;
+        }
+        try {
+            PageInfo<Examinee> examineePageInfo=examineeService.getSchoolExamineeNoAgree(pageNum,zhaoshengUnit);
+            return ResultUtil.OK(examineePageInfo);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.selectError();
+    }
+
+    /**
+     * @Description: 查看已审核的报考该校的考生信息
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    @PostMapping("/getCheckedSchoolExaminee/{zhaoshengUnit}/{pageNum}")
+    @CrossOrigin
+    public Result getCheckedSchoolExaminee(@PathVariable("zhaoshengUnit")String zhaoshengUnit,@PathVariable("pageNum")Integer pageNum){
+        if (pageNum<=0){
+            pageNum=1;
+        }
+        try {
+            PageInfo<Examinee> examineePageInfo=examineeService.getSchoolExamineeChecked(pageNum,zhaoshengUnit);
+            return ResultUtil.OK(examineePageInfo);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.selectError();
+    }
+
+    /**
+     * @Description: 进行审核操作
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    @PostMapping("/check")
+    @CrossOrigin
+    public Result checkOperation(@PathVariable("id")String id){
+        try {
+            Examinee examinee;
+            examinee=examineeService.selectById(id);
+            examinee.setIsCheck("0");
+            examineeService.updateById(examinee);
+            return ResultUtil.OK();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.deleteError();
+    }
+
+
+    /**
+     * @Description: 进行审核不通过操作
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    @PostMapping("/uncheck")
+    @CrossOrigin
+    public Result unCheckOperation(@PathVariable("id")String id){
+        try {
+            Examinee examinee;
+            examinee=examineeService.selectById(id);
+            examinee.setIsCheck("2");
+            examineeService.updateById(examinee);
+            return ResultUtil.OK();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.deleteError();
     }
 
 }

@@ -63,6 +63,15 @@ public interface AccountMapper extends BaseMapper<Account> {
     @Select("select * from account where account_style=1 and is_delete=0")
     List<Account>  selectAllManager();
 
+    /**
+     * @Description: 取出所有的账户
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    @Select("select * from account where is_delete=0")
+    List<Account> selectAllAccounts();
+
 
 
 }

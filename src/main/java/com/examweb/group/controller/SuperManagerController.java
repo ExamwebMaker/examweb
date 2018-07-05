@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -130,4 +132,102 @@ public class SuperManagerController {
        }
        return ResultUtil.selectError();
    }
+
+   /**
+    * @Description: 超级管理员更新管理员
+    * @Json:
+    * @Date: 2018/7/5
+    * @Return:
+    */
+    @PostMapping("/updateManager")
+    @CrossOrigin
+    public Result updateManager(@RequestBody @Valid Account account,BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return ResultUtil.fail(bindingResult.getAllErrors().toString());
+        }
+        System.out.print(account.toString());
+        String  id=account.getId();
+        String name=account.getName();
+        String password=account.getPassword();
+        try {
+            Account accountGet;
+            accountGet=accountService.selectById(id);
+            accountGet.setName(name);
+            accountGet.setPassword(password);
+            System.out.print(accountGet.toString());
+            if (accountService.updateById(accountGet)){
+                return ResultUtil.OK(accountGet);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return  ResultUtil.updateError();
+    }
+
+    /**
+     * @Description: 超级管理员删除已分配的管理员
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    @PostMapping("/deleteManager/{id}")
+    @CrossOrigin
+    public Result deleteManager(@PathVariable("id")String id){
+        try {
+            Account account=new Account();
+            account=accountService.selectById(id);
+            account.setIsDelete("1");
+            if (accountService.updateById(account)){
+             return ResultUtil.OK(account);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return  ResultUtil.fail("删除失败");
+
+    }
+
+    /**
+     * @Description: 超级管理员根据id获取管理员account
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    @PostMapping("/getManagerById/{id}")
+    @CrossOrigin
+    public Result getManagerById(@PathVariable("id")String id){
+        if (id==null||id.trim().isEmpty()){
+            return ResultUtil.fail("id不能为空");
+        }
+        try {
+            Account account=new Account();
+            account=accountService.selectById(id);
+            System.out.print(account.toString());
+            return ResultUtil.OK(account);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.selectError();
+    }
+
+    /**
+     * @Description: 超级管理员查看所有的已注册账户
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    @PostMapping("/getAllAcounts/{PageNum}")
+    @CrossOrigin
+    public Result getAllAcounts(@PathVariable("PageNum")Integer PageNum){
+        if (PageNum<=0){
+            PageNum=1;
+        }
+        try {
+            PageInfo<Account> accountPageInfo=accountService.selectAllAcounts(PageNum);
+            return ResultUtil.OK(accountPageInfo);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.selectError();
+    }
 }
