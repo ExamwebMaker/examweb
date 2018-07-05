@@ -26,7 +26,7 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper,Account> imple
 
 
     /**
-     * @Description: 根据name和password判断账号是否存在
+     * @Description: 普通用户根据name和password判断账号是否存在
      * @Json:
      * @Date: 2018/7/3
      * @Return:
@@ -45,6 +45,47 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper,Account> imple
         return 1;
     }
 
+    /**
+     * @Description: 普通用户根据name和password判断账号是否存在
+     * @Json:
+     * @Date: 2018/7/3
+     * @Return:
+     */
+    @Override
+    @Transactional
+    public Integer checkManagerIsExist(String name,String password) throws Exception{
+        Account account=accountMapper.getManagerByNameAndPassword(name,password);
+        try {
+            if (account!=null){
+                return 0;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return 1;
+    }
+
+    /**
+     * @Description: 超级管理员根据name和password判断账号是否存在
+     * @Json:
+     * @Date: 2018/7/3
+     * @Return:
+     */
+    @Override
+    @Transactional
+    public Integer checkSuperIsExist(String name,String password) throws Exception{
+        Account account=accountMapper.getSuperByNameAndPassword(name,password);
+        try {
+            if (account!=null){
+                return 0;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return 1;
+    }
+
+
     @Override
     public Account getAccountByNameAndPassword(String name,String password){
         Account account=accountMapper.getAccountByNameAndPassword(name,password);
@@ -62,6 +103,18 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper,Account> imple
         PageHelper.startPage(PageNum,2);
         List<Account> accountList=accountMapper.selectAllManager();
         return new PageInfo<>(accountList);
+    }
+    @Override
+    public Account getManagerByNameAndPassword(String name,String password){
+        Account account=accountMapper.getManagerByNameAndPassword(name,password);
+        return account;
+    }
+
+    @Override
+    public Account getSuperByNameAndPassword(String name,String password){
+
+        Account account=accountMapper.getSuperByNameAndPassword(name,password);
+        return account;
     }
 
 }

@@ -12,7 +12,7 @@ import com.github.pagehelper.PageInfo;
 public interface AccountService extends IService<Account> {
 
     /**
-     * @Description: 根据账号和密码判断用户是否存在
+     * @Description: 普通用户根据账号和密码判断用户是否存在
      * @Json: 
      * @Date: 2018/7/3
      * @Return: 
@@ -20,12 +20,44 @@ public interface AccountService extends IService<Account> {
     public Integer checkAccoutIsExist(String name,String password)throws Exception;
 
     /**
-     * @Description: 根据账号和密码取出用户
+     * @Description: 普通管理员根据账号和密码判断用户是否存在
+     * @Json:
+     * @Date: 2018/7/3
+     * @Return:
+     */
+    public Integer checkManagerIsExist(String name,String password)throws Exception;
+
+    /**
+     * @Description: 超级管理员根据账号和密码判断用户是否存在
+     * @Json:
+     * @Date: 2018/7/3
+     * @Return:
+     */
+    public Integer checkSuperIsExist(String name,String password)throws Exception;
+
+    /**
+     * @Description: 根据账号和密码取出普通用户
      * @Json:
      * @Date: 2018/7/3
      * @Return:
      */
     public Account getAccountByNameAndPassword(String name,String psssword) throws Exception;
+
+    /**
+     * @Description: 根据账号和密码取出普通管理员
+     * @Json:
+     * @Date: 2018/7/3
+     * @Return:
+     */
+    public Account getManagerByNameAndPassword(String name,String psssword) throws Exception;
+
+    /**
+     * @Description: 根据账号和密码取出超级管理员
+     * @Json:
+     * @Date: 2018/7/3
+     * @Return:
+     */
+    public Account getSuperByNameAndPassword(String name,String psssword) throws Exception;
     
     /**
      * @Description: 根据账号名取出账号

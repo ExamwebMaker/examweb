@@ -175,7 +175,46 @@ public class CommonUserController {
        return ResultUtil.fail("新增失败");
    }
 
-   /**
+    /**
+     * @Description: 用于普通用户登录的接口
+     * @Json: {
+    "name": "string",
+    "password": "string"
+    }
+     * @Date: 2018/7/3
+     * @Return:
+     */
+    @PostMapping("/login")
+    @CrossOrigin
+    public Result login(@RequestBody Account account, HttpSession session) {
+        String name=account.getName();
+        String password=account.getPassword();
+        if (name==null||name.trim().isEmpty()){
+            return ResultUtil.fail("输入用户名不能为空");
+        }
+        if (password==null||password.trim().isEmpty()){
+            return ResultUtil.fail("输入密码不能为空");
+        }
+        try {
+            if (accountService.checkAccoutIsExist(name,password)==0){
+                Account accountGet=accountService.getAccountByNameAndPassword(name,password);
+                //System.out.print(accountGet.toString());
+                session.setAttribute("account",accountGet);
+                //session.setAttribute("accountId",accountGet.getId());
+                //session.setAttribute("name",accountGet.getName());
+                //session.setAttribute("certificateStyle",accountGet.getCertificateStyle());
+                //session.setAttribute("crtificateNumber",accountGet.getCertificateNumber());
+                //System.out.print(accountGet.getAccountStyle());
+                return ResultUtil.OK(accountGet);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.fail("登入失败");
+    }
+
+
+    /**
     * @Description: 普通用户对自己账号进行修改
     * @Json:
     * @Date: 2018/7/4

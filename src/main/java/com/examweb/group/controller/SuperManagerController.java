@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.sql.Date;
 import java.util.UUID;
@@ -29,6 +30,43 @@ public class SuperManagerController {
         this.accountService=accountService;
     }
 
+    /**
+     * @Description: 用于超级管理员登录的接口
+     * @Json: {
+    "name": "string",
+    "password": "string"
+    }
+     * @Date: 2018/7/3
+     * @Return:
+     */
+    @PostMapping("/superLogin")
+    @CrossOrigin
+    public Result superLogin(@RequestBody Account account, HttpSession session) {
+        String name=account.getName();
+        String password=account.getPassword();
+        if (name==null||name.trim().isEmpty()){
+            return ResultUtil.fail("输入用户名不能为空");
+        }
+        if (password==null||password.trim().isEmpty()){
+            return ResultUtil.fail("输入密码不能为空");
+        }
+        try {
+            if (accountService.checkSuperIsExist(name,password)==0){
+                Account accountGet=accountService.getSuperByNameAndPassword(name,password);
+                //System.out.print(accountGet.toString());
+                session.setAttribute("account",accountGet);
+                //session.setAttribute("accountId",accountGet.getId());
+                //session.setAttribute("name",accountGet.getName());
+                //session.setAttribute("certificateStyle",accountGet.getCertificateStyle());
+                //session.setAttribute("crtificateNumber",accountGet.getCertificateNumber());
+                //System.out.print(accountGet.getAccountStyle());
+                return ResultUtil.OK(accountGet);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.fail("登入失败");
+    }
 
     /**
      * @Description: 超级管理员给普通管理员分配账号
