@@ -12,18 +12,25 @@ $(document).ready(function () {
 
 
     $("#changeall").click(function () {
+        $.cookie('accountid')
+        $.cookie('password', $("#password").val())
+        $.cookie('name', $("#name").val())
+        $.cookie('certificateStyle', $("#credential").val())
+        $.cookie('certificateNumber', $("#zhengjianhao").val())
+        $.cookie('phone', $("#phonenum").val())
+        $.cookie('email', $("#email").val())
         $.ajax({
-            url: "/commomuser/updateAccount",
+            url: "http://fwybgp.natappfree.cc/commomuser/updateAccount",
             type: 'POST',
             dataType: 'json',
             data: JSON.stringify({
-                "id":$.cookie('accountid'),
-                "name":$("#nameinput").val(),
-                "password":$("#passwordinput").val(),
-                "certificateStyle":$("#crdentialtype").val(),
-                "certificateNumber":$("#zhengjianhaoinput").val(),
-                "phone":$("#phonenuminput").val(),
-                "email":$("#emailinput").val()
+                "id": $.cookie('accountid'),
+                "name": $("#nameinput").val(),
+                "password": $("#passwordinput").val(),
+                "certificateStyle": $("#crdentialtype").val(),
+                "certificateNumber": $("#zhengjianhaoinput").val(),
+                "phone": $("#phonenuminput").val(),
+                "email": $("#emailinput").val()
 
             }),
             contentType: 'application/json; charset=UTF-8',
@@ -31,12 +38,12 @@ $(document).ready(function () {
             cache: false,
         })
             .done(function (data) {
-              alert(data.message)
+                alert(data.message)
 
                 window.location.href = "/stdaccountedit"
             })
             .fail(function (data) {
-              alert(data.message)
+                alert(data.message)
             })
             .always(function () {
                 console.log("complete");
@@ -53,7 +60,7 @@ $(document).ready(function () {
             "    <option value=\"0\" selected=\"selected\">中华人民共和国居民身份证</option>\n" +
             "    <option value=\"3\">其他</option>\n" +
             "    <option value=\"1\">港澳台身份证</option>\n" +
-            "    <option value=\"2\">华侨身份证(无身份证者可填护照号)</option>\n"+
+            "    <option value=\"2\">华侨身份证(无身份证者可填护照号)</option>\n" +
             "</select><input id='zhengjianhaoinput' class='form-control w-25 d-inline'  type='text' value=''/> ")
         $("#phonenum").html("<input id='phonenuminput' class='form-control w-50 d-inline'  type='text' value=''/> ")
         $("#myemail").html("<input id='emailinput' class='form-control w-50 d-inline'  type='text' value=''/> ")
