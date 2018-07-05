@@ -48,15 +48,12 @@ $(document).ready(function () {
                 cache: false
             })
                 .done(function (data) {
-
                     if (data.success == true) {
                         alert(data.message)
                         window.location.href = 'superindex.html'
                     } else if (data.success == false) {
                          alert(data.message)
                     }
-
-
                 })
                 .fail(function (data) {
                     alert(data.message)
