@@ -51,8 +51,14 @@ public interface ExamineeMapper extends BaseMapper<Examinee> {
     @Select("select * from examinee where is_delete=0 and zhaosheng_unit=#{zhaosheng_unit} and is_check=2")
     List<Examinee> selectExamineeByZhaoshengUnitNoAgree(@Param("zhaosheng_unit")String zhaosheng_unit);
 
-
-
+    /**
+     * @Description: 根据examinee的account_id获取examinee对象
+     * @Json: 
+     * @Date: 2018/7/6
+     * @Return: 
+     */
+    @Select("select * from examinee where is_delete=0 and account_id=#{id}")
+    Examinee selectExamineeByAccountId(@Param("id")String id);
 
 
 }

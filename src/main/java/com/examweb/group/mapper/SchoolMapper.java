@@ -26,11 +26,30 @@ public interface SchoolMapper extends BaseMapper<School>{
     List<String> getSchoolByProvince(@Param("province") String province);
 
     /**
-     * @Description: 根据province取出学校list
+     * @Description: 根据province名字取出学校名字
      * @Json:
      * @Date: 2018/7/3
      * @Return:
      */
-    @Select("select name from school where province=#{province} where is_delete=0")
+    @Select("select name from school where province=#{province} and is_delete=0")
     List<String> getSchoolNameByProvince(@Param("province") String province);
+
+    /**
+     * @Description: 取出所有学校的名字
+     * @Json: 
+     * @Date: 2018/7/5
+     * @Return: 
+     */
+    @Select("select name from school where is_delete=0")
+    List<String> getAllSchools();
+
+    /**
+     * @Description: 根据schoolname取出shool
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    @Select("select * from school where name=#{name} and is_delete=0")
+    School getSchoolByName(@Param("name")String name);
+
 }

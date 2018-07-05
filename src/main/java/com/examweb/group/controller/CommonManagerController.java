@@ -54,7 +54,7 @@ public class CommonManagerController {
     }
 
     /**
-     * @Description: 用于普通用户登录的接口
+     * @Description: 用于普通管理员登录的接口
      * @Json: {
     "name": "string",
     "password": "string"
@@ -76,6 +76,7 @@ public class CommonManagerController {
         try {
             if (accountService.checkManagerIsExist(name,password)==0){
                 Account accountGet=accountService.getManagerByNameAndPassword(name,password);
+
                 //System.out.print(accountGet.toString());
                 session.setAttribute("account",accountGet);
                 //session.setAttribute("accountId",accountGet.getId());
@@ -228,7 +229,7 @@ public class CommonManagerController {
      * @Date: 2018/7/5
      * @Return:
      */
-    @PostMapping("/check")
+    @PostMapping("/check/{id}")
     @CrossOrigin
     public Result checkOperation(@PathVariable("id")String id){
         try {
@@ -250,7 +251,7 @@ public class CommonManagerController {
      * @Date: 2018/7/5
      * @Return:
      */
-    @PostMapping("/uncheck")
+    @PostMapping("/uncheck/{id}")
     @CrossOrigin
     public Result unCheckOperation(@PathVariable("id")String id){
         try {
@@ -263,6 +264,25 @@ public class CommonManagerController {
             e.printStackTrace();
         }
         return ResultUtil.deleteError();
+    }
+    
+    /**
+     * @Description: 根据examineeId获取examinee
+     * @Json: 
+     * @Date: 2018/7/6
+     * @Return: 
+     */
+    @PostMapping("/getExamineeForUpdate/{id}")
+    @CrossOrigin
+    public Result getExamineeForUpdate(@PathVariable("id")String id){
+        try {
+            Examinee examinee=new Examinee();
+            examinee=examineeService.selectById(id);
+            return ResultUtil.OK(examinee);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.selectError();
     }
 
 }

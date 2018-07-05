@@ -66,4 +66,22 @@ public class CommonActionController {
         }
         return ResultUtil.selectError();
     }
+
+    /**
+     * @Description: 取出所有学校
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    @PostMapping("/getAllSchools")
+    @CrossOrigin
+    public Result getAllSchools(){
+        try {
+            List<String> list=schoolService.getAllSchools();
+            return ResultUtil.OK(list);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.selectError();
+    }
 }

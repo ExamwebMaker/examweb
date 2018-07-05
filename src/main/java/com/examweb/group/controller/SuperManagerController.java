@@ -2,7 +2,10 @@ package com.examweb.group.controller;
 
 import com.examweb.group.dto.Result;
 import com.examweb.group.entity.Account;
+import com.examweb.group.entity.School;
+import com.examweb.group.mapper.SchoolMapper;
 import com.examweb.group.service.AccountService;
+import com.examweb.group.service.SchoolService;
 import com.examweb.group.utils.ResultUtil;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +29,13 @@ import java.util.UUID;
 public class SuperManagerController {
 
     private AccountService accountService;
+    private SchoolService schoolService;
 
     @Autowired
-    protected SuperManagerController(AccountService accountService){
+    protected SuperManagerController(AccountService accountService, SchoolService schoolService){
         this.accountService=accountService;
+        this.schoolService=schoolService;
+
     }
 
     /**
@@ -71,30 +77,42 @@ public class SuperManagerController {
     }
 
     /**
-     * @Description: 超级管理员给普通管理员分配账号
+     * @Description: 超级管理员给普通管理员分配账号+绑定学校
      * @Json:
      * @Date: 2018/7/3
      * @Return:
      */
-   @PostMapping("/designAccount")
+   @PostMapping("/designAccount/{name}/{password}/{zhaoshengUnit}")
    @CrossOrigin
-    public Result designAccount(@RequestBody @Valid Account account, BindingResult bindingResult){
-       if (bindingResult.hasErrors()){
-           return ResultUtil.fail(bindingResult.getAllErrors().toString());
-       }
-       //判断用户名是否存在
+    public Result designAccount(@PathVariable("name")String name,@PathVariable("password")String password,@PathVariable("zhaoshengUnit")String zhaoshengUnit){
+       //,@PathVariable("phone")String phone
        try {
-           Account accountGet;
-           accountGet=accountService.getAccountByName(account.getName());
-           if (accountGet!=null){
+           //判断该用户名是否可以增加
+           Account accountName;
+           System.out.print(name);
+           accountName=accountService.getAccountByName(name);
+           //System.out.print(accountName.toString());
+           //System.out.print("a");
+           if (accountName!=null){
                return ResultUtil.fail("账号名已经存在");
            }
-       }catch (Exception e){
-           e.printStackTrace();
-       }
-       System.out.println(account.toString());
-       try {
+           //System.out.print("aaa");
+           School school;
+           School school1;
+           school=schoolService.getSchoolByName(zhaoshengUnit);
+           school1=schoolService.getSchoolByName("南开大学");
+
+           System.out.print(school.toString());
+           System.out.print(school1.toString());
+           //判断该学校是否已经分配管理员
+           if (!school.getAccountId().equals("无绑定")){
+               return ResultUtil.fail("该学校已经有管理员了");
+           }
+           //获取
+           Account account=new Account();
            account.setId(UUID.randomUUID().toString().replaceAll("-",""));
+           account.setName(name);
+           account.setPassword(password);
            account.setPhone("管理员电话");
            account.setEmail("管理员邮件");
            account.setCertificateStyle("0");
@@ -105,6 +123,9 @@ public class SuperManagerController {
            account.setIsDelete("0");
            System.out.println(account.toString());
            accountService.insert(account);
+           school.setAccountId(account.getId());
+           school.setUpdateTime(new Date(System.currentTimeMillis()));
+           schoolService.updateById(school);
            return ResultUtil.OK();
        }catch (Exception e){
            e.printStackTrace();

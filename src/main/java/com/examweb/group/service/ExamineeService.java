@@ -53,4 +53,12 @@ public interface ExamineeService extends IService<Examinee>{
      */
     public PageInfo<Examinee> getSchoolExamineeNoAgree(int pageNum,String zhaoshengUnit);
 
+    /**
+     * @Description: 根据examinee的account_id获取examinee对象
+     * @Json:
+     * @Date: 2018/7/6
+     * @Return:
+     */
+    public Examinee getExamineeByAccountId(String id);
+
 }

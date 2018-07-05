@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.sql.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -144,10 +146,12 @@ public class CommonUserController {
        if (bindingResult.hasErrors()){
            return ResultUtil.fail(bindingResult.getAllErrors().toString());
        }
-       //String accountId = (String) session.getAttribute("accountId");
-       //if (accountId==null){
-       //    return ResultUtil.fail("登录后才能报名哦");
-       //}
+       String accountId;
+       accountId=examinee.getAccount_id();
+       Examinee examineeChange=new Examinee();
+       examineeChange=examineeService.getExamineeByAccountId(accountId);
+       examineeChange.setIsDelete("1");
+       examineeService.updateById(examineeChange);
        try {
            System.out.print(examinee.toString());
            examinee.setId(UUID.randomUUID().toString().replaceAll("-",""));
@@ -173,6 +177,26 @@ public class CommonUserController {
            e.printStackTrace();
        }
        return ResultUtil.fail("新增失败");
+   }
+
+   /**
+    * @Description: 用户查看报名信息
+    * @Json:
+    * @Date: 2018/7/6
+    * @Return:
+    */
+   @PostMapping("/lookExam/{id}")
+   @CrossOrigin
+   public Result lookExam(@PathVariable("id")String id){
+       //此id为account的id
+       try {
+           Examinee examinee=new Examinee();
+           examinee=examineeService.getExamineeByAccountId(id);
+           return ResultUtil.OK(examinee);
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+       return ResultUtil.selectError();
    }
 
     /**

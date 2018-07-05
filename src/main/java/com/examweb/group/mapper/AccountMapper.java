@@ -2,7 +2,6 @@ package com.examweb.group.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.examweb.group.entity.Account;
-import com.examweb.group.entity.School;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;

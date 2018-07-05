@@ -21,4 +21,20 @@ public interface SchoolService extends IService<School>{
      * @Return:
      */
     public List<String> getSchoolNameByProvince(String province);
+
+    /**
+     * @Description: 取出所有学校
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    public List<String> getAllSchools();
+
+    /**
+     * @Description: 根据学校的name取出学校
+     * @Json:
+     * @Date: 2018/7/5
+     * @Return:
+     */
+    public School getSchoolByName(String name);
 }

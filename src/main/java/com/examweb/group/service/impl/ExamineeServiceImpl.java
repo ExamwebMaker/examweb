@@ -59,5 +59,10 @@ public class ExamineeServiceImpl extends ServiceImpl<ExamineeMapper,Examinee> im
         List<Examinee> examineeList=examineeMapper.selectExamineeByZhaoshengUnitNoAgree(zhaoshengUnit);
         return new PageInfo<>(examineeList);
     }
+    @Override
+    public Examinee getExamineeByAccountId(String id){
+        Examinee examinee=examineeMapper.selectExamineeByAccountId(id);
+        return examinee;
+    }
 
 }

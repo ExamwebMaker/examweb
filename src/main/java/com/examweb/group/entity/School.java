@@ -18,12 +18,21 @@ public class School extends Model<School>{
     private String address;
     private String province;
     private String name;
+    private String accountId;
     @JsonIgnore
     private Date createTime;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date updateTime;
     @JsonIgnore
     private String isDelete;
+
+    public String getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
 
     @Override
     public String toString() {
@@ -32,6 +41,7 @@ public class School extends Model<School>{
                 ", address='" + address + '\'' +
                 ", province='" + province + '\'' +
                 ", name='" + name + '\'' +
+                ", accountId='" + accountId + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 ", isDelete='" + isDelete + '\'' +

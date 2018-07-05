@@ -27,4 +27,18 @@ public class SchoolServiceImpl extends ServiceImpl<SchoolMapper,School> implemen
         listSchoolName=schoolMapper.getSchoolByProvince(province);
         return listSchoolName;
     }
+
+    @Override
+    public List<String> getAllSchools(){
+        List<String> stringList=new ArrayList<>();
+        stringList=schoolMapper.getAllSchools();
+        return stringList;
+    }
+
+    @Override
+    public School getSchoolByName(String name){
+        School school=schoolMapper.getSchoolByName(name);
+        System.out.print(school.getAccountId());
+        return school;
+    }
 }
