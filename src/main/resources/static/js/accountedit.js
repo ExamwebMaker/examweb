@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     $("#password").append($.cookie('password'))
     $("#name").append($.cookie('name'))
-    $("#credentialtype").append($.cookie('certificateStyle'))
+    $("#credentialtypeselect").val($.cookie('certificateStyle'))
     $("#zhengjianhao").append($.cookie('certificateNumber'))
     $("#phonenum").append($.cookie('phone'))
     $("#myemail").append($.cookie('email'))
@@ -12,13 +12,7 @@ $(document).ready(function () {
 
 
     $("#changeall").click(function () {
-        $.cookie('accountid')
-        $.cookie('password', $("#password").val())
-        $.cookie('name', $("#name").val())
-        $.cookie('certificateStyle', $("#credential").val())
-        $.cookie('certificateNumber', $("#zhengjianhao").val())
-        $.cookie('phone', $("#phonenum").val())
-        $.cookie('email', $("#email").val())
+
         $.ajax({
             url: "/commomuser/updateAccount",
             type: 'POST',
@@ -35,12 +29,11 @@ $(document).ready(function () {
             }),
             contentType: 'application/json; charset=UTF-8',
             timeout: 1000,
-            cache: false,
+            cache: false
         })
             .done(function (data) {
-                alert(data.message)
+                alert("修改成功!")
 
-                window.location.href = "/stdaccountedit"
             })
             .fail(function (data) {
                 alert(data.message)
@@ -48,10 +41,20 @@ $(document).ready(function () {
             .always(function () {
                 console.log("complete");
             });
+        $.cookie('accountid',$.cookie('accountid'))
+        $.cookie('password', $("#passwordinput").val())
+        $.cookie('name', $("#nameinput").val())
+        $.cookie('certificateStyle', $("#credentialtype").val())
+        $.cookie('certificateNumber', $("#zhengjianhaoinput").val())
+        $.cookie('phone', $("#phonenuminput").val())
+        $.cookie('email', $("#emailinput").val())
+
+        window.location.href = "/stdaccountedit"
     })
 
     function changeinfo() {
         $("#changeall").show()
+        $("#credentialtypeselect").hide()
         $("#username").html("<input id='usernameinput' class='form-control w-50 d-inline'  type='text' value=''/> ");
         $("#password").html("<input id='passwordinput' class='form-control w-50 d-inline'  type='text' value=''/> ");
         $("#name").html("<input id='nameinput' class='form-control w-50 d-inline'  type='text' value=''/> ")

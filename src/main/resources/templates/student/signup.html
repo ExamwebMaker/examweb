@@ -59,6 +59,8 @@
         <!--</div>-->
         <!--</div>-->
         <h2 class="text-center">请注册</h2>
+        <label for="name">姓名:</label>
+        <input id="name" class="form-control" required type="text" name="" placeholder="请输入姓名:" value="">
         <label for="phonenumber">手机号: </label>
         <input class="form-control" required type="text" name="" id="phonenumber" placeholder="请输入手机号:"
                value="">
@@ -72,8 +74,7 @@
         <input class="form-control" required type="password" id="password2" name="" placeholder="请再次输入密码:" value="">
         <small id="passmatch" style="display: none;" class="form-text text-info">两次密码相同!</small>
         <small id="passdismatch" style="display: none;" class="form-text text-danger">两次密码不同!</small>
-        <label for="name">姓名:</label>
-        <input id="name" class="form-control" required type="text" name="" placeholder="请输入姓名:" value="">
+
         <label for="credentialtype">证件类型:</label>
         <select name="credentialtype" id="credentialtype" aria-invalid="false" class="form-control" required>
             <option value="0">居民身份证</option>

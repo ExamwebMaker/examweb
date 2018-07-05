@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $("#showkaoshengtable").show()
-
-    local = "http://eepyuf.natappfree.cc"
+    local = ""
     $("#showkaosheng").click(function () {
         $("#showkaoshengtable").show()
     })
@@ -83,7 +82,6 @@ $(document).ready(function () {
             })
         })
         .fail(function (data) {
-            alert("sdfsdlfsdklfskssfsdfsdfsdfsdfsdf")
             alert(data.message)
         })
         .always(function () {
@@ -98,7 +96,7 @@ $(document).ready(function () {
      * @Params:
      */
     $.ajax({
-        url: local + '',
+        url: local + '/commonManager/getCheckedSchoolExaminee/北京/1',
         type: 'post',
         dataType: 'json',
         contentType: 'application/json; charset=UTF-8',
@@ -116,9 +114,11 @@ $(document).ready(function () {
                 "columns": [
                     {"data": "id"},
                     {"data": "name"},
-                    {"data": "password"},
-                    {"data": null},
-                    {"data": null}
+                    {"data": "sex"},
+                    {"data": "examWay"},
+                    {"data": "specialPlan"},
+                    {"data": "wantDepartmentName"}
+
 
 
                 ],
@@ -146,19 +146,19 @@ $(document).ready(function () {
                         "sSortDescending": ": 以降序排列此列"
                     }
                 }, columnDefs: [{
-                    targets: 3,
+                    targets: 6,
                     render: function (data, type, row, meta) {
                         return "<a  class='btn btn-primary"
-                            + "' onclick='toupdateadmin(\""
+                            + "' onclick='toupdateuser(\""
                             + data.id
                             + "\")' href='#' data-toggle=\"modal\" data-target=\"#changeadmininfo\">修改</a>"
                     }
                 }, {
-                    targets: 4,
+                    targets: 7,
                     render: function (data, type, row, meta) {
 
                         return "<a  class='btn btn-danger"
-                            + "' onclick='deladmin(\""
+                            + "' onclick='deluser(\""
                             + data.id
                             + "\")' href='#' >删除</a>"
                     }
