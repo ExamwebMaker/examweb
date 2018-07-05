@@ -1,59 +1,76 @@
 /*login.js*/
 $(document).ready(function () {
+    local = ""
 
-    $.ajax({
-        url: "http://localhost:8080/getCourseGroup_Teacher",
-        type: 'GET',
-        dataType: 'json',
-        timeout: 1000,
-        contentType: 'application/json; charset=UTF-8',
-        // beforeSend: LoadFunction,
-        error: geterrorFunction,
-        success: gettsucceedFunction
-    });
-
-    function geterrorFunction() {
-        alert("服务器连接失败") // body...
-    }
-
-    // 渲染课程组
-    function gettsucceedFunction(data) {
-        for (var i = data.data.courseGroups.length - 1; i >= 0; i--) {
-            $("#usertype").append("<option value='" + data.data.courseGroups[i].id + "'>" + data.data.courseGroups[i].name + "</option>");
-        }
-        // body...
-    };
-
-    $(".forget a").click(function () {
-        console.log(1)
-        alert("请联系超级管理员，询问或重新设置密码")
-    })
-
-    $("#loginbutton").click(
-        function sub() {
+    $("#loginbutton").click(function () {
+        if ((($("#adminusername").val().length > 0) && ($("#adminpassword").val().length > 0)) && (($("#superusername").val().length == 0) && ($("#superpassword").val().length == 0))) {
             $.ajax({
-                url: "http://localhost:8080/login",
-                type: 'POST',
+                url: local + '/commonManager/managerLogin',
+                type: 'post',
+                dataType: 'json',
                 data: JSON.stringify({
-                    "account": $(".user-name").val(),
-                    "password": $(".user-psw").val()
+                    'name': $('#adminusername').val(),
+                    "password": $('#adminpassword').val()
                 }),
-                success: function (data) {
-                    // if (data.code == "###") {
-                    console.log(data);
-                    if (data.success) {
-                        window.location.href = "/superadmin"
-                    } else {
-                        alert("用户名或密码不正确！")
-                    }
-                },
-                error: function (data) {
-                    console.log(data);
-                    alert(data);
-                    alert("服务器响应时间过长，请稍后重试！")
-                }
+                contentType: 'application/json; charset=UTF-8',
+                timeout: 1000,
+                cache: false
             })
-        })
+                .done(function (data) {
+                    if (data.success == true) {
+                        alert(data.message)
+                        window.location.href = 'adminindex.html'
+                    } else if (data.success == false) {
+                        alert(data.message)
+                    }
+
+
+                })
+                .fail(function (data) {
+                    alert(data.message)
+                })
+                .always(function () {
+                    console.log("complete");
+                });
+
+        } else if (($("#superusername").val().length > 0 && $("#superpassword").val().length > 0) && ($("#adminusername").val().length == 0) && ($("#adminpassword").val().length == 0)) {
+
+            $.ajax({
+                url: local + '/superManager/superLogin',
+                type: 'post',
+                dataType: 'json',
+                data: JSON.stringify({
+                    'name': $('#superusername').val(),
+                    "password": $('#superpassword').val()
+                }),
+                contentType: 'application/json; charset=UTF-8',
+                timeout: 1000,
+                cache: false
+            })
+                .done(function (data) {
+
+                    if (data.success == true) {
+                        alert(data.message)
+                        window.location.href = 'superindex.html'
+                    } else if (data.success == false) {
+                         alert(data.message)
+                    }
+
+
+                })
+                .fail(function (data) {
+                    alert(data.message)
+                })
+                .always(function () {
+                    console.log("complete");
+                });
+        } else if (((($("#superadmin").val().length == 0) && ($("#superpassword").val().length == 0))) &&
+            ((($("#adminusername").val().length == 0) && ($("#adminpass").val().length == 0))) === 0) {
+            alert("用户名或密码不能为空!")
+        } else {
+            alert("ssdf")
+        }
+    })
 
 
 });

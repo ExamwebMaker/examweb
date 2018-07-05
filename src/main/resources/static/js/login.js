@@ -20,7 +20,7 @@ $(document).ready(function () {
                 $("#password").val("")
             }
             $.ajax({
-                url: "http://fwybgp.natappfree.cc/commonUser/login",
+                url: "/commonUser/login",
                 type: 'POST',
                 dataType: 'json',
                 data: JSON.stringify({
@@ -44,7 +44,7 @@ $(document).ready(function () {
                     $.cookie('phone', data.data.phone)
 
 
-                    window.location.href = "/stdcenter"
+                    window.location.href = "center.html"
                 })
                 .fail(function () {
                     alert("用户名或密码错误!")
