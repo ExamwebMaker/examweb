@@ -17,7 +17,7 @@ $(document).ready(function () {
     });
     $("#signupbtn").click(function (event) {
         $.ajax({
-            url: "commomuser/rigesterCommomUser",
+            url: "http://2wah9t.natappfree.cc/commomuser/rigesterCommomUser",
             type: 'POST',
             dataType: 'json',
             data: JSON.stringify({

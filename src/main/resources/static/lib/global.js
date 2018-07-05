@@ -3,8 +3,14 @@ $(document).ready(function () {
     $("#logout").click(function () {
         $.removeCookie('name')
         $.removeCookie('password')
-        $.cookie('islogin','no')
-        window.location.href='/stdlogin'
+        $.cookie('islogin', 'no')
+        window.location.href = '/stdlogin'
+    })
+    $("#adminlogout").click(function () {
+        $.removeCookie('name')
+        $.removeCookie('password')
+        $.cookie('islogin', 'no')
+        window.location.href = '/adminlogin'
     })
     //  $.session.set(obj)
     // alert($.session.get('obj.abc'))
@@ -16,7 +22,6 @@ $(document).ready(function () {
         setInterval(showsuccess, 5000);
     })
 });
-
 
 
 function showsuccess() {

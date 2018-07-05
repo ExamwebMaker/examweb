@@ -1,7 +1,16 @@
 $(document).ready(function () {
 
     show_time();
+    $("#tologinbtn").click(function () {
+        var flag=$.cookie("islogin")
+        if (flag=='no'||flag==null) {
 
+          location.assign('/stdlogin')
+        }else if(flag=='yes'){
+
+            location.assign("/stdcenter")
+        }
+    })
 
 })
 

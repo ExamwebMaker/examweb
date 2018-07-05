@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    local = ""
+    local = "http://xyppj5.natappfree.cc"
     welcom()
 
     function welcom() {
@@ -9,6 +9,31 @@ $(document).ready(function () {
         alert('请点击左侧导航栏进行操作')
     }
 
+
+
+    $.ajax({
+        uyanniocal + "/superManager/getManagerById/" +02:32 2018/7/6ype: 'POST',
+        dataType: 'json',
+
+        contentType: 'application/json; charset=UTF-8',
+        timeout: 1000,
+        cache: false,
+    })
+        .done(function (data) {
+
+            $("#adminidchange").val(data.data.id)
+            $("#adminnamechange").val(data.data.name);
+            $("#adminpasschange").val(data.data.password)
+
+
+        })
+        .fail(function (data) {
+
+            alert(data.message)
+        })
+        .always(function () {
+            console.log("complete");
+        });
     $("#addadminlink").click(function () {
         $(".col-md-8").hide()
         $("#addadmin").show()
@@ -30,7 +55,46 @@ $(document).ready(function () {
         $("#showgonggaolist").show();
 
         /* Act on the event */
-    });
+    })
+
+
+    /**
+     * @Author: yanni
+     * @Description:接收招生单位
+     * @Date: 11:03 2018/7/5
+     * @Modified By:
+     * @Params:
+     */
+    $.ajax({
+        url: local + '/commonUser/getAllSchools',
+        type: 'post',
+        dataType: 'json',
+
+        contentType: 'application/json; charset=UTF-8',
+        timeout: 1000,
+        cache: false
+    })
+        .done(function (data) {
+
+            if (data.success == true) {
+                $("#zhaoshengdanwei").empty()
+                for (var i = 0; i < data.data.length; i++) {
+                    $("#zhaoshengdanwei").append("<option value='" + data.data[i] + "' >" + data.data[i] + "</option>")
+                }
+                alert(data.message)
+            } else if (data.success == false) {
+                alert(data.message)
+            }
+
+
+        })
+        .fail(function (data) {
+            alert(data.message)
+        })
+        .always(function () {
+            console.log("complete");
+        });
+
     /**
      * @Author: yanni
      * @Description:添加管理员
@@ -46,14 +110,10 @@ $(document).ready(function () {
         }
         else {
             $.ajax({
-                url: local + '/superManager/designAccount',
+                url: local + '/superManager/designAccount/'+$('#adminid').val()+"/"+$('#adminpass1').val()+"/"+$("#zhaoshengdanwei").val(),
                 type: 'post',
                 dataType: 'json',
-                data: JSON.stringify({
-                    'name': $('#adminid').val(),
-                    "phone": "1212121121",
-                    "password": $('#adminpass1').val()
-                }),
+
                 contentType: 'application/json; charset=UTF-8',
                 timeout: 1000,
                 cache: false
@@ -61,8 +121,8 @@ $(document).ready(function () {
                 .done(function (data) {
 
                     if (data.success == true) {
-                        alert(data.message)
-                        window.location.href = 'superindex.html'
+                        console.log(data.message)
+                        window.location.href = '/superindex'
                     } else if (data.success == false) {
                         alert(data.message)
                     }
@@ -70,7 +130,7 @@ $(document).ready(function () {
 
                 })
                 .fail(function (data) {
-                    alert(data.message)
+                    console.log(data.message)
                 })
                 .always(function () {
                     console.log("complete");

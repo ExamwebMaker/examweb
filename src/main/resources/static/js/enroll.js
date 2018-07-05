@@ -4,10 +4,13 @@ $(document).ready(function () {
             alert("请保证自己的信息属实!")
         }
     }
+
+    local = "http://xyppj5.natappfree.cc"
+
     $("#genkaoshenghao").click(function () {
-      chekallowed()
+        chekallowed()
         $.ajax({
-            url: '/commomuser/addExam',
+            url: local + '/commomuser/addExam',
             type: 'post',
             dataType: 'json',
             data: JSON.stringify({
@@ -71,8 +74,39 @@ $(document).ready(function () {
      */
     $("#addNewEnroll").click(function () {
         $(this).hide();
+        $("#showenroll").hide();
+
         $("#announcement").show('slow');
 
+    })
+    $('#showenroll').click(function () {
+        $.ajax({
+            url: local + "/commomuser/lookExam/abd3da72e87d4ee18f6b296d943da364",
+            type: 'post',
+            dataType: 'json',
+
+            contentType: 'application/json; charset=UTF-8',
+            timeout: 1000,
+            cache: false
+        })
+            .done(function (data) {
+                $("#stdname").val(data.data.name)
+                $("#stdexamway").val(data.data.examWay)
+                $("#specialplan").val(data.data.specialPlan)
+                $("#sex").val(data.data.sex)
+                $("#fieldplace").val(data.data.filePlace)
+                $("#certifiatesy").val(data.data.certificateStyle)
+                $("#certificatenum").val(data.data.certificateNumber)
+                $("#wantdepartment").val(data.data.wantDepartmentName)
+                $("#wantmajor").val(data.data.wantMajorName)
+                $("#exampoint").val(data.data.examPointName)
+            })
+            .fail(function () {
+                console.log("error");
+            })
+            .always(function () {
+                console.log("complete");
+            });
     })
     /**
      * @author YangZhengqian
@@ -210,7 +244,7 @@ $(document).ready(function () {
     $("#zhaoshengdanwei1").change(function () {
 
         $.ajax({
-            url: '/commonUser/getSchoolNameByProvince/' + $("#zhaoshengdanwei1").val(),
+            url: local + '/commonUser/getSchoolNameByProvince/' + $("#zhaoshengdanwei1").val(),
             type: 'post',
             dataType: 'json',
 

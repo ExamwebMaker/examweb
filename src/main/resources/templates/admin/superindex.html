@@ -184,6 +184,18 @@
                 <input type="password" name="" id="adminpass2" class="form-control">
                 <small id="passmatch" style="display: none;" class="form-text text-info">两次密码相同!</small>
                 <small id="passdismatch" style="display: none;" class="form-text text-danger">两次密码不同!</small>
+                <label for="zhaoshengdanwei">招生单位</label>
+                <select id="zhaoshengdanwei" class="form-control" name="">
+                    <option value="0">请选择</option>
+                    <option value="合肥工业大学">合肥工业大学</option>
+                    <option value="中国科技大学">中国科技大学</option>
+                    <option value="北京大学">北京大学</option>
+                    <option value="浙江大学">浙江大学</option>
+                    <option value="复旦大学">复旦大学</option>
+                    <option value="武汉大学">武汉大学</option>
+
+
+                </select>
                 <br>
                 <button id="addnewadmin" class="btn btn-outline-primary btn-block">添加</button>
             </div>
@@ -191,14 +203,21 @@
 
     </div>
     <div class="col-md-8" id="addgonggao" style="display: none;">
-        <h2 class="text-center">添加公告</h2>
+        <h2 class="text-center">添加时间</h2>
         <div class="card">
-            <h5 class="card-header">添加公告</h5>
+            <h5 class="card-header">添加时间</h5>
             <div class="card-body">
-                <label for="gonggaotitle">公告标题</label>
-                <input id="gonggaotitle" class="form-control" />
-                <label for="gonggaoneirong">公告内容</label>
-                <textarea class="form-control" rows="3" cols="20" id="gonggaoneirong"></textarea>
+                <label for="baomingkaishiqian">报名开始前</label>
+                <input type="date" id="baomingkaishiqian" class="form-control" />
+                <label for="baomingkaishi">报名开始</label>
+                <input type="date" id="baomingkaishi" class="form-control" />
+                <label for="dayinzhunkaozheng">打印准考证</label>
+                <input type="date" id="dayinzhunkaozheng" class="form-control" />
+                <label for="baomingjieshu">报名结束</label>
+                <input type="date" id="baomingjieshu" class="form-control" />
+                <label for="chushichengji">初试成绩</label>
+                <input type="date" id="chushichengji" class="form-control" />
+
                 <br>
                 <button id="addnewgonggao" class="btn btn-outline-info btn-block">添加</button>
             </div>

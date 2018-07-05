@@ -12,7 +12,14 @@
     <script src="../lib/jquery-3.3.1.js">
 
     </script><script type="application/javascript  " src="../lib/jquery.cookie.js"></script>
-    <script src="../lib/global.js"></script>
+    <script>
+
+        var flag=$.cookie("islogin")
+        if (flag=='no'||flag==null) {
+            alert("请登录")
+            window.location.href='/stdlogin'
+        }
+    </script> <script src="../lib/global.js"></script>
     <script src="../lib/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../lib/index.css">
 
@@ -143,5 +150,6 @@
         <p>Copyright © 2003-2018 系统分析师们 All Rights Reserved</p>
     </div>
 </footer>
+
 </body>
 </html>
