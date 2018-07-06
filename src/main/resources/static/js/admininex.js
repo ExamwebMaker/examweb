@@ -76,7 +76,7 @@ $(document).ready(function () {
                 columnDefs: [{
                     targets: 7,
                     render: function (data, type, row, meta) {
-                        let html = `<a href="javascript:void(0);" style="float:left" class="btn btn-success sure">通过</a><br/><a href="javascript:void(0);" style="float:left;margin-left:5px;margin-top:-15%;" class="btn btn-danger unsure">不通过</a>`
+                        let html = '<a href="javascript:void(0);" style="float:left" class="btn btn-success sure">通过</a><br/><a href="javascript:void(0);" style="float:left;margin-left:5px;margin-top:-15%;" class="btn btn-danger unsure">不通过</a>'
                         return html
                         }
                 }]
@@ -193,7 +193,7 @@ $(document).ready(function () {
                     {
                         targets: 7,
                         render: function (data, type, row, meta) {
-                            let html = `<a href="javascript:void(0);" style="float:left" data-toggle="modal" data-target="#myModal" class="btn btn-success change">修改</a><br/><a href="javascript:void(0);" style="float:left;margin-left:5px;margin-top:-15%;" class="btn btn-danger unsure">不通过</a>`
+                            let html = '<a href="javascript:void(0);" style="float:left" data-toggle="modal" data-target="#myModal" class="btn btn-success change">修改</a><br/><a href="javascript:void(0);" style="float:left;margin-left:5px;margin-top:-15%;" class="btn btn-danger unsure">不通过</a>'
                             return html
                             }
                     }
@@ -361,7 +361,7 @@ $(document).ready(function () {
                         {
                             targets: 7,
                             render: function (data, type, row, meta) {
-                                let html = `<a href="javascript:void(0);" style="float:left;margin-left:5px;margin-top:-15%;" class="btn btn-danger sure">通过</a>`
+                                let html = '<a href="javascript:void(0);" style="float:left;margin-left:5px;margin-top:-15%;" class="btn btn-danger sure">通过</a>'
                                 return html
                                 }
                         }
