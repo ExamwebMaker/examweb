@@ -37,4 +37,12 @@ public interface SchoolService extends IService<School>{
      * @Return:
      */
     public School getSchoolByName(String name);
+
+    /**
+     * @Description: search
+     * @Json:
+     * @Date: 2018/7/6
+     * @Return:
+     */
+    public List<String> search(String learnWay,String subjectId);
 }

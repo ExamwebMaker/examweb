@@ -15,6 +15,7 @@ import java.util.Date;
 public class TimeInfo extends Model<TimeInfo> {
     private String id;
     private String name;
+    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private String content;
     @JsonIgnore
     private Date createTime;

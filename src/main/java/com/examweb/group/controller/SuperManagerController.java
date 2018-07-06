@@ -3,9 +3,11 @@ package com.examweb.group.controller;
 import com.examweb.group.dto.Result;
 import com.examweb.group.entity.Account;
 import com.examweb.group.entity.School;
+import com.examweb.group.entity.TimeInfo;
 import com.examweb.group.mapper.SchoolMapper;
 import com.examweb.group.service.AccountService;
 import com.examweb.group.service.SchoolService;
+import com.examweb.group.service.TimeInfoService;
 import com.examweb.group.utils.ResultUtil;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +17,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -30,12 +34,13 @@ public class SuperManagerController {
 
     private AccountService accountService;
     private SchoolService schoolService;
+    private TimeInfoService timeInfoService;
 
     @Autowired
-    protected SuperManagerController(AccountService accountService, SchoolService schoolService){
+    protected SuperManagerController(AccountService accountService, SchoolService schoolService,TimeInfoService timeInfoService){
         this.accountService=accountService;
         this.schoolService=schoolService;
-
+        this.timeInfoService=timeInfoService;
     }
 
     /**
@@ -250,5 +255,69 @@ public class SuperManagerController {
             e.printStackTrace();
         }
         return ResultUtil.selectError();
+    }
+
+    ///**
+    // * @Description: 超级管理员更新时间
+    // * @Json:
+    // * @Date: 2018/7/6
+    // * @Return:
+    // */
+    //@PostMapping("/updateTime")
+    //@CrossOrigin
+    //public Result updateTime(@RequestBody Map<String,Timestamp> map){
+    //    try {
+    //        for(Map.Entry<String,Timestamp> entry : map.entrySet()){
+    //            //System.out.println(entry.getKey()+":"+entry.getValue());
+    //            String id = entry.getKey();
+    //            //System.out.println(id);
+    //            Timestamp timestamp=timeInfoService.getContentById(id);
+    //            //System.out.println(timestamp);
+    //            if (timestamp!=entry.getValue()){
+    //                TimeInfo timeInfo=new TimeInfo();
+    //                timeInfo=timeInfoService.selectById(id);
+    //                Timestamp timestamp1=entry.getValue();
+    //                timeInfo.setContent(timestamp1);
+    //                timeInfoService.updateById(timeInfo);
+    //            }
+    //
+    //        }
+    //        return ResultUtil.OK();
+    //    }catch (Exception e){
+    //        e.printStackTrace();
+    //    }
+    //    return ResultUtil.fail("失败");
+    //}
+
+    /**
+     * @Description: 超级管理员更新时间
+     * @Json:
+     * @Date: 2018/7/6
+     * @Return:
+     */
+    @PostMapping("/updateTime")
+    @CrossOrigin
+    public Result updateTime(@RequestBody Map<String,String> map){
+        try {
+            for(Map.Entry<String,String> entry : map.entrySet()){
+                //System.out.println(entry.getKey()+":"+entry.getValue());
+                String id = entry.getKey();
+                //System.out.println(id);
+                String content=timeInfoService.getContentById(id);
+                //System.out.println(timestamp);
+                if (content!=entry.getValue()){
+                    TimeInfo timeInfo=new TimeInfo();
+                    timeInfo=timeInfoService.selectById(id);
+                    String newValue=entry.getValue();
+                    timeInfo.setContent(newValue);
+                    timeInfoService.updateById(timeInfo);
+                }
+
+            }
+            return ResultUtil.OK();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResultUtil.fail("失败");
     }
 }

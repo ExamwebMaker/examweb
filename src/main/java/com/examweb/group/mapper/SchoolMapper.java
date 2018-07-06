@@ -52,4 +52,6 @@ public interface SchoolMapper extends BaseMapper<School>{
     @Select("select * from school where name=#{name} and is_delete=0")
     School getSchoolByName(@Param("name")String name);
 
+
+
 }
