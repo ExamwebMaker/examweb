@@ -9,31 +9,44 @@ $(document).ready(function () {
         alert('请点击左侧导航栏进行操作')
     }
 
+    /**
+     * @Author: yanni
+     * @Description:发送时间
+     * @Date: 11:03 2018/7/5
+     * @Modified By:
+     * @Params:
+     */
+    $("#addnewgonggao").click(function () {
 
 
-    $.ajax({
-        uyanniocal + "/superManager/getManagerById/" +02:32 2018/7/6ype: 'POST',
-        dataType: 'json',
+        $.ajax({
+            url: local + '/superManager/updateTime',
+            type: 'post',
+            dataType: 'json',
+            data: JSON.stringify({
+                '1': $("#baomkaishiqian").val(),
+                "2": $("#baomingkaishi").val(),
+                "3": $("#dayinzhunkaozheng").val(),
+                "4": $("#baomingjieshu").val(),
+                "5": $("#kaishikaoshi").val(),
+            }),
+            contentType: 'application/json; charset=UTF-8',
+            timeout: 1000,
+            cache: false
+        })
+            .done(function (data) {
+                alert(data.message)
 
-        contentType: 'application/json; charset=UTF-8',
-        timeout: 1000,
-        cache: false,
+
+            })
+            .fail(function (data) {
+                alert(data.message)
+            })
+            .always(function () {
+                console.log("complete");
+            });
+
     })
-        .done(function (data) {
-
-            $("#adminidchange").val(data.data.id)
-            $("#adminnamechange").val(data.data.name);
-            $("#adminpasschange").val(data.data.password)
-
-
-        })
-        .fail(function (data) {
-
-            alert(data.message)
-        })
-        .always(function () {
-            console.log("complete");
-        });
     $("#addadminlink").click(function () {
         $(".col-md-8").hide()
         $("#addadmin").show()
@@ -110,7 +123,7 @@ $(document).ready(function () {
         }
         else {
             $.ajax({
-                url: local + '/superManager/designAccount/'+$('#adminid').val()+"/"+$('#adminpass1').val()+"/"+$("#zhaoshengdanwei").val(),
+                url: local + '/superManager/designAccount/' + $('#adminid').val() + "/" + $('#adminpass1').val() + "/" + $("#zhaoshengdanwei").val(),
                 type: 'post',
                 dataType: 'json',
 
@@ -358,7 +371,6 @@ $(document).ready(function () {
         .always(function () {
             console.log("complete");
         });
-
 
 
     /**

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../lib/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_529525_39813guke8h93sor.css">
+    <!--<link rel="stylesheet" href="lib/global.css">-->
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/fontawesome.css">
+    <link rel="stylesheet" href="../lib/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../lib/global.css">
+    <script type="text/javascript" src="../lib/jquery-3.3.1.js"></script>
+
+    <script type="text/javascript" src="../lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../lib/dataTables.bootstrap4.min.js"></script>
+
+    <script type="application/javascript  " src="../lib/jquery.cookie.js"></script>
+
+    <style>
+        .con {
+
+            width: 600px;
+            height: auto;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="con border border-dark text-center">
+            <div class="col-md-12">
+                <button id="down" class="btn btn-primary">打印准考证</button>
+            </div>
+            <!--startprint-->
+            <p>姓名&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id="stdname"></span></p>
+            <p>考试方式&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id="stdexamway"></span></p>
+            <p>专项计划&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id="specialplan"></span></p>
+
+            <p>性别&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id="sex"></span></p>
+            <p>档案所在地&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <span id="fieldplace"></span></p>
+
+            <p>证件类型&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id="certifiatesy"></span></p>
+
+            <p>证件号&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id="certificatenum"></span></p>
+
+            <p>报考院系&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id="wantdepartment"></span></p>
+
+            <p>报考专业&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id="wantmajor"></span></p>
+
+            <p>考试点&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id="exampoint"></span></p>
+            <!--endprint-->
+        </div>
+    </div>
+</div>
+
+</div>
+<script>
+
+    $(document).ready(function () {
+        local = 'http://xyppj5.natappfree.cc'
+        $.ajax({
+            url: local + "/commomuser/lookExam/" + $.cookie("accountid"),
+            type: 'post',
+            dataType: 'json',
+
+            contentType: 'application/json; charset=UTF-8',
+            timeout: 1000,
+            cache: false
+        })
+            .done(function (data) {
+                $("#stdname").append(data.data.name)
+                $("#stdexamway").append(data.data.examWay)
+                $("#specialplan").append(data.data.specialPlan)
+                $("#sex").append(data.data.sex)
+                $("#fieldplace").append(data.data.filePlace)
+                $("#certifiatesy").append(data.data.certificateStyle)
+                $("#certificatenum").append(data.data.certificateNumber)
+                $("#wantdepartment").append(data.data.wantDepartmentName)
+                $("#wantmajor").append(data.data.wantMajorName)
+                $("#exampoint").append(data.data.examPointName)
+            })
+            .fail(function () {
+                console.log("error");
+            })
+            .always(function () {
+                console.log("complete");
+            });
+
+        $('#down').click(function () {
+            bdhtml=window.document.body.innerHTML;
+            sprnstr="<!--startprint-->";
+            eprnstr="<!--endprint-->";
+            prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17);
+            prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));
+            window.document.body.innerHTML=prnhtml;
+            window.print();
+        });
+    })
+</script>
+
+</body>
+</html>

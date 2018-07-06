@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    if ($.cookie('islogin')=='yes'){
+    if ($.cookie('islogin') == 'yes') {
         location.assign('/stdcenter')
     }
     $("#username").val($.cookie('name'))
@@ -18,7 +18,7 @@ $(document).ready(function () {
 
                 $.cookie('name', $("#username").val())
                 $.cookie('password', $("#password").val())
-            }else if ($("#rempass").is(":checked")==false){
+            } else if ($("#rempass").is(":checked") == false) {
 
                 $("#username").val("")
                 $("#password").val("")
@@ -39,15 +39,15 @@ $(document).ready(function () {
                 .done(function (data) {
 
                     alert(data.message);
-                    $.cookie('islogin','yes')
-                    $.cookie('accountid', data.data.id)
-                    $.cookie('password', data.data.password)
-                    $.cookie('name', data.data.name)
-                    $.cookie('certificateStyle', data.data.certificateStyle)
-                    $.cookie('certificateNumber', data.data.certificateNumber)
-                    $.cookie('email', data.data.email)
-                    $.cookie('phone', data.data.phone)
-
+                    $.cookie('islogin', 'yes')
+                    $.cookie('accountid', data.data.account.id)
+                    $.cookie('password', data.data.account.password)
+                    $.cookie('name', data.data.account.name)
+                    $.cookie('certificateStyle', data.data.account.certificateStyle)
+                    $.cookie('certificateNumber', data.data.account.certificateNumber)
+                    $.cookie('email', data.data.account.email)
+                    $.cookie('phone', data.data.account.phone)
+                    $.cookie('key', data.data.key)
 
                     window.location.href = "/stdcenter"
                 })

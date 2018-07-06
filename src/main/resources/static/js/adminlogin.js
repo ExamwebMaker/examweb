@@ -1,6 +1,6 @@
 /*login.js*/
 $(document).ready(function () {
-    local = ""
+    local = 'http://empcpd.natappfree.cc/'
 
     $("#loginbutton").click(function () {
         if ((($("#adminusername").val().length > 0) && ($("#adminpassword").val().length > 0)) && (($("#superusername").val().length == 0) && ($("#superpassword").val().length == 0))) {
@@ -48,12 +48,15 @@ $(document).ready(function () {
                 cache: false
             })
                 .done(function (data) {
+
                     if (data.success == true) {
                         alert(data.message)
                         window.location.href = 'superindex.html'
                     } else if (data.success == false) {
                          alert(data.message)
                     }
+
+
                 })
                 .fail(function (data) {
                     alert(data.message)

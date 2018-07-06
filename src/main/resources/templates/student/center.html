@@ -1,25 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <title>主页</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../lib/bootstrap.min.css">
-    <link rel="stylesheet" href="../lib/global.css"/>
-    <script src="../lib/jquery-3.3.1.js">
+<html>
 
-    </script><script type="application/javascript  " src="../lib/jquery.cookie.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>管理员后台</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="shortcut icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../lib/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_529525_39813guke8h93sor.css">
+    <!--<link rel="stylesheet" href="lib/global.css">-->
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../lib/fontawesome.css">
+    <link rel="stylesheet" href="../lib/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="../lib/global.css"/>
+    <script type="text/javascript" src="../lib/jquery-3.3.1.js"></script>
+
+    <script type="text/javascript" src="../lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../lib/dataTables.bootstrap4.min.js"></script>
+
+    <script type="application/javascript  " src="../lib/jquery.cookie.js"></script>
     <script>
 
-        var flag=$.cookie("islogin")
-        if (flag=='no'||flag==null) {
-            alert("请登录")
-            window.location.href='/stdlogin'
-        }
-    </script> <script src="../lib/global.js"></script>
+        // var flag=$.cookie("islogin")
+        // if (flag=='no'||flag==null) {
+        //     alert("请登录")
+        //     window.location.href='/stdlogin'
+        // }
+
+
+    </script>
+    <script src="../lib/global.js"></script>
     <script src="../lib/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../lib/index.css">
 
@@ -57,7 +68,8 @@
         <!--<form class="form-inline my-2 my-lg-0">-->
         <!--<input class="form-control mr-sm-2" type="search" placeholder="搜索..." aria-label="Search">-->
         <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>-->
-        <!--</form>--><a href="/stdaccountedit" class="btn-link">用户信息</a><a id="logout" href="#" class="btn-link text-danger">退出登录</a>
+        <!--</form>--><a href="/stdaccountedit" class="btn-link">用户信息</a><a id="logout" href="#"
+                                                                            class="btn-link text-danger">退出登录</a>
     </div>
 </nav>
 <div class="container">
@@ -84,38 +96,42 @@
                 <div class="col-md-3 p-4 border center-hover">
                     <a href="login.html">初试成绩</a>
                     <br>
-                    <span class="infor-text">2018年成绩查询与要求</span>
+                    <span id="span1" class="noinfor-text">已开通</span>
                 </div>
                 <div class="col-md-3 p-4 border center-hover">
                     <a href="login.html">网报消息</a>
                     <br>
-                    <span class="noinfor-text">未开通</span>
+                    <span id="span2" class="noinfor-text">未开通</span>
                 </div>
                 <div class="col-md-3 p-4 border center-hover">
                     <a href="login.html">在线咨询</a>
                     <br>
-                    <span class="noinfor-text">未开通</span>
+                    <span id="span3" class="noinfor-text">未开通</span>
                 </div>
                 <div class="col-md-3 p-4 border center-hover">
                     <a href="/stdmbaindex">专业目录</a>
                     <br>
-                    <span class="infor-text">已开通</span>
-                </div> <div class="col-md-3 p-4 border center-hover">
+                    <span id="span4" class="infor-text">已开通</span>
+                </div>
+                <div class="col-md-3 p-4 border center-hover">
                     <a href="mbaindex.html">网报公告</a>
                     <br>
-                    <span class="noinfor-text">未开通</span>
-                </div><div class="col-md-3 p-4 border center-hover">
+                    <span id="span5" class="noinfor-text">未开通</span>
+                </div>
+                <div class="col-md-3 p-4 border center-hover">
                     <a href="mbaindex.html">网上调剂</a>
                     <br>
-                    <span class="noinfor-text">未开通</span>
-                </div><div class="col-md-3 p-4 border center-hover">
-                    <a href="mbaindex.html">准考证下载</a>
+                    <span id="span6" class="noinfor-text">未开通</span>
+                </div>
+                <div class="col-md-3 p-4 border center-hover">
+                    <a href="zhunkaozheng.html">准考证下载</a>
                     <br>
-                    <span class="noinfor-text">未开通</span>
-                </div><div class="col-md-3 p-4 border center-hover">
+                    <span id="span7" class="noinfor-text">未开通</span>
+                </div>
+                <div class="col-md-3 p-4 border center-hover">
                     <a href="/stdenroll">网上报名</a>
                     <br>
-                    <span class="infor-text">已开通</span>
+                    <span id="span8" class="noinfor-text">未开通</span>
                 </div>
 
             </div>
@@ -127,19 +143,22 @@
                     <a href="mbaindex.html">录取信息公开</a>
                     <br>
                     <span class="noinfor-text">未开通</span>
-                </div> <div class="col-md-3 p-4 border center-hover">
-                <a href="mbaindex.html">网报公告</a>
-                <br>
-                <span class="noinfor-text">未开通</span>
-            </div><div class="col-md-3 p-4 border center-hover">
-                <a href="mbaindex.html">网上调剂</a>
-                <br>
-                <span class="noinfor-text">未开通</span>
-            </div><div class="col-md-3 p-4 border center-hover">
-                <a href="/stdenroll">网上报名</a>
-                <br>
-                <span class="noinfor-text">未开通</span>
-            </div>
+                </div>
+                <div class="col-md-3 p-4 border center-hover">
+                    <a href="mbaindex.html">网报公告</a>
+                    <br>
+                    <span class="noinfor-text">未开通</span>
+                </div>
+                <div class="col-md-3 p-4 border center-hover">
+                    <a href="mbaindex.html">网上调剂</a>
+                    <br>
+                    <span class="noinfor-text">未开通</span>
+                </div>
+                <div class="col-md-3 p-4 border center-hover">
+                    <a href="/stdenroll">网上报名</a>
+                    <br>
+                    <span class="noinfor-text">未开通</span>
+                </div>
             </div>
         </div>
     </div>
@@ -150,6 +169,58 @@
         <p>Copyright © 2003-2018 系统分析师们 All Rights Reserved</p>
     </div>
 </footer>
+<script>
+    $(document).ready(function () {
 
+
+        switch ($.cookie('key')) {
+            case null:
+                for (i = 2; i < 6; i++) {
+                    $("#span" + i).removeClass('noinfor-text')
+                    $("#span" + i).html('已开通')
+                    $("#span" + i).addClass('infor-text')
+                }
+                break;
+            case "1":
+                for (i = 2; i < 6; i++) {
+                    $("#span" + i).removeClass('noinfor-text')
+                    $("#span" + i).html('已开通')
+                    $("#span" + i).addClass('infor-text')
+                }
+                break;
+            case "2":
+                for (i = 2; i < 6; i++) {
+                    $("#span" + i).removeClass('noinfor-text')
+                    $("#span" + i).html('已开通')
+                    $("#span" + i).addClass('infor-text')
+                }
+                $("#span8").html("已开通")
+                $("#span8").addClass('infor-text')
+                break;
+            case "3":
+                for (i = 2; i < 6; i++) {
+                    $("#span" + i).removeClass('noinfor-text')
+                    $("#span" + i).html('已开通')
+                    $("#span" + i).addClass('infor-text')
+                }
+                $("#span7").html("已开通")
+                $("#span7").addClass('infor-text')
+                break;
+            case '4':
+                for (i = 2; i < 6; i++) {
+                    $("#span" + i).removeClass('noinfor-text')
+                    $("#span" + i).html('已开通')
+                    $("#span" + i).addClass('infor-text')
+                }
+                break;
+            case '5':
+                for (i = 1; i < 7; i++) {
+                    $("#span" + i).removeClass('noinfor-text')
+                    $("#span" + i).html('已开通')
+                    $("#span" + i).addClass('infor-text')
+                }
+        }
+    });
+</script>
 </body>
 </html>

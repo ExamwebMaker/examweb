@@ -81,7 +81,7 @@ $(document).ready(function () {
     })
     $('#showenroll').click(function () {
         $.ajax({
-            url: local + "/commomuser/lookExam/abd3da72e87d4ee18f6b296d943da364",
+            url: local + "/commomuser/lookExam/"+$.cookie("accountid"),
             type: 'post',
             dataType: 'json',
 
@@ -247,13 +247,11 @@ $(document).ready(function () {
             url: local + '/commonUser/getSchoolNameByProvince/' + $("#zhaoshengdanwei1").val(),
             type: 'post',
             dataType: 'json',
-
             contentType: 'application/json; charset=UTF-8',
             timeout: 1000,
             cache: false
         })
             .done(function (data) {
-
                 $("#zhaoshengdanwei2").empty()
                 for (var i = 0; i < data.data.length; i++) {
 

@@ -11,7 +11,16 @@
     <link rel="stylesheet" href="../lib/bootstrap.min.css">
     <link rel="stylesheet" href="../lib/global.css"/>
     <link rel="stylesheet" href="../lib/mbaindex.css">
+    <link rel="shortcut icon" href="https://favicon.yandex.net/favicon/google.cn">
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../lib/fontawesome.css">
+    <link rel="stylesheet" href="../lib/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="../lib/global.css"/>
+    <script type="text/javascript" src="../lib/jquery-3.3.1.js"></script>
 
+    <script type="text/javascript" src="../lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../lib/dataTables.bootstrap4.min.js"></script>
 
 </head>
 <body>
@@ -145,9 +154,9 @@
             </td>
             <td>
                 <span class="text-danger">*</span>
-                <label  for="yjxkdm">&nbsp;&nbsp;&nbsp;学科类别</label></td>
+                <label for="yjxkdm">&nbsp;&nbsp;&nbsp;学科类别</label></td>
             <td align="left">
-                <select class="form-control" name="yjxkdm" id="yjxkdm"  onchange="initZy();">
+                <select class="form-control" name="yjxkdm" id="yjxkdm">
                     <option value="">--选择学科类别--</option>
                     <option value="0101">(0101)哲学</option>
                     <option value="0201">(0201)理论经济学</option>
@@ -353,19 +362,103 @@
         </tr>
 
         <tr>
-            <td class="text-center" colspan="4"><input type="button" name="button"
-                                                       onclick="return zsmlSearchFormCheck()"
+            <td class="text-center" colspan="4"><input id="searchbtn" type="button" name="button"
+
                                                        class="btn btn-primary btn-lg"
                                                        value="查询"></td>
         </tr>
 
         </tbody>
     </table>
-</div><footer class="foot">
-    <div class="text-center">
-        <p>由王瑞,郑秋果,张嘉欣,杨正谦制作</p>
-        <p>Copyright © 2003-2018 系统分析师们 All Rights Reserved</p>
+    <div class="col-md-12">
+
+        <table class="table table-bordered table-hover" id="searchout">
+            <thead>
+            <tr>
+                <th>名称</th>
+                <th>省市</th>
+                <th>地址</th>
+                <th>修改</th>
+
+            </tr>
+            </thead>
+
+
+        </table>
     </div>
-</footer>
+</div>
+
+<script>
+    $(document).ready(function () {
+        local = 'http://xyppj5.natappfree.cc'
+        $("#searchbtn").click(function () {
+
+
+            $.ajax({
+                url: local + '/commomuser/search/1/全日制',
+                type: 'post',
+                dataType: 'json',
+                contentType: 'application/json; charset=UTF-8',
+                timeout: 1000,
+                cache: false
+            })
+                .done(function (data) {
+                    $("#searchout").dataTable({
+                        "data": data.data,
+                        "aLengthMenu": [5, 10, 15, 20, 25], //更改显示记录数选项     "iDisplayLength" : 2, //默认显示的记录数
+                        "bLengthChange": true,                  //是否允许用户自定义每页显示条数。
+                        "bPaginate": true,                      //是否分页。
+                        "bProcessing": true,                    //当datatable获取数据时候是否显示正在处理提示信息。
+                        "sPaginationType": 'full_numbers',      //分页样式
+                        "columns": [
+                            {"data": "name"},
+                            {"data": "province"},
+                            {"data": "address"},
+                            {
+                                "data": null
+                            }
+
+
+                        ],
+                        language: {
+                            "sProcessing": "处理中...",
+                            "sLengthMenu": "显示 _MENU_ 项结果",
+                            "sZeroRecords": "没有匹配结果",
+                            "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                            "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                            "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                            "sInfoPostFix": "",
+                            "sSearch": "搜索:",
+                            "sUrl": "",
+                            "sEmptyTable": "表中数据为空",
+                            "sLoadingRecords": "载入中...",
+                            "sInfoThousands": ",",
+                            "oPaginate": {
+                                "sFirst": "首页",
+                                "sPrevious": "上页",
+                                "sNext": "下页",
+                                "sLast": "末页"
+                            },
+                            "oAria": {
+                                "sSortAscending": ": 以升序排列此列",
+                                "sSortDescending": ": 以降序排列此列"
+                            }
+                        }, columnDefs: [{
+                            targets: 3,
+                            render: function (data, type, row, meta) {
+                                return "<a  class='btn btn-primary' href='#' >修改</a>"
+                            }
+                        }]
+
+                    })
+                })
+                .fail(function (data) {
+                })
+                .always(function () {
+                    console.log("complete");
+                });
+        })
+    })
+</script>
 </body>
 </html>
