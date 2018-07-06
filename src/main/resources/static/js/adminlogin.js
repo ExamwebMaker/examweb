@@ -1,6 +1,6 @@
 /*login.js*/
 $(document).ready(function () {
-    local = 'http://empcpd.natappfree.cc/'
+    local = ''
 
     $("#loginbutton").click(function () {
         if ((($("#adminusername").val().length > 0) && ($("#adminpassword").val().length > 0)) && (($("#superusername").val().length == 0) && ($("#superpassword").val().length == 0))) {

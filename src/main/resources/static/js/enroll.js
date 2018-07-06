@@ -5,7 +5,7 @@ $(document).ready(function () {
         }
     }
 
-    local = "http://xyppj5.natappfree.cc"
+    local = ""
 
     $("#genkaoshenghao").click(function () {
         chekallowed()

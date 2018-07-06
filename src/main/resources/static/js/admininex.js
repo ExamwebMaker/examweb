@@ -8,7 +8,7 @@
 
 $(document).ready(function () {
     $("#showkaoshengtable").show()
-    local = "http://rhg28g.natappfree.cc"
+    local = ""
     $("#showkaosheng").click(function () {
         $("#showkaoshengtable").show()
     })

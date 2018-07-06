@@ -24,7 +24,7 @@ $(document).ready(function () {
                 $("#password").val("")
             }
             $.ajax({
-                url: "http://xyppj5.natappfree.cc/commomuser/login",
+                url: "/commomuser/login",
                 type: 'POST',
                 dataType: 'json',
                 data: JSON.stringify({
