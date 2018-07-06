@@ -3,8 +3,11 @@ package com.examweb.group.controller;
 import com.examweb.group.dto.Result;
 import com.examweb.group.entity.Account;
 import com.examweb.group.entity.Examinee;
+import com.examweb.group.entity.School;
 import com.examweb.group.service.AccountService;
 import com.examweb.group.service.ExamineeService;
+import com.examweb.group.service.SchoolService;
+import com.examweb.group.service.TimeInfoService;
 import com.examweb.group.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -14,9 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.sql.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @Author: Jessiecaicai
@@ -29,11 +32,15 @@ public class CommonUserController {
 
     private AccountService accountService;
     private ExamineeService examineeService;
+    private TimeInfoService timeInfoService;
+    private SchoolService schoolService;
 
     @Autowired
-    protected CommonUserController(AccountService accountService,ExamineeService examineeService){
+    protected CommonUserController(AccountService accountService,ExamineeService examineeService,TimeInfoService timeInfoService,SchoolService SchoolService){
         this.accountService=accountService;
         this.examineeService=examineeService;
+        this.timeInfoService=timeInfoService;
+        this.schoolService=SchoolService;
     }
 
     ///**
@@ -219,6 +226,27 @@ public class CommonUserController {
         if (password==null||password.trim().isEmpty()){
             return ResultUtil.fail("输入密码不能为空");
         }
+
+        String key = null;
+        for( int i=1;i<=5;i++){
+            String s=Integer.toString(i);
+            //获取当前系统状态
+            //System.out.println(s);
+            String content=timeInfoService.getContentById(s);
+            //System.out.println(content);
+            String workContent=content.substring(0,19);
+            //System.out.println(workContent);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date date=new Date(System.currentTimeMillis());
+            String nowTime=sdf.format(date);
+            //System.out.println(nowTime);
+            if (workContent.compareTo(nowTime)<0){
+                key=s;
+                System.out.println("key的值为："+key);
+            }
+        }
+        //System.out.println(key);
+
         try {
             if (accountService.checkAccoutIsExist(name,password)==0){
                 Account accountGet=accountService.getAccountByNameAndPassword(name,password);
@@ -229,7 +257,10 @@ public class CommonUserController {
                 //session.setAttribute("certificateStyle",accountGet.getCertificateStyle());
                 //session.setAttribute("crtificateNumber",accountGet.getCertificateNumber());
                 //System.out.print(accountGet.getAccountStyle());
-                return ResultUtil.OK(accountGet);
+                Map<String,Object> map=new HashMap<>();
+                map.put("account",accountGet);
+                map.put("key",key);
+                return ResultUtil.OK(map);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -260,4 +291,28 @@ public class CommonUserController {
        return ResultUtil.updateError();
    }
 
+   /**
+    * @Description: 普通用户进行search
+    * @Json:
+    * @Date: 2018/7/6
+    * @Return:
+    */
+   @PostMapping("/search/{subjectId}/{learnWay}")
+    @CrossOrigin
+    public Result search(@PathVariable("subjectId")String subjectId,@PathVariable("learnWay")String learnWay){
+       List<String> list=schoolService.search(learnWay,subjectId);
+       //System.out.println();
+       List<School> schoolList=new ArrayList<>();
+       School school=new School();
+       try {
+           for(String schoolName:list){
+               school=schoolService.getSchoolByName(schoolName);
+               schoolList.add(school);
+           }
+           return ResultUtil.OK(schoolList);
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+       return ResultUtil.selectError();
+   }
 }
