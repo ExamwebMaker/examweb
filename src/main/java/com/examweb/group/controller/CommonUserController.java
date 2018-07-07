@@ -148,43 +148,51 @@ public class CommonUserController {
     * @Return:
     */
    @PostMapping("/addExam")
-   @CrossOrigin
-    public Result addExam(@RequestBody @Valid Examinee examinee, BindingResult bindingResult){
-       if (bindingResult.hasErrors()){
-           return ResultUtil.fail(bindingResult.getAllErrors().toString());
+       @CrossOrigin
+        public Result addExam(@RequestBody @Valid Examinee examinee, BindingResult bindingResult){
+           if (bindingResult.hasErrors()){
+               return ResultUtil.fail(bindingResult.getAllErrors().toString());
+           }
+           String accountId;
+           accountId=examinee.getAccount_id();
+           Examinee examineeChange;
+           examineeChange=examineeService.getExamineeByAccountId(accountId);
+           if(examineeChange==null){
+               try {
+                   //System.out.print(examinee.toString());
+                   examinee.setId(UUID.randomUUID().toString().replaceAll("-",""));
+                   ///examinee.setAccount_id();
+                   examinee.setUpdateTime(new Date(System.currentTimeMillis()));
+                   examinee.setCreateTime(new Date(System.currentTimeMillis()));
+                   examinee.setIsDelete("0");
+                   examinee.setIsCheck("1");
+                   System.out.print(examinee.toString());
+                   examineeService.insert(examinee);
+                   return ResultUtil.OK();
+               }catch (Exception e){
+                   e.printStackTrace();
+                   return ResultUtil.fail("新增失败");
+               }
+           }else if (examineeChange!=null) {
+               try {
+                   examineeChange.setIsDelete("1");
+                   examineeService.updateById(examineeChange);
+                   System.out.print(examinee.toString());
+                   examinee.setId(UUID.randomUUID().toString().replaceAll("-", ""));
+                   examinee.setUpdateTime(new Date(System.currentTimeMillis()));
+                   examinee.setCreateTime(new Date(System.currentTimeMillis()));
+                   examinee.setIsDelete("0");
+                   examinee.setIsCheck("1");
+                   System.out.print(examinee.toString());
+                   examineeService.insert(examinee);
+                   return ResultUtil.OK();
+               } catch (Exception e) {
+                   e.printStackTrace();
+                   return ResultUtil.fail("新增失败");
+               }
+           }
+           return ResultUtil.fail("新增失败");
        }
-       String accountId;
-       accountId=examinee.getAccount_id();
-       Examinee examineeChange=new Examinee();
-       examineeChange=examineeService.getExamineeByAccountId(accountId);
-       examineeChange.setIsDelete("1");
-       examineeService.updateById(examineeChange);
-       try {
-           System.out.print(examinee.toString());
-           examinee.setId(UUID.randomUUID().toString().replaceAll("-",""));
-           //Account account=(Account) session.getAttribute("account");
-
-           //Account account=new Account();
-           //account=accountService.selectById(accountId);
-           //String name=account.getName();
-           //String certificateStyle=account.getCertificateStyle();
-           //String certificateNumber=account.getCertificateNumber();
-           //examinee.setName(name);
-           //examinee.setCertificateStyle(certificateStyle);
-           //examinee.setCertificateNumber(certificateNumber);
-           //examinee.setAccount_id(accountId);
-           examinee.setUpdateTime(new Date(System.currentTimeMillis()));
-           examinee.setCreateTime(new Date(System.currentTimeMillis()));
-           examinee.setIsDelete("0");
-           examinee.setIsCheck("1");
-           System.out.print(examinee.toString());
-           examineeService.insert(examinee);
-           return ResultUtil.OK();
-       }catch (Exception e){
-           e.printStackTrace();
-       }
-       return ResultUtil.fail("新增失败");
-   }
 
    /**
     * @Description: 用户查看报名信息
