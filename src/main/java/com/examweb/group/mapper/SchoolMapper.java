@@ -1,6 +1,7 @@
 package com.examweb.group.mapper;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+//import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.examweb.group.entity.School;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -14,7 +15,7 @@ import java.util.List;
  * @Date:Created in 2018/7/3
  */
 @Component
-public interface SchoolMapper extends BaseMapper<School>{
+public interface SchoolMapper extends BaseMapper<School> {
 
     /**
      * @Description: 根据province取出学校list

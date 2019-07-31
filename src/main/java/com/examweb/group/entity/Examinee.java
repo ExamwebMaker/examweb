@@ -1,6 +1,7 @@
 package com.examweb.group.entity;
 
-import com.baomidou.mybatisplus.activerecord.Model;
+//import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -16,7 +17,7 @@ import java.util.Date;
  */
 @Data
 @NoArgsConstructor
-public class Examinee extends Model<Examinee>{
+public class Examinee extends Model<Examinee> {
     private String id;
     private String examWay;
     private String zhaoshengUnit;

@@ -41,7 +41,7 @@ $(document).ready(function () {
             .always(function () {
                 console.log("complete");
             });
-        $.cookie('accountid',$.cookie('accountid'))
+        $.cookie('accountid', $.cookie('accountid'))
         $.cookie('password', $("#passwordinput").val())
         $.cookie('name', $("#nameinput").val())
         $.cookie('certificateStyle', $("#credentialtype").val())

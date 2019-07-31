@@ -1,6 +1,7 @@
 package com.examweb.group.service.impl;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+//import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.examweb.group.entity.School;
 import com.examweb.group.mapper.CommonMapper;
 import com.examweb.group.mapper.SchoolMapper;

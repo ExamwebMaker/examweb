@@ -1,6 +1,7 @@
 package com.examweb.group.service;
 
-import com.baomidou.mybatisplus.service.IService;
+//import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.examweb.group.entity.Examinee;
 import com.github.pagehelper.PageInfo;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * @Description:
  * @Date:Created in 2018/7/4
  */
-public interface ExamineeService extends IService<Examinee>{
+public interface ExamineeService extends IService<Examinee> {
     /**
      * @Description: 根据招生单位返回报考信息（含全部审核状态），isDelete为0，无分页
      * @Json:

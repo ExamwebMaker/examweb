@@ -30,7 +30,9 @@ public class PageController {
     @CrossOrigin
     public String index2() {
         return "student/index";
-    }    @RequestMapping(value = "/zhunkao", method = RequestMethod.GET)
+    }
+
+    @RequestMapping(value = "/zhunkao", method = RequestMethod.GET)
     @CrossOrigin
     public String zhun() {
         return "student/zhunkaozheng";

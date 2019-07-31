@@ -1,6 +1,7 @@
 package com.examweb.group.entity;
 
-import com.baomidou.mybatisplus.activerecord.Model;
+//import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -12,7 +13,7 @@ import java.util.Date;
  * @Description:
  * @Date:Created in 2018/7/3
  */
-public class School extends Model<School>{
+public class School extends Model<School> {
 
     private String id;
     private String address;

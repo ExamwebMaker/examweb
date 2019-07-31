@@ -1,6 +1,7 @@
 package com.examweb.group.entity;
 
-import com.baomidou.mybatisplus.activerecord.Model;
+//import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

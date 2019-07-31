@@ -1,6 +1,7 @@
 package com.examweb.group.service;
 
-import com.baomidou.mybatisplus.service.IService;
+//import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.examweb.group.entity.School;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -12,7 +13,7 @@ import java.util.List;
  * @Description:
  * @Date:Created in 2018/7/3
  */
-public interface SchoolService extends IService<School>{
+public interface SchoolService extends IService<School> {
 
     /**
      * @Description: 根据province取出学校list
