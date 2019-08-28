@@ -147,6 +147,7 @@ public class CommonUserController {
     * @Date: 2018/7/4
     * @Return:
     */
+
    @RequestMapping("/addExam")
    @CrossOrigin
     public Result addExam(@RequestBody @Valid Examinee examinee, BindingResult bindingResult){
@@ -182,9 +183,8 @@ public class CommonUserController {
            return ResultUtil.OK();
        }catch (Exception e){
            e.printStackTrace();
+
        }
-       return ResultUtil.fail("新增失败");
-   }
 
    /**
     * @Description: 用户查看报名信息
