@@ -1,0 +1,86 @@
+file:
+  location: /var/courses/files/
+jodconverter:
+  enabled: true
+  max-tasks-per-process: 5
+  office-home: /opt/openoffice4
+  port-numbers: 8101, 8102, 8103, 8104, 8105
+  working-dir: /var/courses/offworkdir
+mybatis:
+  configuration:
+    cache-enabled: true
+mybatis-plus:
+  configuration:
+    cache-enabled: true
+    map-underscore-to-camel-case: true
+  global-config:
+    db-column-underline: true
+    field-strategy: 2
+    id-type: 2
+    logic-delete-value: 0
+    logic-not-delete-value: 1
+    refresh-mapper: true
+  mapper-locations: classpath:/mapper/*Mapper
+  type-aliases-package: com.examweb.group.entity
+net:
+  path: http://127.0.0.1:8080/
+server:
+  port: 8048
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      filters: stat,wall,log4j
+      initial-size: 10
+      max-active: 100
+      max-pool-prepared-statement-per-connection-size: -1
+      max-wait: 60000
+      min-evictable-idle-time-millis: 300000
+      min-idle: 5
+      password: 123456
+      pool-prepared-statements: false
+      stat-view-servlet:
+        enabled: true
+        loginPassword: admin
+        loginUsername: admin
+        resetEnable: false
+        urlPattern: /druid/*
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      url: jdbc:mysql://localhost:3306/examweb
+      username: root
+      validation-query: SELECT 'x'
+      validation-query-timeout: 60000
+      web-stat-filter:
+        enabled: true
+        exclusions: '*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*'
+        principalCookieName: xxx.user
+        principalSessionName: xxx.user
+        profile-enable: false
+        session-stat-enable: false
+        session-stat-max-count: 1000
+        url-pattern: /*
+  http:
+    encoding:
+      charset: UTF-8
+      force-response: true
+  mail:
+    host: smtp.163.com
+    password: 6XUIdbHFH3L
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+    username: arunning6@163.com
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${file.location}
+  thymeleaf:
+    cache: 'true '
+    check-template: false
+    mode: HTML
+

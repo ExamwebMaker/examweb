@@ -52,7 +52,7 @@ public class SuperManagerController {
      * @Date: 2018/7/3
      * @Return:
      */
-    @PostMapping("/superLogin")
+    @RequestMapping("/superLogin")
     @CrossOrigin
     public Result superLogin(@RequestBody Account account, HttpSession session) {
         String name=account.getName();
@@ -87,7 +87,7 @@ public class SuperManagerController {
      * @Date: 2018/7/3
      * @Return:
      */
-   @PostMapping("/designAccount/{name}/{password}/{zhaoshengUnit}")
+   @RequestMapping("/designAccount/{name}/{password}/{zhaoshengUnit}")
    @CrossOrigin
     public Result designAccount(@PathVariable("name")String name,@PathVariable("password")String password,@PathVariable("zhaoshengUnit")String zhaoshengUnit){
        //,@PathVariable("phone")String phone
@@ -127,7 +127,7 @@ public class SuperManagerController {
            account.setUpdateTime(new Date(System.currentTimeMillis()));
            account.setIsDelete("0");
            System.out.println(account.toString());
-           accountService.insert(account);
+           accountService.save(account);
            school.setAccountId(account.getId());
            school.setUpdateTime(new Date(System.currentTimeMillis()));
            schoolService.updateById(school);
@@ -144,7 +144,7 @@ public class SuperManagerController {
     * @Date: 2018/7/4
     * @Return:
     */
-   @PostMapping("/selectManager/{pageNum}")
+   @RequestMapping("/selectManager/{pageNum}")
    @CrossOrigin
     public Result selectManager(@PathVariable("pageNum") Integer pageNum){
        if (pageNum<=0){
@@ -165,7 +165,7 @@ public class SuperManagerController {
     * @Date: 2018/7/5
     * @Return:
     */
-    @PostMapping("/updateManager")
+    @RequestMapping("/updateManager")
     @CrossOrigin
     public Result updateManager(@RequestBody @Valid Account account,BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
@@ -177,7 +177,7 @@ public class SuperManagerController {
         String password=account.getPassword();
         try {
             Account accountGet;
-            accountGet=accountService.selectById(id);
+            accountGet=accountService.getById(id);
             accountGet.setName(name);
             accountGet.setPassword(password);
             System.out.print(accountGet.toString());
@@ -196,12 +196,12 @@ public class SuperManagerController {
      * @Date: 2018/7/5
      * @Return:
      */
-    @PostMapping("/deleteManager/{id}")
+    @RequestMapping("/deleteManager/{id}")
     @CrossOrigin
     public Result deleteManager(@PathVariable("id")String id){
         try {
             Account account=new Account();
-            account=accountService.selectById(id);
+            account=accountService.getById(id);
             account.setIsDelete("1");
             if (accountService.updateById(account)){
              return ResultUtil.OK(account);
@@ -219,7 +219,7 @@ public class SuperManagerController {
      * @Date: 2018/7/5
      * @Return:
      */
-    @PostMapping("/getManagerById/{id}")
+    @RequestMapping("/getManagerById/{id}")
     @CrossOrigin
     public Result getManagerById(@PathVariable("id")String id){
         if (id==null||id.trim().isEmpty()){
@@ -227,7 +227,7 @@ public class SuperManagerController {
         }
         try {
             Account account=new Account();
-            account=accountService.selectById(id);
+            account=accountService.getById(id);
             System.out.print(account.toString());
             return ResultUtil.OK(account);
         }catch (Exception e){
@@ -242,7 +242,7 @@ public class SuperManagerController {
      * @Date: 2018/7/5
      * @Return:
      */
-    @PostMapping("/getAllAcounts/{PageNum}")
+    @RequestMapping("/getAllAcounts/{PageNum}")
     @CrossOrigin
     public Result getAllAcounts(@PathVariable("PageNum")Integer PageNum){
         if (PageNum<=0){
@@ -263,7 +263,7 @@ public class SuperManagerController {
     // * @Date: 2018/7/6
     // * @Return:
     // */
-    //@PostMapping("/updateTime")
+    //@RequestMapping("/updateTime")
     //@CrossOrigin
     //public Result updateTime(@RequestBody Map<String,Timestamp> map){
     //    try {
@@ -295,7 +295,7 @@ public class SuperManagerController {
      * @Date: 2018/7/6
      * @Return:
      */
-    @PostMapping("/updateTime")
+    @RequestMapping("/updateTime")
     @CrossOrigin
     public Result updateTime(@RequestBody Map<String,String> map){
         try {
@@ -307,7 +307,7 @@ public class SuperManagerController {
                 //System.out.println(timestamp);
                 if (content!=entry.getValue()){
                     TimeInfo timeInfo=new TimeInfo();
-                    timeInfo=timeInfoService.selectById(id);
+                    timeInfo=timeInfoService.getById(id);
                     String newValue=entry.getValue();
                     timeInfo.setContent(newValue);
                     timeInfoService.updateById(timeInfo);

@@ -34,7 +34,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("考研报考系统API")
                 //.contact("工大管院学子")
-                .version("1.0")
+                .version("1.0.2")
                 .build();
     }
 }

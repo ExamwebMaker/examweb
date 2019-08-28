@@ -1,133 +1,143 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8"/>
+  <head>
+    <meta charset="utf-8" />
     <title>用户中心</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="../lib/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../lib/enroll.css">
-    <link rel="shortcut icon" href="https://favicon.yandex.net/favicon/google.cn">
-    <link rel="stylesheet" href="../lib/global.css">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_529525_xriuqkrnzf.css">
-    <link rel="stylesheet" href="../lib/accountedit.css">
-    <script src="../lib/jquery-3.3.1.js"></script>
-    <script src="../lib/bootstrap.min.js"></script>
-    <script src="../js/accountedit.js"></script>
-    <script src="../lib/jquery.cookie.js"></script>
-</head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link href="../lib/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../lib/enroll.css" />
+    <link
+      rel="shortcut icon"
+      href="https://favicon.yandex.net/favicon/google.cn"
+    />
+    <link rel="stylesheet" href="../lib/global.css" />
+    <link
+      rel="stylesheet"
+      href="//at.alicdn.com/t/font_529525_xriuqkrnzf.css"
+    />
+    <link rel="stylesheet" href="../lib/accountedit.css" />
+  </head>
 
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
         <i class="iconfont icon-zhuye"></i>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">主页<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">学籍查询</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">学历查询</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">在线验证</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">学历与成绩认证</a>
-            </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/index"
+              >主页<span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">学籍查询</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">学历查询</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">在线验证</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">学历与成绩认证</a>
+          </li>
         </ul>
         <!--<form class="form-inline my-2 my-lg-0">-->
         <!--<input class="form-control mr-sm-2" type="search" placeholder="搜索..." aria-label="Search">-->
         <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>-->
         <!--</form>-->
         <a class="btn-link" href="#">用户信息</a>
-    </div>
-</nav>
-<div class="container">
-
-    <h2 class="text-center">账号信息</h2>
-    <div class="row">
+      </div>
+    </nav>
+    <div class="container">
+      <h2 class="text-center">账号信息</h2>
+      <div class="row">
         <div class="col-md-2"></div>
         <div class="right-box">
-            <ul class="zhsz-list clearfix">
-                <li id="setName"><!--姓名区域开始-->
+          <ul class="zhsz-list clearfix">
+            <li id="setName">
+              <!--姓名区域开始-->
 
+              <h4>姓名</h4>
+              <strong id="name"></strong>
+              <div class="zl-right">
+                <a>
+                  <a href="#" class="change" id="changename">修改</a>
+                </a>
+              </div>
+            </li>
+            <li>
+              <!-- 密码区域开始 -->
 
+              <h4>密码</h4>
+              <strong id="password"></strong>
+              <div class="zl-right">
+                <a href="#" class="change" id="changepassword">修改</a>
+              </div>
 
-                    <h4>姓名</h4>
-                    <strong id="name"></strong>
-                    <div class="zl-right"><a>
-                        <a href="#" class="change" id="changename"
-                        >修改</a>
-                    </a></div>
+              <!-- 密码区域结束-->
+            </li>
 
+            <li>
+              <!--证件号码开始-->
 
-                </li>
-                <li><!-- 密码区域开始 -->
-                    
-                    <h4>密码</h4>
-                    <strong id="password"></strong>
-                    <div class="zl-right">
-                        <a href="#" class="change" id="changepassword"
-                        >修改</a>
-                    </div>
+              <h4>证件类型/证件号码</h4>
+              <strong id="zhengjianhao"></strong>
+              <div class="zl-right">
+                &nbsp;
+                <a href="#" class="change" id="changezhengjianhao">修改</a>
+              </div>
+            </li>
+            <li id="setPhone">
+              <!-- 手机号码区域开始-->
 
-                    <!-- 密码区域结束-->
-                </li>
+              <h4>手机号<span class="color2ea">（已绑定）</span></h4>
+              <strong id="phonenum"></strong>
+              &nbsp;&nbsp;&nbsp;<span class="color666 phone-en-msg"
+                >(仅绑定大陆地区手机的用户)</span
+              >
+              <div class="zl-right">
+                <a href="#" class="change" id="changephone">修改</a>
+              </div>
+            </li>
+            <li id="setEmail">
+              <!-- 安全邮箱区域开始 -->
 
-
-                <li><!--证件号码开始-->
-
-
-                  
-                    <h4>证件类型/证件号码</h4>
-                    <strong id="zhengjianhao"></strong>
-                    <div class="zl-right">&nbsp;
-                    <a href="#" class="change" id="changezhengjianhao"
-                    >修改</a></div>
-
-                </li>
-                <li id="setPhone"><!-- 手机号码区域开始-->
-
-                    
-                    <h4>手机号<span class="color2ea">（已绑定）</span></h4>
-                    <strong id="phonenum"></strong>
-                    &nbsp;&nbsp;&nbsp;<span class="color666 phone-en-msg">(仅绑定大陆地区手机的用户)</span>
-                    <div class="zl-right">
-                        <a href="#" class="change" id="changephone"
-                        >修改</a>
-                    </div>
-
-
-                </li>
-                <li id="setEmail">
-                    <!-- 安全邮箱区域开始 -->
-
-
-                    
-                    <h4>安全邮箱<span class="color2ea">（已绑定）</span></h4>
-                    <strong id="myemail"></strong>&nbsp;
-                    <div class="zl-right">
-                        <a href="#" class="change" id="changeemail"
-                        >修改</a>
-                    </div>
-
-
-                </li>
-
-            </ul>
-            <button style="display: none" class="btn btn-primary btn-block" id="changeall">修改</button>
+              <h4>安全邮箱<span class="color2ea">（已绑定）</span></h4>
+              <strong id="myemail"></strong>&nbsp;
+              <div class="zl-right">
+                <a href="#" class="change" id="changeemail">修改</a>
+              </div>
+            </li>
+          </ul>
+          <button
+            style="display: none"
+            class="btn btn-primary btn-block"
+            id="changeall"
+          >
+            修改
+          </button>
         </div>
+      </div>
     </div>
-</div>
-
-</body>
+    <script src="../lib/jquery-3.3.1.js"></script>
+    <script src="../lib/bootstrap.bundle.min.js"></script>
+    <script src="../js/accountedit.js"></script>
+    <script src="../lib/jquery.cookie.js"></script>
+  </body>
 </html>

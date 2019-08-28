@@ -38,7 +38,7 @@ public class CommonManagerController {
      * @Date: 2018/7/4
      * @Return:
      */
-    @PostMapping("/examinee/{zhaoshengUnit}/{pageNum}")
+    @RequestMapping("/examinee/{zhaoshengUnit}/{pageNum}")
     @CrossOrigin
     public Result schoolExaminee(@PathVariable(value = "zhaoshengUnit")String zhaoshengUnit,@PathVariable(value = "pageNum")Integer pageNum){
         if (pageNum<=0){
@@ -62,7 +62,7 @@ public class CommonManagerController {
      * @Date: 2018/7/3
      * @Return:
      */
-    @PostMapping("/managerLogin")
+    @RequestMapping("/managerLogin")
     @CrossOrigin
     public Result managerLogin(@RequestBody Account account, HttpSession session) {
         String name=account.getName();
@@ -134,14 +134,14 @@ public class CommonManagerController {
      * @Date: 2018/7/4
      * @Return:
      */
-    @PostMapping("/updateExaminee")
+    @RequestMapping("/updateExaminee")
     @CrossOrigin
     public Result updateSchoolExaminee(@RequestBody @Valid Examinee examinee, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
             return ResultUtil.fail(bindingResult.getAllErrors().toString());
         }
         String id=examinee.getId();
-        Examinee examineeGet=examineeService.selectById(id);
+        Examinee examineeGet=examineeService.getExamineeByAccountId(id);
         System.out.print(examineeGet.toString());
         examinee.setCreateTime(examineeGet.getCreateTime());
         examinee.setUpdateTime(examineeGet.getUpdateTime());
@@ -166,7 +166,7 @@ public class CommonManagerController {
      * @Date: 2018/7/5
      * @Return:
      */
-    @PostMapping("/getUncheckedSchoolExaminee/{zhaoshengUnit}/{pageNum}")
+    @RequestMapping("/getUncheckedSchoolExaminee/{zhaoshengUnit}/{pageNum}")
     @CrossOrigin
     public Result getUncheckedSchoolExaminee(@PathVariable(value = "zhaoshengUnit")String zhaoshengUnit,@PathVariable("pageNum")Integer pageNum){
         if (pageNum<=0){
@@ -187,7 +187,7 @@ public class CommonManagerController {
      * @Date: 2018/7/5
      * @Return:
      */
-    @PostMapping("/getNoAgreeSchoolExaminee/{zhaoshengUnit}/{pageNum}")
+    @RequestMapping("/getNoAgreeSchoolExaminee/{zhaoshengUnit}/{pageNum}")
     @CrossOrigin
     public Result getSchoolExamineeNoAgree(@PathVariable(value = "zhaoshengUnit")String zhaoshengUnit,@PathVariable("pageNum")Integer pageNum){
         if (pageNum<=0){
@@ -208,7 +208,7 @@ public class CommonManagerController {
      * @Date: 2018/7/5
      * @Return:
      */
-    @PostMapping("/getCheckedSchoolExaminee/{zhaoshengUnit}/{pageNum}")
+    @RequestMapping("/getCheckedSchoolExaminee/{zhaoshengUnit}/{pageNum}")
     @CrossOrigin
     public Result getCheckedSchoolExaminee(@PathVariable("zhaoshengUnit")String zhaoshengUnit,@PathVariable("pageNum")Integer pageNum){
         if (pageNum<=0){
@@ -229,12 +229,12 @@ public class CommonManagerController {
      * @Date: 2018/7/5
      * @Return:
      */
-    @PostMapping("/check/{id}")
+    @RequestMapping("/check/{id}")
     @CrossOrigin
     public Result checkOperation(@PathVariable("id")String id){
         try {
             Examinee examinee;
-            examinee=examineeService.selectById(id);
+            examinee=examineeService.getExamineeByAccountId(id);
             examinee.setIsCheck("0");
             examineeService.updateById(examinee);
             return ResultUtil.OK();
@@ -251,12 +251,12 @@ public class CommonManagerController {
      * @Date: 2018/7/5
      * @Return:
      */
-    @PostMapping("/uncheck/{id}")
+    @RequestMapping("/uncheck/{id}")
     @CrossOrigin
     public Result unCheckOperation(@PathVariable("id")String id){
         try {
             Examinee examinee;
-            examinee=examineeService.selectById(id);
+            examinee=examineeService.getExamineeByAccountId(id);
             examinee.setIsCheck("2");
             examineeService.updateById(examinee);
             return ResultUtil.OK();
@@ -272,12 +272,12 @@ public class CommonManagerController {
      * @Date: 2018/7/6
      * @Return: 
      */
-    @PostMapping("/getExamineeForUpdate/{id}")
+    @RequestMapping("/getExamineeForUpdate/{id}")
     @CrossOrigin
     public Result getExamineeForUpdate(@PathVariable("id")String id){
         try {
             Examinee examinee=new Examinee();
-            examinee=examineeService.selectById(id);
+            examinee=examineeService.getById(id);
             return ResultUtil.OK(examinee);
         }catch (Exception e){
             e.printStackTrace();

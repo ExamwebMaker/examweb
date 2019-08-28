@@ -1,257 +1,346 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>超级管理员后台</title>
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <link rel="shortcut icon" href="img/favicon.ico"/>
-    <link rel="stylesheet" type="text/css" href="../lib/sidebar.css">
-    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_529525_39813guke8h93sor.css">
+    <meta
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+      name="viewport"
+    />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../lib/sidebar.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//at.alicdn.com/t/font_529525_39813guke8h93sor.css"
+    />
     <!--<link rel="stylesheet" href="lib/global.css">-->
-    <link rel="stylesheet" type="text/css" href="../lib/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../lib/fontawesome.css">
-    <link rel="stylesheet" href="../lib/dataTables.bootstrap4.min.css"/>
-    <link rel="stylesheet" href="../lib/global.css"/>
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/fontawesome.css" />
+    <link rel="stylesheet" href="../lib/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="../lib/global.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">图标</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >主页 <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item dropdown float-right">
+            <a
+              class="nav-link dropdown-toggle "
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              设置
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="leftnav">
+          <div class="nav-top">
+            <div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)">
+              <span
+                ><i class="iconfont icon-guanliyuan"></i
+                ><a href="#">超级管理员</a></span
+              >
+            </div>
+          </div>
+          <ul>
+            <li class="left-nav-item">
+              <a href="#" target="right"
+                ><i class="iconfont icon-zhuye"></i><span>主页</span></a
+              >
+            </li>
+            <li class="left-nav-item">
+              <a href="javascript:;"
+                ><i class="iconfont icon-zu"></i><span>管理员操作</span
+                ><i class="iconfont icon-more"></i
+              ></a>
+              <ul>
+                <li>
+                  <a id="addadminlink" href="#"><span>添加管理员</span></a>
+                </li>
+                <li>
+                  <a id="showadminlink" href="#"><span>管理员管理</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="left-nav-item">
+              <a href="javascript:;"
+                ><i class="iconfont icon-course"></i><span>用户管理</span
+                ><i class="iconfont icon-more"></i
+              ></a>
+              <ul>
+                <li>
+                  <a id="showalldata" href="#"><span>用户列表</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="left-nav-item">
+              <a href="javascript:;"
+                ><i class="iconfont icon-teacher"></i><span>公告管理</span
+                ><i class="iconfont icon-more"></i
+              ></a>
+              <ul>
+                <li>
+                  <a href="#" id="addgonggaolink"><span>添加公告</span></a>
+                </li>
+                <li>
+                  <a href="#" id="showgonggao"><span>公告列表</span></a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="left-nav-item">
+              <a href="javascript:;" id="logout"
+                ><i class="iconfont icon-sign-out"></i><span>注销</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8" id="welcome" style="display: none">
+        <h2 class="text-center">欢迎登陆</h2>
+      </div>
+      <div class="col-md-8" id="showadmin" style="display:none;">
+        <h2 class="text-center">信息数据</h2>
+        <table
+          id="adminlist"
+          class="table table-striped table-bordered"
+          style="width:100%"
+        >
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>用户名</th>
+              <th>密码</th>
+              <th>修改</th>
+              <th>删除</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="col-md-8" id="showdata" style="display:none;">
+        <h2 class="text-center">用户管理</h2>
+        <table
+          id="userinfo"
+          class="table table-striped table-bordered"
+          style="width:100%"
+        >
+          <thead>
+            <tr>
+              <th style="width: 220px;">id</th>
+              <th>用户名</th>
+              <th>密码</th>
+              <th>邮箱</th>
+              <th>电话</th>
+              <th>修改</th>
+              <th>删除</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div
+        class="modal fade"
+        id="changeadmininfo"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">管理员修改</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input type="text" id="adminidchange" style="display: none" />
+              <label for="adminidchange">管理员账号</label>
+              <input class="form-control" id="adminnamechange" />
+              <label for="adminpasschange">管理员密码</label>
+              <input
+                type="text"
+                name=""
+                id="adminpasschange"
+                class="form-control"
+              />
+
+              <br />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                关闭
+              </button>
+              <button
+                id="changeadmin"
+                class="btn btn-outline-primary btn-block"
+              >
+                更新
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8" id="addadmin" style="display: none;">
+        <h2 class="text-center">添加管理员</h2>
+        <div class="card">
+          <h5 class="card-header">添加管理员</h5>
+          <div class="card-body">
+            <label for="adminid">管理员账号</label>
+            <input id="adminid" class="form-control" />
+            <label for="adminpass1">管理员密码</label>
+            <input
+              type="password"
+              name=""
+              id="adminpass1"
+              class="form-control"
+            />
+            <label for="adminpass2">管确认理员密码</label>
+            <input
+              type="password"
+              name=""
+              id="adminpass2"
+              class="form-control"
+            />
+            <small
+              id="passmatch"
+              style="display: none;"
+              class="form-text text-info"
+              >两次密码相同!</small
+            >
+            <small
+              id="passdismatch"
+              style="display: none;"
+              class="form-text text-danger"
+              >两次密码不同!</small
+            >
+            <label for="zhaoshengdanwei">招生单位</label>
+            <select id="zhaoshengdanwei" class="form-control" name="">
+              <option value="0">请选择</option>
+              <option value="合肥工业大学">合肥工业大学</option>
+              <option value="中国科技大学">中国科技大学</option>
+              <option value="北京大学">北京大学</option>
+              <option value="浙江大学">浙江大学</option>
+              <option value="复旦大学">复旦大学</option>
+              <option value="武汉大学">武汉大学</option>
+            </select>
+            <br />
+            <button id="addnewadmin" class="btn btn-outline-primary btn-block">
+              添加
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8" id="addgonggao" style="display: none;">
+        <h2 class="text-center">添加时间</h2>
+        <div class="card">
+          <h5 class="card-header">添加时间</h5>
+          <div class="card-body">
+            <label for="baomingkaishiqian">报名开始前</label>
+            <input type="date" id="baomingkaishiqian" class="form-control" />
+            <label for="baomingkaishi">报名开始</label>
+            <input type="date" id="baomingkaishi" class="form-control" />
+            <label for="dayinzhunkaozheng">打印准考证</label>
+            <input type="date" id="dayinzhunkaozheng" class="form-control" />
+            <label for="dayinzhunkaozheng">开始考试</label>
+            <input type="date" id="kaishikaoshi" class="form-control" />
+            <label for="baomingjieshu">报名结束</label>
+            <input type="date" id="baomingjieshu" class="form-control" />
+
+            <br />
+            <button id="addnewgonggao" class="btn btn-outline-info btn-block">
+              添加
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8" id="showgonggaolist" style="display:none;">
+        <h2 class="text-center">公告列表</h2>
+        <table
+          id="gonggaolist"
+          class="table table-striped table-bordered"
+          style="width:100%"
+        >
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+
+          <tfoot></tfoot>
+        </table>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="text-center">
+      <p>由王瑞,郑秋果,张嘉欣,杨正谦制作</p>
+      <p>Copyright © 2003-2018 系统分析师们 All Rights Reserved</p>
+    </div>
     <script type="text/javascript" src="../lib/jquery-3.3.1.js"></script>
 
-    <script type="text/javascript" src="../lib/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../lib/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="../lib/dataTables.bootstrap4.min.js"></script>
+    <script
+      type="text/javascript"
+      src="../lib/bootstrap.bundle.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../lib/jquery.dataTables.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../lib/dataTables.bootstrap4.min.js"
+    ></script>
     <!-- <script src="js/jquery.min.js"></script> -->
     <script type="text/javascript" src="../lib/sidebar.js"></script>
     <script type="text/javascript" src="../js/superindex.js"></script>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">图标</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">主页 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item dropdown float-right">
-                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    设置
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-        </ul>
-
-    </div>
-</nav>
-
-
-<div class="row">
-    <div class="col-md-3">
-
-        <div class="leftnav">
-            <div class="nav-top">
-                <div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)"><span><i
-                        class="iconfont icon-guanliyuan"></i><a href="#">超级管理员</a></span></div>
-            </div>
-            <ul>
-                <li class="left-nav-item">
-                    <a href="#" target="right"><i class="iconfont icon-zhuye"></i><span>主页</span></a>
-                </li>
-                <li class="left-nav-item">
-                    <a href="javascript:;"><i class="iconfont icon-zu"></i><span>管理员操作</span><i
-                            class="iconfont icon-more"></i></a>
-                    <ul>
-                        <li>
-                            <a id="addadminlink" href="#"><span>添加管理员</span></a>
-                        </li>
-                        <li>
-                            <a id="showadminlink" href="#"><span>管理员管理</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="left-nav-item">
-                    <a href="javascript:;"><i class="iconfont icon-course"></i><span>用户管理</span><i
-                            class="iconfont icon-more"></i></a>
-                    <ul>
-                        <li>
-                            <a id="showalldata" href="#"><span>用户列表</span></a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="left-nav-item">
-                    <a href="javascript:;"><i class="iconfont icon-teacher"></i><span>公告管理</span><i
-                            class="iconfont icon-more"></i></a>
-                    <ul>
-                        <li>
-                            <a href="#" id="addgonggaolink"><span>添加公告</span></a>
-                        </li>
-                        <li>
-                            <a href="#" id="showgonggao"><span>公告列表</span></a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="left-nav-item">
-                    <a href="javascript:;" id="logout"><i class="iconfont icon-sign-out"></i><span>注销</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-md-8" id="welcome" style="display: none">
-        <h2 class="text-center">欢迎登陆</h2>
-
-    </div>
-    <div class="col-md-8" id="showadmin" style="display:none;">
-        <h2 class="text-center">信息数据</h2>
-        <table id="adminlist" class="table table-striped table-bordered" style="width:100%">
-            <thead>
-            <tr>
-                <th>id</th>
-                <th>用户名</th>
-                <th>密码</th>
-                <th>修改</th>
-                <th>删除</th>
-
-            </tr>
-            </thead>
-
-        </table>
-    </div>
-    <div class="col-md-8" id="showdata" style="display:none;">
-        <h2 class="text-center">用户管理</h2>
-        <table id="userinfo" class="table table-striped table-bordered" style="width:100%">
-            <thead>
-            <tr>
-                <th style="width: 220px;">id</th>
-                <th>用户名</th>
-                <th>密码</th>
-                <th>邮箱</th>
-                <th>电话</th>
-                <th>修改</th>
-                <th>删除</th>
-
-            </tr>
-            </thead>
-
-        </table>
-    </div>
-    <div class="modal fade" id="changeadmininfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">管理员修改</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <input type="text" id="adminidchange" style="display: none"/>
-                    <label for="adminidchange">管理员账号</label>
-                    <input class="form-control" id="adminnamechange"/>
-                    <label for="adminpasschange">管理员密码</label>
-                    <input type="text" name="" id="adminpasschange" class="form-control">
-
-                    <br>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    <button id="changeadmin" class="btn btn-outline-primary btn-block">更新</button>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-8" id="addadmin" style="display: none;">
-        <h2 class="text-center">添加管理员</h2>
-        <div class="card">
-            <h5 class="card-header">添加管理员</h5>
-            <div class="card-body">
-                <label for="adminid">管理员账号</label>
-                <input id="adminid" class="form-control"/>
-                <label for="adminpass1">管理员密码</label>
-                <input type="password" name="" id="adminpass1" class="form-control"> <label
-                    for="adminpass2">管确认理员密码</label>
-                <input type="password" name="" id="adminpass2" class="form-control">
-                <small id="passmatch" style="display: none;" class="form-text text-info">两次密码相同!</small>
-                <small id="passdismatch" style="display: none;" class="form-text text-danger">两次密码不同!</small>
-                <label for="zhaoshengdanwei">招生单位</label>
-                <select id="zhaoshengdanwei" class="form-control" name="">
-                    <option value="0">请选择</option>
-                    <option value="合肥工业大学">合肥工业大学</option>
-                    <option value="中国科技大学">中国科技大学</option>
-                    <option value="北京大学">北京大学</option>
-                    <option value="浙江大学">浙江大学</option>
-                    <option value="复旦大学">复旦大学</option>
-                    <option value="武汉大学">武汉大学</option>
-
-
-                </select>
-                <br>
-                <button id="addnewadmin" class="btn btn-outline-primary btn-block">添加</button>
-            </div>
-        </div>
-
-    </div>
-    <div class="col-md-8" id="addgonggao" style="display: none;">
-        <h2 class="text-center">添加时间</h2>
-        <div class="card">
-            <h5 class="card-header">添加时间</h5>
-            <div class="card-body">
-                <label for="baomingkaishiqian">报名开始前</label>
-                <input type="date" id="baomingkaishiqian" class="form-control"/>
-                <label for="baomingkaishi">报名开始</label>
-                <input type="date" id="baomingkaishi" class="form-control"/>
-                <label for="dayinzhunkaozheng">打印准考证</label>
-                <input type="date" id="dayinzhunkaozheng" class="form-control"/> <label
-                    for="dayinzhunkaozheng">开始考试</label>
-                <input type="date" id="kaishikaoshi" class="form-control"/>
-                <label for="baomingjieshu">报名结束</label>
-                <input type="date" id="baomingjieshu" class="form-control"/>
-
-                <br>
-                <button id="addnewgonggao" class="btn btn-outline-info btn-block">添加</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-8" id="showgonggaolist" style="display:none;">
-        <h2 class="text-center">公告列表</h2>
-        <table id="gonggaolist" class="table table-striped table-bordered" style="width:100%">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Name</th>
-
-            </tr>
-            </thead>
-
-
-            <tfoot>
-            </tfoot>
-        </table>
-    </div>
-
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="text-center">
-    <p>由王瑞,郑秋果,张嘉欣,杨正谦制作</p>
-    <p>Copyright © 2003-2018 系统分析师们 All Rights Reserved</p>
-</div>
-
-</body>
+  </body>
 </html>

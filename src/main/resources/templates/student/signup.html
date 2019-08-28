@@ -1,57 +1,78 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8"/>
+  <head>
+    <meta charset="utf-8" />
     <title></title>
-    <link href="../lib/bootstrap.min.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="../lib/login.css">
+    <link href="../lib/bootstrap.min.css" rel="stylesheet" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" type="text/css" href="../lib/login.css" />
     <!--<link rel="stylesheet" href="../lib/global.css">-->
-    <script type="application/javascript  " src="../lib/jquery-3.3.1.js"></script>
-    <script type="application/javascript  " src="../lib/bootstrap.min.css"></script>
+    <script
+      type="application/javascript  "
+      src="../lib/jquery-3.3.1.js"
+    ></script>
+    <script
+      type="application/javascript  "
+      src="../lib/bootstrap.min.css"
+    ></script>
     <script type="application/javascript" src="../js/signup.js"></script>
+  </head>
 
-</head>
-
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
         <i class="iconfont icon-zhuye"></i>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
-    </button>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">主页<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">学籍查询</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">学历查询</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">在线验证</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">学历与成绩认证</a>
-            </li>
-
-
+          <li class="nav-item active">
+            <a class="nav-link" href="/index"
+              >主页<span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">学籍查询</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">学历查询</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">在线验证</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">学历与成绩认证</a>
+          </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="搜索..." aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="搜索..."
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            查询
+          </button>
         </form>
-    </div>
-</nav>
-<div class="container">
-    <div class="center-form" >
+      </div>
+    </nav>
+    <div class="container">
+      <div class="center-form">
         <!--<div class="infor-text">-->
         <!--<h2>“账号”可用于登录本网站各服务平台</h2>-->
         <!--<div class="regist-tip-detail">-->
@@ -60,39 +81,115 @@
         <!--</div>-->
         <h2 class="text-center">请注册</h2>
         <label for="name">姓名:</label>
-        <input id="name" class="form-control" required type="text" name="" placeholder="请输入姓名:" value="">
+        <input
+          id="name"
+          class="form-control"
+          required
+          type="text"
+          name=""
+          placeholder="请输入姓名:"
+          value=""
+        />
         <label for="phonenumber">手机号: </label>
-        <input class="form-control" required type="text" name="" id="phonenumber" placeholder="请输入手机号:"
-               value="">
-        <small id="nophonenumber" style="display: none;" class="form-text text-danger ">不是完整的11位手机号或者正确的手机号前七位!</small>
+        <input
+          class="form-control"
+          required
+          type="text"
+          name=""
+          id="phonenumber"
+          placeholder="请输入手机号:"
+          value=""
+        />
+        <small
+          id="nophonenumber"
+          style="display: none;"
+          class="form-text text-danger "
+          >不是完整的11位手机号或者正确的手机号前七位!</small
+        >
         <label for="password1">密码: </label>
-        <input class="form-control" required type="password" id="password1" name="" placeholder="请输入密码:" value="">
-        <small id="nopassword1" style="display: none;" class="form-text">密码强度 <span class="text-danger">强</span></small>
-        <small id="nopassword2" style="display: none;" class="form-text">密码强度 <span class="text-danger">中</span></small>
-        <small id="nopassword3" style="display: none;" class="form-text">密码强度 <span class="text-danger">弱</span></small>
+        <input
+          class="form-control"
+          required
+          type="password"
+          id="password1"
+          name=""
+          placeholder="请输入密码:"
+          value=""
+        />
+        <small id="nopassword1" style="display: none;" class="form-text"
+          >密码强度 <span class="text-danger">强</span></small
+        >
+        <small id="nopassword2" style="display: none;" class="form-text"
+          >密码强度 <span class="text-danger">中</span></small
+        >
+        <small id="nopassword3" style="display: none;" class="form-text"
+          >密码强度 <span class="text-danger">弱</span></small
+        >
         <label>确认密码: </label>
-        <input class="form-control" required type="password" id="password2" name="" placeholder="请再次输入密码:" value="">
-        <small id="passmatch" style="display: none;" class="form-text text-info">两次密码相同!</small>
-        <small id="passdismatch" style="display: none;" class="form-text text-danger">两次密码不同!</small>
+        <input
+          class="form-control"
+          required
+          type="password"
+          id="password2"
+          name=""
+          placeholder="请再次输入密码:"
+          value=""
+        />
+        <small id="passmatch" style="display: none;" class="form-text text-info"
+          >两次密码相同!</small
+        >
+        <small
+          id="passdismatch"
+          style="display: none;"
+          class="form-text text-danger"
+          >两次密码不同!</small
+        >
 
         <label for="credentialtype">证件类型:</label>
-        <select name="credentialtype" id="credentialtype" aria-invalid="false" class="form-control" required>
-            <option value="0">居民身份证</option>
-            <option value="1">港澳台身份证</option>
-            <option value="2">华侨身份证/Passport(无身份证者可填护照号)</option>
-            <option value="3">其他</option>
-
-
-        </select><label for="credentnumber">证件号码:</label>
-        <input class="form-control" required id="credentnumber" type="text" name="" placeholder="请输入证件号码" value="">
-        <small id="nocredent" style="display: none;" class="form-text text-danger">证件号码格式非法!</small>
+        <select
+          name="credentialtype"
+          id="credentialtype"
+          aria-invalid="false"
+          class="form-control"
+          required
+        >
+          <option value="0">居民身份证</option>
+          <option value="1">港澳台身份证</option>
+          <option value="2">华侨身份证/Passport(无身份证者可填护照号)</option>
+          <option value="3">其他</option> </select
+        ><label for="credentnumber">证件号码:</label>
+        <input
+          class="form-control"
+          required
+          id="credentnumber"
+          type="text"
+          name=""
+          placeholder="请输入证件号码"
+          value=""
+        />
+        <small
+          id="nocredent"
+          style="display: none;"
+          class="form-text text-danger"
+          >证件号码格式非法!</small
+        >
         <label for="signemail">电子邮箱:</label>
-        <input class="form-control" required="required" id="signemail" type="email" placeholder="请输入邮箱" value=""/>
-        <br>
-        <input type="submit" id="signupbtn" class="btn btn-info btn-block" value="注册"/>
-
+        <input
+          class="form-control"
+          required="required"
+          id="signemail"
+          type="email"
+          placeholder="请输入邮箱"
+          value=""
+        />
+        <br />
+        <input
+          type="submit"
+          id="signupbtn"
+          class="btn btn-info btn-block"
+          value="注册"
+        />
+      </div>
     </div>
-</div>
-
-</body>
+  </body>
 </html>

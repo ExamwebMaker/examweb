@@ -50,7 +50,7 @@ public class CommonActionController {
      * @Date: 2018/7/3
      * @Return:
      */
-    @PostMapping("/getSchoolNameByProvince/{province}")
+    @RequestMapping(value = "/getSchoolNameByProvince/{province}",method = RequestMethod.GET)
     @CrossOrigin
     public Result getSchoolNameByProvince(@PathVariable("province") String province){
         try {
@@ -73,7 +73,7 @@ public class CommonActionController {
      * @Date: 2018/7/5
      * @Return:
      */
-    @PostMapping("/getAllSchools")
+    @RequestMapping("/getAllSchools")
     @CrossOrigin
     public Result getAllSchools(){
         try {

@@ -1,428 +1,537 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8"/>
+  <head>
+    <meta charset="utf-8" />
     <title>主页</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../lib/bootstrap.min.css">
-    <link rel="stylesheet" href="../lib/global.css">
-    <link rel="stylesheet" href="../lib/index.css">
-    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_529525_wqxwui4lqh.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="../lib/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/global.css" />
+    <link rel="stylesheet" href="../lib/index.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//at.alicdn.com/t/font_529525_wqxwui4lqh.css"
+    />
 
     <style>
-        .foot {
-            margin: 0 0;
-            padding: 20px 0;
-            /*line-height: 30px;*/
-            background: #282828;
-            color: #ababab;
-            height: 100px;
-        }
+      .foot {
+        margin: 0 0;
+        padding: 20px 0;
+        /*line-height: 30px;*/
+        background: #282828;
+        color: #ababab;
+        height: 100px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
         <i class="iconfont icon-zhuye"></i>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
-    </button>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">主页<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">学籍查询</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">学历查询</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">在线验证</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">学历与成绩认证</a>
-            </li>
-
-
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >主页<span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">学籍查询</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">学历查询</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">在线验证</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">学历与成绩认证</a>
+          </li>  <li>
+            <a class="nav-link" href="/swagger-ui.html">api</a>
+          </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="搜索..." aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="搜索..."
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            查询
+          </button>
         </form>
-    </div>
-</nav>
+      </div>
+    </nav>
 
-
-<div class="callout">
-    <div class="container ">
+    <div class="callout">
+      <div class="container ">
         <div class="row">
-            <div class="col-md-12">
-                <br>
-                <h1 class="text-center"><strong>全国硕士研究生招生考试网上报名平台</strong></h1>
+          <div class="col-md-12">
+            <br />
+            <h1 class="text-center">
+              <strong>全国硕士研究生招生考试网上报名平台</strong>
+            </h1>
 
-                <h3 class="text-center">2019年全国硕士研究生招生考试-<strong class="text-info">初试</strong></h3>
-                <h5 class="text-center">
-                    2019年全国硕士研究生招生考试初试时间为：2018年12月23日至12月24日(每天上午8:30-11:30，下午14:00-17:00)。超过3小时的考试科目在12月25日进行(起始时间8:30，截止时间由招生单位确定，不超过14:30)。考试时间以北京时间为准。</h5>
-                <p class="text-center">距离考研还有<span class="text-warning" id="daojishi"></span></p>
-                <p class="text-center"><a
-                        href="/stdmbaindex" class="btn btn-primary btn-lg " >点击查询</a>&nbsp;&nbsp;<button
-                        class="btn btn-primary btn-lg "id="tologinbtn">查看主页</button>
-                </p>
-                <br>
-                <div class="masking">
-                    <div class="process-pic text-center">
-                        <div class="process-current" style="width: 0px;"></div>
-                    </div>
-                    <ul class="clearfix">
-                        <li>网上咨询</li>
-                        <li>预报名</li>
-                        <li>正式报名</li>
-                        <li>现场确认</li>
-                        <li>打印准考证</li>
-                        <li>初试</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-<div class="container mt-3">
-    <div class="row">
-        <br>
-        <div class="col-md-12"><h3 class="head-blockquote">招生单位及报考点</h3></div>
-
-        <div class="col-md-3">
-            <table class="table table-bordered table-striped table-sm">
-                <tbody>
-                <tr>
-                    <th>省市</th>
-                    <th>招生单位</th>
-                    <th>报考点</th>
-                </tr>
-                <tr>
-                    <td>北京</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">57</a></td>
-                </tr>
-                <tr>
-                    <td>天津</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">26</a></td>
-                </tr>
-                <tr>
-                    <td>河北</td>
-                    <td><a href="#">查看</a></td>
-                    <td><a target="_blank" href="#">19</a></td>
-                </tr>
-                <tr>
-                    <td>山东</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">34</a></td>
-                </tr>
-                <tr>
-                    <td>山西</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="3">21</a></td>
-                </tr>
-                <tr>
-                    <td>河南</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="#">71</a></td>
-                </tr>
-                <tr>
-                    <td>辽宁</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="#">28</a></td>
-                </tr>
-                <tr>
-                    <td>黑龙江</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="#">22</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-3">
-            <table class="table table-bordered table-striped table-sm">
-                <tbody>
-                <tr>
-                    <th>省市</th>
-                    <th>招生单位</th>
-                    <th>报考点</th>
-                </tr>
-                <tr>
-                    <td>广西</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="#">8</a></td>
-                </tr>
-                <tr>
-                    <td>湖南</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="#">29</a></td>
-                </tr>
-                <tr>
-                    <td>湖北</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="#">28</a></td>
-                </tr>
-                <tr>
-                    <td>福建</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="#">13</a></td>
-                </tr>
-                <tr>
-                    <td>海南</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="#">4</a></td>
-                </tr>
-                <tr>
-                    <td>四川</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="#">30</a></td>
-                </tr>
-                <tr>
-                    <td>重庆</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="#">21</a></td>
-                </tr>
-                <tr>
-                    <td>贵州</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="#">10</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-3">
-            <table class="table table-bordered table-striped table-sm">
-                <tbody>
-                <tr>
-                    <th width="92">省市</th>
-                    <th width="92">招生单位</th>
-                    <th width="92">报考点</th>
-                </tr>
-                <tr>
-                    <td>吉林</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">9</a></td>
-                </tr>
-                <tr>
-                    <td>内蒙古</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">14</a></td>
-                </tr>
-                <tr>
-                    <td>上海</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">16</a></td>
-                </tr>
-                <tr>
-                    <td>江苏</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">24</a></td>
-                </tr>
-                <tr>
-                    <td>浙江</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">13</a></td>
-                </tr>
-                <tr>
-                    <td>安徽</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">21</a></td>
-                </tr>
-                <tr>
-                    <td>江西</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">11</a></td>
-                </tr>
-                <tr>
-                    <td>广东</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">27</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-3">
-            <table class="table table-bordered table-striped table-sm">
-                <tbody>
-                <tr>
-                    <th width="92">省市</th>
-                    <th width="92">招生单位</th>
-                    <th width="92">报考点</th>
-                </tr>
-                <tr>
-                    <td>云南</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">12</a></td>
-                </tr>
-                <tr>
-                    <td>西藏</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">6</a></td>
-                </tr>
-                <tr>
-                    <td>陕西</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">32</a></td>
-                </tr>
-                <tr>
-                    <td>甘肃</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">13</a></td>
-                </tr>
-                <tr>
-                    <td>宁夏</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">1</a></td>
-                </tr>
-                <tr>
-                    <td>新疆</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="http://yz.chsi.com.cn#">12</a></td>
-                </tr>
-                <tr>
-                    <td>青海</td>
-                    <td><a href="#" target="_blank">查看</a></td>
-                    <td><a target="_blank" href="#">1</a></td>
-                </tr>
-                <tr>
-                    <td>&ensp;</td>
-                    <td>&ensp;</td>
-                    <td>&ensp;</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-12"><h3 class="head-blockquote">招生单位及报考点</h3></div>
-        <div class="col-md-4">
-            <div class="border p-3">
-
-                <span class="bm-icon sign-1"></span>
-                <h2>选择报考点</h2>
-                <p><a href="#" target="_blank">1.选择报考点的流程是怎样的？</a></p>
-                <p><a href="#" target="_blank">2.选择报考点有哪些原则？</a></p>
-                <p><a href="#" target="_blank">3.非应届本科毕业生（往届考生、同等学力考生等）如何选择报考点？</a></p>
-                <p><a href="#" target="_blank">4.选择报考点有哪些注意事项？</a></p>
-                <p><a href="#" target="_blank">5.选择报考点时有疑问，该如何咨询？</a></p>
-                <p><a href="#" target="_blank">6.若选择某些省市后，报考点下拉列表没有选项怎么办？</a></p>
-
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="border p-3">
-
-                <span class="bm-icon sign-2"></span>
-                <h2>选择验证码</h2>
-                <p><strong style="font-weight:bold;">强军计划</strong>：由有接收资格的招生单位负责发放 </p>
-                <p><strong style="font-weight:bold;">援藏计划</strong>：由西藏考试院发放 </p>
-                <p><strong style="font-weight:bold;">少数民族骨干计划</strong>：与所选报考点所在省级管理部门联系，提供省级管理部门要求的相关材料后获取验证码。</p>
-
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="border p-3">
-
-                <!--<i class=" text-center iconfont icon-jiaofei" style="font-size: 60px;"></i>-->
-                <h2>网上缴费</h2>
-                <p>网上报名期间通过研招网进行网上缴费，仅限报考点选择在
-                    北京、天津、河北、山西、内蒙古、辽宁、吉林、黑龙江、江苏、安徽、福建、江西、山东、河南、湖北、湖南、广西、海南、重庆、四川、贵州、云南、甘肃、青海、宁夏的考生（即在这些省考试的考生，特殊要求详见各省网报公告）。选择其他报考点的考生，则在现场确认时缴费。</p>
-                <p><a href="#" class="alert-link">网上缴费常见问题</a></p>
-
-            </div>
-        </div>
-        <div class="col-md-12">
-            <hr>
-        </div>
-        <div class="col-md-12"><h3 class="head-blockquote">现场确认</h3></div>
-        <div class="col-md-2">
-            <p class="text-md-center">选择报考点</p>
-            <p class="text-md-center iconfont icon-didian" style="font-size: 60px;"></p>
-        </div>
-        <div class="col-md-10"><p>不同身份的考生报考点不同 （<a href="#baokaodian">点击查看报考点</a>）。 </p>
-            <p>1、应届本科毕业生原则上应选择就读学校所在省(区、市)的报考点办理网上报名和现场确认手续；</p>
-            <p>2、单独考试考生应选择招生单位所在地省级教育招生考试机构指定的报考点办理网上报名和现场确认手续；</p>
-            <p>3、工商管理、公共管理、旅游管理、工程管理等专业学位考生和其他考生应选择工作或户口所在地省级教育招生考试机构指定的报考点办理网上报名和现场确认手续。</p>
-            <hr>
-        </div>
-        <div class="col-md-2">
-            <p class="text-md-center">需要带的</p>
-            <p class="text-md-center iconfont icon-fangxingtianjia" style="font-size: 60px;"></p>
-        </div>
-        <div class="col-md-10"><p>1、本人居民身份证。</p>
-            <p>2、学历证书（应届本科毕业生持学生证）。</p>
-            <p>3、网上报名编号（即网上报名成功后系统显示的9位数字报名号）。</p>
-            <p>4、在录取当年9月1日前可取得国家承认本科毕业证书的自学考试和网络教育本科生，须持颁发毕业证书的省级高等教育自学考试办公室或网络教育高校出具的相关证明。</p>
-            <p>5、未通过网上学历(学籍)校验的考生，在现场确认时应提交学历(学籍)认证报告，以供核验。</p>
-            <p>6、报考“退役大学生士兵”专项硕士研究生招生计划的考生还应提交本人《入伍批准书》和《退出现役证》。</p>
-            <p>7、其它招生单位或报考点规定的相关材料。
+            <h3 class="text-center">
+              2019年全国硕士研究生招生考试-<strong class="text-info"
+                >初试</strong
+              >
+            </h3>
+            <h5 class="text-center">
+              2019年全国硕士研究生招生考试初试时间为：2018年12月23日至12月24日(每天上午8:30-11:30，下午14:00-17:00)。超过3小时的考试科目在12月25日进行(起始时间8:30，截止时间由招生单位确定，不超过14:30)。考试时间以北京时间为准。
+            </h5>
+            <p class="text-center">
+              距离考研还有<span class="text-warning" id="daojishi"></span>
             </p>
-            <hr>
+            <p class="text-center">
+              <a href="/stdmbaindex" class="btn btn-primary btn-lg ">点击查询</a
+              >&nbsp;&nbsp;<button
+                class="btn btn-primary btn-lg "
+                id="tologinbtn"
+              >
+                查看主页
+              </button>
+            </p>
+            <br />
+            <div class="masking">
+              <div class="process-pic text-center">
+                <div class="process-current" style="width: 0px;"></div>
+              </div>
+              <ul class="clearfix">
+                <li>网上咨询</li>
+                <li>预报名</li>
+                <li>正式报名</li>
+                <li>现场确认</li>
+                <li>打印准考证</li>
+                <li>初试</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="col-md-2">
-            <p class="text-md-center">需要做的</p>
-            <p class="text-md-center iconfont icon-shengchan" style="font-size: 60px;"></p>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <div class="row">
+        <br />
+        <div class="col-md-12">
+          <h3 class="head-blockquote">招生单位及报考点</h3>
         </div>
-        <div class="col-md-10"><p>1、考生提交本人居民身份证、学历证书(应届本科毕业生持学生证)和网上报名编号，由报考点工作人员进行核对。</p>
-            <p>2、考生本人对网上报名信息要进行认真核对并确认。经考生确认的报名信息在考试、复试及录取阶段一律不作修改，因考生填写错误引起的一切后果由其自行承担。</p>
-            <p>
-                3、考生按规定缴纳报考费。考生办理报考手续缴纳报考费后，不再退还。网上报名期间通过研招网进行网上缴费，仅限报考点选择在北京、天津、河北、山西、内蒙古、辽宁、吉林、黑龙江、江苏、安徽、福建、江西、山东、河南、湖北、湖南、广西、海南、重庆、四川、贵州、云南、甘肃、青海、宁夏的考生（即在这些省考试的考生，特殊要求详见各省网报公告）。选择其他报考点的考生，则在现场确认时缴费。</p>
-            <p>4、采集考生图像信息。</p>
-            <hr>
+
+        <div class="col-md-3">
+          <table class="table table-bordered table-striped table-sm">
+            <tbody>
+              <tr>
+                <th>省市</th>
+                <th>招生单位</th>
+                <th>报考点</th>
+              </tr>
+              <tr>
+                <td>北京</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">57</a></td>
+              </tr>
+              <tr>
+                <td>天津</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">26</a></td>
+              </tr>
+              <tr>
+                <td>河北</td>
+                <td><a href="#">查看</a></td>
+                <td><a target="_blank" href="#">19</a></td>
+              </tr>
+              <tr>
+                <td>山东</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">34</a></td>
+              </tr>
+              <tr>
+                <td>山西</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="3">21</a></td>
+              </tr>
+              <tr>
+                <td>河南</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="#">71</a></td>
+              </tr>
+              <tr>
+                <td>辽宁</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="#">28</a></td>
+              </tr>
+              <tr>
+                <td>黑龙江</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="#">22</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-3">
+          <table class="table table-bordered table-striped table-sm">
+            <tbody>
+              <tr>
+                <th>省市</th>
+                <th>招生单位</th>
+                <th>报考点</th>
+              </tr>
+              <tr>
+                <td>广西</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="#">8</a></td>
+              </tr>
+              <tr>
+                <td>湖南</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="#">29</a></td>
+              </tr>
+              <tr>
+                <td>湖北</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="#">28</a></td>
+              </tr>
+              <tr>
+                <td>福建</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="#">13</a></td>
+              </tr>
+              <tr>
+                <td>海南</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="#">4</a></td>
+              </tr>
+              <tr>
+                <td>四川</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="#">30</a></td>
+              </tr>
+              <tr>
+                <td>重庆</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="#">21</a></td>
+              </tr>
+              <tr>
+                <td>贵州</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="#">10</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-3">
+          <table class="table table-bordered table-striped table-sm">
+            <tbody>
+              <tr>
+                <th width="92">省市</th>
+                <th width="92">招生单位</th>
+                <th width="92">报考点</th>
+              </tr>
+              <tr>
+                <td>吉林</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">9</a></td>
+              </tr>
+              <tr>
+                <td>内蒙古</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">14</a></td>
+              </tr>
+              <tr>
+                <td>上海</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">16</a></td>
+              </tr>
+              <tr>
+                <td>江苏</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">24</a></td>
+              </tr>
+              <tr>
+                <td>浙江</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">13</a></td>
+              </tr>
+              <tr>
+                <td>安徽</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">21</a></td>
+              </tr>
+              <tr>
+                <td>江西</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">11</a></td>
+              </tr>
+              <tr>
+                <td>广东</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">27</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-3">
+          <table class="table table-bordered table-striped table-sm">
+            <tbody>
+              <tr>
+                <th width="92">省市</th>
+                <th width="92">招生单位</th>
+                <th width="92">报考点</th>
+              </tr>
+              <tr>
+                <td>云南</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">12</a></td>
+              </tr>
+              <tr>
+                <td>西藏</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">6</a></td>
+              </tr>
+              <tr>
+                <td>陕西</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">32</a></td>
+              </tr>
+              <tr>
+                <td>甘肃</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">13</a></td>
+              </tr>
+              <tr>
+                <td>宁夏</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">1</a></td>
+              </tr>
+              <tr>
+                <td>新疆</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="http://yz.chsi.com.cn#">12</a></td>
+              </tr>
+              <tr>
+                <td>青海</td>
+                <td><a href="#" target="_blank">查看</a></td>
+                <td><a target="_blank" href="#">1</a></td>
+              </tr>
+              <tr>
+                <td>&ensp;</td>
+                <td>&ensp;</td>
+                <td>&ensp;</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="col-md-12">
-            <div class="jumbotron">
-                <h1 class="display-4">注意!</h1>
-                <p>★ 所有考生(不含推免生)均应在规定时间内到报考点指定地点现场核对并确认其网上报名信息，逾期不再补办。现场确认时间由各省级教育招生考试机构根据国家招生工作安排和本地区报考组织情况自行确定和公布。</p>
-                <p>★ 在校研究生报考须在报名前征得所在培养单位同意。</p>
-                <p>★
-                    报考点只对考生居民身份证、非应届本科毕业生的学历证书及应届本科毕业生和成人应届本科毕业生的学生证进行核对，考生报考资格的全面审查由招生单位在复试时进行。请考生仔细阅读省、招生单位以及报考点发布的公告。</p>
-
-                <a class="btn btn-primary btn-lg" href="#" role="button">了解更多</a>
-            </div>
+          <h3 class="head-blockquote">招生单位及报考点</h3>
+        </div>
+        <div class="col-md-4">
+          <div class="border p-3">
+            <span class="bm-icon sign-1"></span>
+            <h2>选择报考点</h2>
+            <p><a href="#" target="_blank">1.选择报考点的流程是怎样的？</a></p>
+            <p><a href="#" target="_blank">2.选择报考点有哪些原则？</a></p>
+            <p>
+              <a href="#" target="_blank"
+                >3.非应届本科毕业生（往届考生、同等学力考生等）如何选择报考点？</a
+              >
+            </p>
+            <p><a href="#" target="_blank">4.选择报考点有哪些注意事项？</a></p>
+            <p>
+              <a href="#" target="_blank">5.选择报考点时有疑问，该如何咨询？</a>
+            </p>
+            <p>
+              <a href="#" target="_blank"
+                >6.若选择某些省市后，报考点下拉列表没有选项怎么办？</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="border p-3">
+            <span class="bm-icon sign-2"></span>
+            <h2>选择验证码</h2>
+            <p>
+              <strong style="font-weight:bold;">强军计划</strong
+              >：由有接收资格的招生单位负责发放
+            </p>
+            <p>
+              <strong style="font-weight:bold;">援藏计划</strong
+              >：由西藏考试院发放
+            </p>
+            <p>
+              <strong style="font-weight:bold;">少数民族骨干计划</strong
+              >：与所选报考点所在省级管理部门联系，提供省级管理部门要求的相关材料后获取验证码。
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="border p-3">
+            <!--<i class=" text-center iconfont icon-jiaofei" style="font-size: 60px;"></i>-->
+            <h2>网上缴费</h2>
+            <p>
+              网上报名期间通过研招网进行网上缴费，仅限报考点选择在
+              北京、天津、河北、山西、内蒙古、辽宁、吉林、黑龙江、江苏、安徽、福建、江西、山东、河南、湖北、湖南、广西、海南、重庆、四川、贵州、云南、甘肃、青海、宁夏的考生（即在这些省考试的考生，特殊要求详见各省网报公告）。选择其他报考点的考生，则在现场确认时缴费。
+            </p>
+            <p><a href="#" class="alert-link">网上缴费常见问题</a></p>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <hr />
         </div>
         <div class="col-md-12"><h3 class="head-blockquote">现场确认</h3></div>
         <div class="col-md-2">
-
+          <p class="text-md-center">选择报考点</p>
+          <p
+            class="text-md-center iconfont icon-didian"
+            style="font-size: 60px;"
+          ></p>
         </div>
         <div class="col-md-10">
-
-            <h3 class="border-dark">下载准考证</h3>
-            <p><em class="text-danger">提醒：</em>考生凭网报用户名和密码登录<a href="http://yz.chsi.com.cn"
-                                                               target="_blank">中国研究生招生信息网</a>下载打印《准考证》(24小时开通)。《准考证》正反面不得有任何涂改！
-            </p>
-            <p>1、《准考证》由考生使用A4幅面白纸在规定时间内（<em class="text-danger">2018年12月14日至12月25日</em>）上网自行下载打印。<em
-                    class="text-danger">《准考证》正反两面在使用期间不得涂改。</em></p>
-            <p>2、考生凭本人《准考证》及有效居民身份证按规定时间进入考场，对号入座。入座后将上述证件放在桌面左上角，以便核验。</p>
-            <p>3、考试地点由报考点指定，考生应在考试前一天到考试地点了解考场有关注意事项。</p>
-
+          <p>
+            不同身份的考生报考点不同 （<a href="#baokaodian">点击查看报考点</a
+            >）。
+          </p>
+          <p>
+            1、应届本科毕业生原则上应选择就读学校所在省(区、市)的报考点办理网上报名和现场确认手续；
+          </p>
+          <p>
+            2、单独考试考生应选择招生单位所在地省级教育招生考试机构指定的报考点办理网上报名和现场确认手续；
+          </p>
+          <p>
+            3、工商管理、公共管理、旅游管理、工程管理等专业学位考生和其他考生应选择工作或户口所在地省级教育招生考试机构指定的报考点办理网上报名和现场确认手续。
+          </p>
+          <hr />
         </div>
-    </div>
-</div>
+        <div class="col-md-2">
+          <p class="text-md-center">需要带的</p>
+          <p
+            class="text-md-center iconfont icon-fangxingtianjia"
+            style="font-size: 60px;"
+          ></p>
+        </div>
+        <div class="col-md-10">
+          <p>1、本人居民身份证。</p>
+          <p>2、学历证书（应届本科毕业生持学生证）。</p>
+          <p>3、网上报名编号（即网上报名成功后系统显示的9位数字报名号）。</p>
+          <p>
+            4、在录取当年9月1日前可取得国家承认本科毕业证书的自学考试和网络教育本科生，须持颁发毕业证书的省级高等教育自学考试办公室或网络教育高校出具的相关证明。
+          </p>
+          <p>
+            5、未通过网上学历(学籍)校验的考生，在现场确认时应提交学历(学籍)认证报告，以供核验。
+          </p>
+          <p>
+            6、报考“退役大学生士兵”专项硕士研究生招生计划的考生还应提交本人《入伍批准书》和《退出现役证》。
+          </p>
+          <p>7、其它招生单位或报考点规定的相关材料。</p>
+          <hr />
+        </div>
+        <div class="col-md-2">
+          <p class="text-md-center">需要做的</p>
+          <p
+            class="text-md-center iconfont icon-shengchan"
+            style="font-size: 60px;"
+          ></p>
+        </div>
+        <div class="col-md-10">
+          <p>
+            1、考生提交本人居民身份证、学历证书(应届本科毕业生持学生证)和网上报名编号，由报考点工作人员进行核对。
+          </p>
+          <p>
+            2、考生本人对网上报名信息要进行认真核对并确认。经考生确认的报名信息在考试、复试及录取阶段一律不作修改，因考生填写错误引起的一切后果由其自行承担。
+          </p>
+          <p>
+            3、考生按规定缴纳报考费。考生办理报考手续缴纳报考费后，不再退还。网上报名期间通过研招网进行网上缴费，仅限报考点选择在北京、天津、河北、山西、内蒙古、辽宁、吉林、黑龙江、江苏、安徽、福建、江西、山东、河南、湖北、湖南、广西、海南、重庆、四川、贵州、云南、甘肃、青海、宁夏的考生（即在这些省考试的考生，特殊要求详见各省网报公告）。选择其他报考点的考生，则在现场确认时缴费。
+          </p>
+          <p>4、采集考生图像信息。</p>
+          <hr />
+        </div>
+        <div class="col-md-12">
+          <div class="jumbotron">
+            <h1 class="display-4">注意!</h1>
+            <p>
+              ★
+              所有考生(不含推免生)均应在规定时间内到报考点指定地点现场核对并确认其网上报名信息，逾期不再补办。现场确认时间由各省级教育招生考试机构根据国家招生工作安排和本地区报考组织情况自行确定和公布。
+            </p>
+            <p>★ 在校研究生报考须在报名前征得所在培养单位同意。</p>
+            <p>
+              ★
+              报考点只对考生居民身份证、非应届本科毕业生的学历证书及应届本科毕业生和成人应届本科毕业生的学生证进行核对，考生报考资格的全面审查由招生单位在复试时进行。请考生仔细阅读省、招生单位以及报考点发布的公告。
+            </p>
 
-<hr>
-<div class="foot">
-    <div class="text-center">
+            <a class="btn btn-primary btn-lg" href="#" role="button"
+              >了解更多</a
+            >
+          </div>
+        </div>
+        <div class="col-md-12"><h3 class="head-blockquote">现场确认</h3></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+          <h3 class="border-dark">下载准考证</h3>
+          <p>
+            <em class="text-danger">提醒：</em>考生凭网报用户名和密码登录<a
+              href="http://yz.chsi.com.cn"
+              target="_blank"
+              >中国研究生招生信息网</a
+            >下载打印《准考证》(24小时开通)。《准考证》正反面不得有任何涂改！
+          </p>
+          <p>
+            1、《准考证》由考生使用A4幅面白纸在规定时间内（<em
+              class="text-danger"
+              >2018年12月14日至12月25日</em
+            >）上网自行下载打印。<em class="text-danger"
+              >《准考证》正反两面在使用期间不得涂改。</em
+            >
+          </p>
+          <p>
+            2、考生凭本人《准考证》及有效居民身份证按规定时间进入考场，对号入座。入座后将上述证件放在桌面左上角，以便核验。
+          </p>
+          <p>
+            3、考试地点由报考点指定，考生应在考试前一天到考试地点了解考场有关注意事项。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <div class="foot">
+      <div class="text-center">
         <p>由王瑞,郑秋果,张嘉欣,杨正谦制作</p>
         <p>Copyright © 2003-2018 系统分析师们 All Rights Reserved</p>
+      </div>
     </div>
-</div>
-<script type="application/javascript  " src="../lib/jquery-3.3.1.js"></script>
-<script type="application/javascript  " src="../lib/bootstrap.min.css"></script>
-<script type="application/javascript  " src="../lib/jquery.cookie.js"></script>
-<script type="application/javascript" src="../js/index.js"></script>
-</body>
+    <script
+      type="application/javascript  "
+      src="../lib/jquery-3.3.1.js"
+    ></script>
+    <script
+      type="application/javascript  "
+      src="../lib/bootstrap.min.css"
+    ></script>
+    <script
+      type="application/javascript  "
+      src="../lib/jquery.cookie.js"
+    ></script>
+    <script type="application/javascript" src="../js/index.js"></script>
+  </body>
 </html>

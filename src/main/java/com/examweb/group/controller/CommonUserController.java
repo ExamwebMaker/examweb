@@ -27,7 +27,7 @@ import java.util.*;
  * @Date:Created in 2018/7/2
  */
 @RestController
-@RequestMapping(value = "/commomuser")
+@RequestMapping(value = "/commonUser")
 public class CommonUserController {
 
     private AccountService accountService;
@@ -68,9 +68,9 @@ public class CommonUserController {
      * @Date: 2018/7/3
      * @Return:
      */
-    @PostMapping("/rigesterCommomUser")
+    @RequestMapping("/registerCommomUser")
     @CrossOrigin
-    public Result rigesterCommomUser(HttpServletRequest request,@RequestBody @Valid Account account, BindingResult bindingResult){
+    public Result registerCommomUser(HttpServletRequest request, @RequestBody @Valid Account account, BindingResult bindingResult){
         //System.out.print(account.getCertificateNumber());
 
         if (bindingResult.hasErrors()){
@@ -94,7 +94,7 @@ public class CommonUserController {
         account.setIsDelete("0");
         //System.out.print(account.toString());
         try {
-            if (accountService.insert(account)){
+            if (accountService.save(account)){
 
                 return ResultUtil.OK(account);
             }
@@ -110,7 +110,7 @@ public class CommonUserController {
      * @Date: 2018/7/4
      * @Return:
      */
-    @PostMapping("/clickAddExam")
+    @RequestMapping("/clickAddExam")
     @CrossOrigin
     public Result clickAddExam(HttpSession session){
         Account account=(Account) session.getAttribute("account");
@@ -147,7 +147,7 @@ public class CommonUserController {
     * @Date: 2018/7/4
     * @Return:
     */
-   @PostMapping("/addExam")
+   @RequestMapping("/addExam")
    @CrossOrigin
     public Result addExam(@RequestBody @Valid Examinee examinee, BindingResult bindingResult){
        if (bindingResult.hasErrors()){
@@ -156,7 +156,7 @@ public class CommonUserController {
        String accountId;
        accountId=examinee.getAccount_id();
        Examinee examineeChange=new Examinee();
-       examineeChange=examineeService.getExamineeByAccountId(accountId);
+       examineeChange=examineeService.getById(accountId);
        examineeChange.setIsDelete("1");
        examineeService.updateById(examineeChange);
        try {
@@ -178,7 +178,7 @@ public class CommonUserController {
            examinee.setIsDelete("0");
            examinee.setIsCheck("1");
            System.out.print(examinee.toString());
-           examineeService.insert(examinee);
+           examineeService.save(examinee);
            return ResultUtil.OK();
        }catch (Exception e){
            e.printStackTrace();
@@ -192,7 +192,7 @@ public class CommonUserController {
     * @Date: 2018/7/6
     * @Return:
     */
-   @PostMapping("/lookExam/{id}")
+   @RequestMapping("/lookExam/{id}")
    @CrossOrigin
    public Result lookExam(@PathVariable("id")String id){
        //此id为account的id
@@ -215,7 +215,7 @@ public class CommonUserController {
      * @Date: 2018/7/3
      * @Return:
      */
-    @PostMapping("/login")
+    @RequestMapping("/login")
     @CrossOrigin
     public Result login(@RequestBody Account account, HttpSession session) {
         String name=account.getName();
@@ -275,7 +275,7 @@ public class CommonUserController {
     * @Date: 2018/7/4
     * @Return:
     */
-   @PostMapping("/updateAccount")
+   @RequestMapping("/updateAccount")
    @CrossOrigin
     public Result updateAccount(@RequestBody @Valid Account account,BindingResult bindingResult) {
        if (bindingResult.hasErrors()) {
@@ -297,7 +297,7 @@ public class CommonUserController {
     * @Date: 2018/7/6
     * @Return:
     */
-   @PostMapping("/search/{subjectId}/{learnWay}")
+   @RequestMapping("/search/{subjectId}/{learnWay}")
     @CrossOrigin
     public Result search(@PathVariable("subjectId")String subjectId,@PathVariable("learnWay")String learnWay){
        List<String> list=schoolService.search(learnWay,subjectId);

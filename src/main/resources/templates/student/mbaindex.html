@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../lib/global.css"/>
     <script type="text/javascript" src="../lib/jquery-3.3.1.js"></script>
 
-    <script type="text/javascript" src="../lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="../lib/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="../lib/dataTables.bootstrap4.min.js"></script>
 
@@ -36,7 +36,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">主页<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/index">主页<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">学籍查询</a>
@@ -395,7 +395,7 @@
 
 
             $.ajax({
-                url: local + '/commomuser/search/1/全日制',
+                url: local + '/commonUser/search/1/全日制',
                 type: 'post',
                 dataType: 'json',
                 contentType: 'application/json; charset=UTF-8',

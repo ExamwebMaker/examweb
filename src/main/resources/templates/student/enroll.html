@@ -1,47 +1,57 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8"/>
+  <head>
+    <meta charset="utf-8" />
     <title>用户中心</title>
-    <link href="../lib/bootstrap.min.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="../lib/enroll.css">
-    <link rel="stylesheet" href="../lib/global.css">
+    <link href="../lib/bootstrap.min.css" rel="stylesheet" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" type="text/css" href="../lib/enroll.css" />
+    <link rel="stylesheet" href="../lib/global.css" />
     <script src="../lib/jquery-3.3.1.js"></script>
-    <script src="../lib/bootstrap.min.js"></script>
+    <script src="../lib/bootstrap.bundle.min.js"></script>
     <script src="../lib/jquery.cookie.js"></script>
     <script src="../lib/global.js"></script>
     <script src="../js/enroll.js"></script>
+  </head>
 
-</head>
-
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
         <i class="iconfont icon-zhuye"></i>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">主页<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">学籍查询</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">学历查询</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">在线验证</a>
-            </li>
-            <li>
-                <a class="nav-link" href="#">学历与成绩认证</a>
-            </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/index"
+              >主页<span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">学籍查询</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">学历查询</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">在线验证</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">学历与成绩认证</a>
+          </li>
         </ul>
         <!--<form class="form-inline my-2 my-lg-0">-->
         <!--<input class="form-control mr-sm-2" type="search" placeholder="搜索..." aria-label="Search">-->
@@ -49,635 +59,751 @@
         <!--</form> -->
         <a href="/stdaccountedit" class="btn-link">用户信息</a>
         <a id="logout" href="#" class="btn-link text-danger">退出登录</a>
-    </div>
-</nav>
-<div class="container">
-    <div class="row">
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
         <div class="col-md-12">
-            <div class="text-center">
-                <button id="addNewEnroll" class="btn btn-primary"><strong>+</strong>新增报名信息</button>
-                <button id="showenroll" data-toggle="modal" data-target="#baominxinxi" class="btn btn-outline-info">
-                    显示报名信息
-                </button>
-            </div>
+          <div class="text-center">
+            <button id="addNewEnroll" class="btn btn-primary">
+              <strong>+</strong>新增报名信息
+            </button>
+            <button
+              id="showenroll"
+              data-toggle="modal"
+              data-target="#baominxinxi"
+              class="btn btn-outline-info"
+            >
+              显示报名信息
+            </button>
+          </div>
         </div>
-        <div class="modal fade" id="baominxinxi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">报考信息</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <label>姓名</label>
-                        <input disabled class="form-control" id="stdname"/>
-                        <label>考试方式</label>
-                        <input disabled class="form-control" id="stdexamway"/>
-     <label>专项计划</label>
-                        <input disabled class="form-control" id="specialplan"/>
+        <div
+          class="modal fade"
+          id="baominxinxi"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">报考信息</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <label>姓名</label>
+                <input disabled class="form-control" id="stdname" />
+                <label>考试方式</label>
+                <input disabled class="form-control" id="stdexamway" />
+                <label>专项计划</label>
+                <input disabled class="form-control" id="specialplan" />
 
-                       <label>性别</label>
-                        <input disabled class="form-control" id="sex"/>
-                        <label>档案所在地</label>
+                <label>性别</label>
+                <input disabled class="form-control" id="sex" />
+                <label>档案所在地</label>
 
-                        <input disabled class="form-control" id="fieldplace"/>
+                <input disabled class="form-control" id="fieldplace" />
 
-                        <label>证件类型</label>
-                        <input disabled class="form-control" id="certifiatesy"/>
+                <label>证件类型</label>
+                <input disabled class="form-control" id="certifiatesy" />
 
-                        <label>证件号</label>
-                        <input disabled class="form-control" id="certificatenum"/>
+                <label>证件号</label>
+                <input disabled class="form-control" id="certificatenum" />
 
-                        <label>报考院系</label>
-                        <input disabled class="form-control" id="wantdepartment"/>
+                <label>报考院系</label>
+                <input disabled class="form-control" id="wantdepartment" />
 
-                        <label>报考专业</label>
-                        <input disabled class="form-control" id="wantmajor"/>
+                <label>报考专业</label>
+                <input disabled class="form-control" id="wantmajor" />
 
-                        <label>考试点</label>
-                        <input disabled class="form-control" id="exampoint"/>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
+                <label>考试点</label>
+                <input disabled class="form-control" id="exampoint" />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-block"
+                  data-dismiss="modal"
+                >
+                  关闭
+                </button>
+              </div>
             </div>
+          </div>
         </div>
         <div id="announcement" style="display: none" class="col-md-12">
-
-            <div class="progress">
-
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 0%"
+            ></div>
+          </div>
+          <h3 class="text-center"><strong>网上报名公告</strong></h3>
+          <small>来源:研招网 2018-06-20</small>
+          <article>
+            一、初试时间
+            <br />2018年全国硕士研究生招生考试初试时间为：2017年12月23日至12月24日（每天上午8:30-11:30，下午14:00-17:00）。超过3小时的考试科目在12月25日进行（起始时间8:30，截止时间由招生单位确定，不超过14:30）。
+            <br />考试时间以北京时间为准。不在规定日期举行的硕士研究生入学考试，国家一律不予承认。
+            <br />二、初试科目 <br />初试方式均为笔试。
+            <br />12月23日上午&nbsp;思想政治理论、管理类联考综合能力
+            <br />12月23日下午&nbsp;外国语 <br />12月24日上午&nbsp;业务课一
+            <br />12月24日下午&nbsp;业务课二
+            <br />详细考试时间、考试科目及有关要求等请见《准考证》及考点和招生单位公告。
+            <br />三、报名要求
+            <br />硕士研究生招生考试报名包括网上报名和现场确认两个阶段。所有参加硕士研究生招生考试的考生均须进行网上报名，并到报考点现场确认网报信息和采集本人图像等相关电子信息，同时按规定缴纳报考费。
+            <br />应届本科毕业生原则上应选择就读学校所在省（区、市）的报考点办理网上报名和现场确认手续；单独考试考生应选择招生单位所在地省级教育招生考试机构指定的报考点办理网上报名和现场确认手续；工商管理、公共管理、旅游管理和工程管理等专业学位考生和其他考生应选择工作或户口所在地省级教育招生考试机构指定的报考点办理网上报名和现场确认手续。
+            <br />四、网上报名 <br />（一）网上报名时间
+            <br />2017年10月10日至10月31日，每天9:00-22:00。
+            <br />（二）网上预报名时间
+            <br />2017年9月24日至9月27日，每天9:00-22:00。 <br />（三）报名流程
+            <br />考生在规定时间内登录“中国研究生招生信息网”（公网网址：http：//yz.chsi.com.cn，教育网址：http://yz.chsi.cn，以下简称“研招网”）浏览报考须知，按教育部、省级教育招生考试机构、报考点以及报考招生单位的网上公告要求报名。
+            <br />报名期间，考生可自行修改网上报名信息或重新填报报名信息，但为避免多占考位，影响其他考生报考，一位考生只能保留一条有效报名信息。
+            <br />考生报名时只填报一个招生单位的一个专业。待考试结束，教育部公布考生进入复试的初试成绩基本要求后，考生可通过“研招网”调剂服务系统了解招生单位的计划余额信息，并按相关规定自主多次平行填报多个调剂志愿。
+            <br />报名期间将对考生学历（学籍）信息进行网上校验，并在考生提交报名信息三天内反馈校验结果。考生可随时上网查看学历（学籍）校验结果。考生也可在报名前或报名期间自行登录“中国高等教育学生信息网”（网址：http://www.chsi.com.cn）查询本人学历（学籍）信息。未通过学历（学籍）校验的考生应及时到学籍学历权威认证机构进行认证，在现场确认时将认证报告交报考点核验。
+            <br />考生应按要求准确填写个人网上报名信息并提供真实材料。凡因网报信息填写错误或填报虚假信息而造成不能考试、复试或录取的，后果由考生本人承担。
+            <br />五、现场确认 <br />（一）现场确认时间
+            <br />具体时间由各省级教育招生考试机构根据本地区报考情况自行确定和公布。
+            <br />请考生及时关注各省级教育招生考试机构发布的公告，在规定时间内到指定地点现场核对并确认个人网上报名信息。逾期不再补办。
+            <br />（二）现场确认程序
+            <br />1.考生到报考点指定的地方进行现场确认。
+            <br />2.考生提交本人居民身份证、学历学位证书（普通高校、成人高校、普通高校举办的成人高校学历教育应届本科毕业生持学生证）和网上报名编号，由报考点工作人员进行核对。报考“退役大学生士兵”专项硕士研究生招生计划的考生还应提交本人《入伍批准书》和《退出现役证》原件或复印件。
+            <br />在录取当年9月1日前可取得国家承认本科毕业证书的自学考试和网络教育本科生，须凭颁发毕业证书的省级自学考试机构或网络教育高校出具的相关证明方可办理网上报名现场确认手续。
+            <br />考生应认真了解并严格按照报考条件及相关政策要求选择填报志愿。现场确认时要对本人网上报名信息进行认真核对并确认，报名信息经考生确认后一律不作修改。
+            <br />3.考生应按规定缴纳报考费。
+            <br />4.考生应按报考点规定配合采集本人图像等相关电子信息。
+            <br />六、打印准考证
+            <br />2017年12月14日至12月25日，考生可凭网报用户名和密码登录“研招网”下载打印《准考证》。《准考证》使用A4幅面白纸打印，正反两面在使用期间不得涂改。考生凭下载打印的《准考证》及居民身份证参加考试。请考生务必妥善保管个人网报用户名、密码及《准考证》、居民身份证等证件，避免泄露丢失造成损失。
+            <br />
+            <div class="text-center">
+              <button id="showcommitment" class="btn btn-primary ">
+                阅读完毕
+              </button>
             </div>
-            <h3 class="text-center"><strong>网上报名公告</strong></h3>
-            <small>来源:研招网 2018-06-20</small>
-            <article> 一、初试时间
-                <br>2018年全国硕士研究生招生考试初试时间为：2017年12月23日至12月24日（每天上午8:30-11:30，下午14:00-17:00）。超过3小时的考试科目在12月25日进行（起始时间8:30，截止时间由招生单位确定，不超过14:30）。
-                <br>考试时间以北京时间为准。不在规定日期举行的硕士研究生入学考试，国家一律不予承认。
-                <br>二、初试科目
-                <br>初试方式均为笔试。
-                <br>12月23日上午&nbsp;思想政治理论、管理类联考综合能力
-                <br>12月23日下午&nbsp;外国语
-                <br>12月24日上午&nbsp;业务课一
-                <br>12月24日下午&nbsp;业务课二
-                <br>详细考试时间、考试科目及有关要求等请见《准考证》及考点和招生单位公告。
-                <br>三、报名要求
-                <br>硕士研究生招生考试报名包括网上报名和现场确认两个阶段。所有参加硕士研究生招生考试的考生均须进行网上报名，并到报考点现场确认网报信息和采集本人图像等相关电子信息，同时按规定缴纳报考费。
-                <br>应届本科毕业生原则上应选择就读学校所在省（区、市）的报考点办理网上报名和现场确认手续；单独考试考生应选择招生单位所在地省级教育招生考试机构指定的报考点办理网上报名和现场确认手续；工商管理、公共管理、旅游管理和工程管理等专业学位考生和其他考生应选择工作或户口所在地省级教育招生考试机构指定的报考点办理网上报名和现场确认手续。
-                <br>四、网上报名
-                <br>（一）网上报名时间
-                <br>2017年10月10日至10月31日，每天9:00-22:00。
-                <br>（二）网上预报名时间
-                <br>2017年9月24日至9月27日，每天9:00-22:00。
-                <br>（三）报名流程
-                <br>考生在规定时间内登录“中国研究生招生信息网”（公网网址：http：//yz.chsi.com.cn，教育网址：http://yz.chsi.cn，以下简称“研招网”）浏览报考须知，按教育部、省级教育招生考试机构、报考点以及报考招生单位的网上公告要求报名。
-                <br>报名期间，考生可自行修改网上报名信息或重新填报报名信息，但为避免多占考位，影响其他考生报考，一位考生只能保留一条有效报名信息。
-                <br>考生报名时只填报一个招生单位的一个专业。待考试结束，教育部公布考生进入复试的初试成绩基本要求后，考生可通过“研招网”调剂服务系统了解招生单位的计划余额信息，并按相关规定自主多次平行填报多个调剂志愿。
-                <br>报名期间将对考生学历（学籍）信息进行网上校验，并在考生提交报名信息三天内反馈校验结果。考生可随时上网查看学历（学籍）校验结果。考生也可在报名前或报名期间自行登录“中国高等教育学生信息网”（网址：http://www.chsi.com.cn）查询本人学历（学籍）信息。未通过学历（学籍）校验的考生应及时到学籍学历权威认证机构进行认证，在现场确认时将认证报告交报考点核验。
-                <br>考生应按要求准确填写个人网上报名信息并提供真实材料。凡因网报信息填写错误或填报虚假信息而造成不能考试、复试或录取的，后果由考生本人承担。
-                <br>五、现场确认
-                <br>（一）现场确认时间
-                <br>具体时间由各省级教育招生考试机构根据本地区报考情况自行确定和公布。
-                <br>请考生及时关注各省级教育招生考试机构发布的公告，在规定时间内到指定地点现场核对并确认个人网上报名信息。逾期不再补办。
-                <br>（二）现场确认程序
-                <br>1.考生到报考点指定的地方进行现场确认。
-                <br>2.考生提交本人居民身份证、学历学位证书（普通高校、成人高校、普通高校举办的成人高校学历教育应届本科毕业生持学生证）和网上报名编号，由报考点工作人员进行核对。报考“退役大学生士兵”专项硕士研究生招生计划的考生还应提交本人《入伍批准书》和《退出现役证》原件或复印件。
-                <br>在录取当年9月1日前可取得国家承认本科毕业证书的自学考试和网络教育本科生，须凭颁发毕业证书的省级自学考试机构或网络教育高校出具的相关证明方可办理网上报名现场确认手续。
-                <br>考生应认真了解并严格按照报考条件及相关政策要求选择填报志愿。现场确认时要对本人网上报名信息进行认真核对并确认，报名信息经考生确认后一律不作修改。
-                <br>3.考生应按规定缴纳报考费。
-                <br>4.考生应按报考点规定配合采集本人图像等相关电子信息。
-                <br>六、打印准考证
-                <br>2017年12月14日至12月25日，考生可凭网报用户名和密码登录“研招网”下载打印《准考证》。《准考证》使用A4幅面白纸打印，正反两面在使用期间不得涂改。考生凭下载打印的《准考证》及居民身份证参加考试。请考生务必妥善保管个人网报用户名、密码及《准考证》、居民身份证等证件，避免泄露丢失造成损失。
-                <br>
-                <div class="text-center">
-                    <button id="showcommitment" class="btn btn-primary ">阅读完毕</button>
-                </div>
-            </article>
+          </article>
         </div>
         <div id="commitment" style="display: none" class="col-md-12">
-            <div class="progress">
-
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
-            </div>
-            <h2 class="text-center">2019研究生考试承诺书</h2>
-            <article>
-                &nbsp;&nbsp;我是参加2018年全国硕士研究生统一招生考试的考生，我已阅读并了解了《2018年全国招收攻读硕士学位研究生简章》 、 《攻读硕士学位研究生招生考场规则》 、
-                《国家教育考试违规处理办法》等有关报考规定，经认真考虑，郑重承诺以下事项：
-                <br> &nbsp;&nbsp;1、保证报名时所提交的报考信息和证件真实、准确。如有虚假信息和作假行为，本人承担一切后果。
-                <br>&nbsp;&nbsp;2、保证自觉服从考试组织管理部门的统一安排，接受监考人员的检查、监督和管理。
-                <br>&nbsp;&nbsp; 3、保证入场时接受考试安全检查，不携带规定以外的物品进入考场，在每科目考试结束前不交卷出场。
-                <br>&nbsp;&nbsp;4、保证在考试中诚实守信，自觉遵守国家有关研究生招生考试法规、考试纪律和考场规则。如有违法、违纪、违规行为，自愿服从监考人员根据国家有关规定所做出的处罚决定，接受处罚。
-            </article>
-            <div class="text-center">
-                <button id="uptoannouncement" class="btn btn-primary ">上一步</button>
-                <button id="showprovince" class="btn btn-primary ">下一步</button>
-            </div>
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 10%"
+            ></div>
+          </div>
+          <h2 class="text-center">2019研究生考试承诺书</h2>
+          <article>
+            &nbsp;&nbsp;我是参加2018年全国硕士研究生统一招生考试的考生，我已阅读并了解了《2018年全国招收攻读硕士学位研究生简章》
+            、 《攻读硕士学位研究生招生考场规则》 、
+            《国家教育考试违规处理办法》等有关报考规定，经认真考虑，郑重承诺以下事项：
+            <br />
+            &nbsp;&nbsp;1、保证报名时所提交的报考信息和证件真实、准确。如有虚假信息和作假行为，本人承担一切后果。
+            <br />&nbsp;&nbsp;2、保证自觉服从考试组织管理部门的统一安排，接受监考人员的检查、监督和管理。
+            <br />&nbsp;&nbsp;
+            3、保证入场时接受考试安全检查，不携带规定以外的物品进入考场，在每科目考试结束前不交卷出场。
+            <br />&nbsp;&nbsp;4、保证在考试中诚实守信，自觉遵守国家有关研究生招生考试法规、考试纪律和考场规则。如有违法、违纪、违规行为，自愿服从监考人员根据国家有关规定所做出的处罚决定，接受处罚。
+          </article>
+          <div class="text-center">
+            <button id="uptoannouncement" class="btn btn-primary ">
+              上一步
+            </button>
+            <button id="showprovince" class="btn btn-primary ">下一步</button>
+          </div>
         </div>
         <div class="col-md-12" id="province" style="display: none;">
-            <div class="progress">
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 20%"
+            ></div>
+          </div>
+          <h2 class="text-center">
+            <strong>选择报考招生单位以及考试方式,专项计划</strong>
+          </h2>
 
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 20%"></div>
+          <div class="form-select">
+            <div class="form-group row">
+              <input id="accountid" style="display:none" value="" />
+              <label for="zhaoshengdanwei1" class="col-md-2 text-right"
+                >招生单位:</label
+              >
+              <div class="col-md-5">
+                <select id="zhaoshengdanwei1" class="form-control" name="">
+                  <option>请选择</option>
+                  <option value="北京">北京</option>
+                  <option value="天津">天津</option>
+                  <option value="福建">福建</option>
+                </select>
+              </div>
+              <div class="col-md-5">
+                <select id="zhaoshengdanwei2" class="form-control" name="">
+                  <option>请选择</option>
+                </select>
+              </div>
             </div>
-            <h2 class="text-center"><strong>选择报考招生单位以及考试方式,专项计划</strong></h2>
-
-            <div class="form-select">
-                <div class="form-group row">
-                    <input id="accountid" style="display:none" value=""/>
-                    <label for="zhaoshengdanwei1" class="col-md-2 text-right">招生单位:</label>
-                    <div class="col-md-5">
-                        <select id="zhaoshengdanwei1" class="form-control" name="">
-                            <option>请选择</option>
-                            <option value="北京">北京</option>
-                            <option value="天津">天津</option>
-                            <option value="福建">福建</option>
-                        </select>
-                    </div>
-                    <div class="col-md-5">
-                        <select id="zhaoshengdanwei2" class="form-control" name="">
-                            <option>请选择</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 text-right ">考试方式:</label>
-                    <div class="col-md-10">
-                        <select id="kaoshifangshi" class="form-control" name="">
-                            <option value="全国统考">全国统考</option>
-                            <option value="联合考试">联合考试</option>
-                            <option value="单独考试">单独考试</option>
-                            <option value="推荐免试">推荐免试</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 text-right">专项计划:</label>
-                    <div class="col-md-10">
-                        <select id="zhuanxiangjihua" class="form-control" name="">
-                            <option>请选择</option>
-                            <option value="强军计划">强军计划</option>
-                            <option value="退役大学生计划">退役大学生计划</option>
-                            <option value="援藏">援藏计划</option>
-
-                        </select>
-                    </div>
-                </div>
+            <div class="form-group row">
+              <label class="col-md-2 text-right ">考试方式:</label>
+              <div class="col-md-10">
+                <select id="kaoshifangshi" class="form-control" name="">
+                  <option value="全国统考">全国统考</option>
+                  <option value="联合考试">联合考试</option>
+                  <option value="单独考试">单独考试</option>
+                  <option value="推荐免试">推荐免试</option>
+                </select>
+              </div>
             </div>
-            <div class="text-center">
-                <button id="uptocommitment" class="btn btn-primary ">上一步</button>
-                <button id="showpersoninfo1" class="btn btn-primary ">下一步</button>
+            <div class="form-group row">
+              <label class="col-md-2 text-right">专项计划:</label>
+              <div class="col-md-10">
+                <select id="zhuanxiangjihua" class="form-control" name="">
+                  <option>请选择</option>
+                  <option value="强军计划">强军计划</option>
+                  <option value="退役大学生计划">退役大学生计划</option>
+                  <option value="援藏">援藏计划</option>
+                </select>
+              </div>
             </div>
+          </div>
+          <div class="text-center">
+            <button id="uptocommitment" class="btn btn-primary ">上一步</button>
+            <button id="showpersoninfo1" class="btn btn-primary ">
+              下一步
+            </button>
+          </div>
         </div>
         <div class="col-md-12" id="personinfo1" style="display:none;">
-            <div class="progress">
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 38%"
+            ></div>
+          </div>
+          <div class="form-select">
+            <h2 class="text-center">填写个人信息1</h2>
 
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 38%"></div>
+            <div class="form-group row">
+              <label class="col-md-2 text-right" for="studentname"
+                >考生姓名:</label
+              >
+              <div class="col-md-6">
+                <input id="studentname" type="text" class="form-control" />
+              </div>
             </div>
-            <div class="form-select">
-                <h2 class="text-center">填写个人信息1</h2>
-
-                <div class="form-group row">
-                    <label class="col-md-2 text-right" for="studentname">考生姓名:</label>
-                    <div class="col-md-6">
-                        <input id="studentname" type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 text-right" for="studentnamepinyin">姓名拼音:</label>
-                    <div class="col-md-6">
-                        <input id="studentnamepinyin" type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 text-right" for="zhengjianleixing">证件类型:</label>
-                    <div class="col-md-6">
-                        <select name="credentialtype" id="zhengjianleixing" aria-invalid="false" class="form-control"
-                                required>
-                            <option value="0">居民身份证</option>
-                            <option value="1">港澳台身份证</option>
-                            <option value="2">华侨身份证/Passport(无身份证者可填护照号)</option>
-                            <option value="3">其他</option>
-
-
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 text-right" for="">证件号码:</label>
-                    <div class="col-md-6">
-                        <input id="zhengjianhaoma" type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 text-right" for="">现役军人:</label>
-                    <div class="col-md-6">
-                        <select class="form-control" id="xianyijunren">
-                            <option value="0">现役军人</option>
-                            <option value="1">非现役军人</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 text-right" for="">考生民族:</label>
-                    <div class="col-md-6">
-                        <input id="kaoshengminzu" type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 text-right" for="">考生性别:</label>
-                    <div class="col-md-6">
-                        <input value="0" id="boy" name="sex" type="radio">
-                        <label for="boy">男</label>
-                        <input value="1" id="girl" name="sex" type="radio">
-                        <label for="girl">女</label>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 text-right" for="">婚姻状况:</label>
-                    <div class="col-md-6">
-                        <input value="0" type="radio" name="marriage">
-                        <label for="">未婚</label>
-                        <input value="1" name="marriage" type="radio">
-                        <label for="">已婚</label>
-                        <input value="2" name="marriage" type="radio">
-                        <label for="">丧偶</label>
-                        <input value="3" name="marriage" type="radio">
-                        <label for="">离婚</label>
-                        <input value="3" name="marriage" type="radio">
-                        <label for="">其他</label>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 text-right">政治面貌:</label>
-                    <div class="col-md-6">
-                        <select id="zhengzhimianmao" class="form-control" name="">
-                            <option value="群众">群众</option>
-                            <option value="共青团员">共青团员</option>
-                            <option value="党员">党员</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 text-right">考生通讯地址:</label>
-                    <div class="col-md-6">
-                        <input id="tongxundizhi" type="text" class="form-control"/>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-2 text-right">邮政编码:</label>
-                    <div class="col-md-6">
-                        <input id="youzhengbianma" type="text" class="form-control"/>
-                    </div>
-                </div>
+            <div class="form-group row">
+              <label class="col-md-2 text-right" for="studentnamepinyin"
+                >姓名拼音:</label
+              >
+              <div class="col-md-6">
+                <input
+                  id="studentnamepinyin"
+                  type="text"
+                  class="form-control"
+                />
+              </div>
             </div>
-            <div class="text-center">
-                <button id="uptoprovince" class="btn btn-primary ">上一步</button>
-                <button id="showpersoninfo2" class="btn btn-primary ">下一步</button>
+            <div class="form-group row">
+              <label class="col-md-2 text-right" for="zhengjianleixing"
+                >证件类型:</label
+              >
+              <div class="col-md-6">
+                <select
+                  name="credentialtype"
+                  id="zhengjianleixing"
+                  aria-invalid="false"
+                  class="form-control"
+                  required
+                >
+                  <option value="0">居民身份证</option>
+                  <option value="1">港澳台身份证</option>
+                  <option value="2"
+                    >华侨身份证/Passport(无身份证者可填护照号)</option
+                  >
+                  <option value="3">其他</option>
+                </select>
+              </div>
             </div>
+            <div class="form-group row">
+              <label class="col-md-2 text-right" for="">证件号码:</label>
+              <div class="col-md-6">
+                <input id="zhengjianhaoma" type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 text-right" for="">现役军人:</label>
+              <div class="col-md-6">
+                <select class="form-control" id="xianyijunren">
+                  <option value="0">现役军人</option>
+                  <option value="1">非现役军人</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 text-right" for="">考生民族:</label>
+              <div class="col-md-6">
+                <input id="kaoshengminzu" type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 text-right" for="">考生性别:</label>
+              <div class="col-md-6">
+                <input value="0" id="boy" name="sex" type="radio" />
+                <label for="boy">男</label>
+                <input value="1" id="girl" name="sex" type="radio" />
+                <label for="girl">女</label>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 text-right" for="">婚姻状况:</label>
+              <div class="col-md-6">
+                <input value="0" type="radio" name="marriage" />
+                <label for="">未婚</label>
+                <input value="1" name="marriage" type="radio" />
+                <label for="">已婚</label>
+                <input value="2" name="marriage" type="radio" />
+                <label for="">丧偶</label>
+                <input value="3" name="marriage" type="radio" />
+                <label for="">离婚</label>
+                <input value="3" name="marriage" type="radio" />
+                <label for="">其他</label>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 text-right">政治面貌:</label>
+              <div class="col-md-6">
+                <select id="zhengzhimianmao" class="form-control" name="">
+                  <option value="群众">群众</option>
+                  <option value="共青团员">共青团员</option>
+                  <option value="党员">党员</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 text-right">考生通讯地址:</label>
+              <div class="col-md-6">
+                <input id="tongxundizhi" type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 text-right">邮政编码:</label>
+              <div class="col-md-6">
+                <input id="youzhengbianma" type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button id="uptoprovince" class="btn btn-primary ">上一步</button>
+            <button id="showpersoninfo2" class="btn btn-primary ">
+              下一步
+            </button>
+          </div>
         </div>
         <div class="col-md-12" id="personinfo2" style="display:none;">
-            <div class="progress">
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 60%"
+            ></div>
+          </div>
+          <h2 class="text-center">填写个人信息2</h2>
 
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 60%"></div>
+          <div class="form-group row">
+            <label class="col-md-2 text-right">考生籍贯:</label>
+            <div class="col-md-3">
+              <select id="kaoshengjiguan1" class="form-control" name="">
+                <option>请选择</option>
+                <option value="北京">北京</option>
+                <option value="天津">天津</option>
+                <option value="福建">福建</option>
+              </select>
             </div>
-            <h2 class="text-center">填写个人信息2</h2>
+            <div class="col-md-3">
+              <select id="kaoshengjiguan2" class="form-control" name="">
+                <option>请选择</option>
+                <option value="北京">福州</option>
+                <option value="永安">永安</option>
+                <option value="福建">福建</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <select id="kaoshengjiguan3" class="form-control" name="">
+                <option>请选择</option>
+                <option value="龙岩市">龙岩市</option>
+                <option value="漳州市">漳州市</option>
+                <option value="龙海市">龙海市</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="xianzaixuexi" class="col-md-2 text-right"
+              >现在学习或者工作单位:</label
+            >
+            <div class="col-md-10">
+              <input id="xianzaixuexi" class="form-control " />
+            </div>
+          </div>
 
-            <div class="form-group row">
-                <label class="col-md-2 text-right">考生籍贯:</label>
-                <div class="col-md-3">
-                    <select id="kaoshengjiguan1" class="form-control" name="">
-                        <option>请选择</option>
-                        <option value="北京">北京</option>
-                        <option value="天津">天津</option>
-                        <option value="福建">福建</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select id="kaoshengjiguan2" class="form-control" name="">
-                        <option>请选择</option>
-                        <option value="北京">福州</option>
-                        <option value="永安">永安</option>
-                        <option value="福建">福建</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select id="kaoshengjiguan3" class="form-control" name="">
-                        <option>请选择</option>
-                        <option value="龙岩市">龙岩市</option>
-                        <option value="漳州市">漳州市</option>
-                        <option value="龙海市">龙海市</option>
-                    </select>
-                </div>
+          <div class="form-group row">
+            <label class="col-md-2 text-right ">户口所在地:</label>
+            <div class="col-md-3">
+              <select id="hukou1" class="form-control" name="">
+                <option>请选择</option>
+                <option value="北京">北京</option>
+                <option value="天津">天津</option>
+                <option value="福建">福建</option>
+              </select>
             </div>
-            <div class="form-group row">
-                <label for="xianzaixuexi" class="col-md-2 text-right">现在学习或者工作单位:</label>
-                <div class="col-md-10">
-                    <input id="xianzaixuexi" class="form-control ">
-                </div>
+            <div class="col-md-3">
+              <select id="hukou2" class="form-control" name="">
+                <option>请选择</option>
+                <option value="北京">北京</option>
+                <option value="天津">天津市</option>
+                <option value="永定区">永定区</option>
+                <option value="平和县">平和县</option>
+              </select>
             </div>
+            <div class="col-md-3">
+              <select id="hukou3" class="form-control" name="">
+                <option>请选择</option>
+                <option value="北京">北京</option>
+                <option value="天津">天津</option>
+                <option value="福建">福建</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="" class="col-md-2 text-right"
+              >户口所在地详细地址:</label
+            >
+            <div class="col-md-10">
+              <input id="hukouxiangxixinxi" class="form-control " />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-2 text-right ">出生地省市:</label>
+            <div class="col-md-3">
+              <select id="chushengdi1" class="form-control" name="">
+                <option>请选择</option>
+                <option value="北京">北京</option>
+                <option value="江苏">江苏</option>
+                <option value="河南">河南</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <select id="chushengdi2" class="form-control" name="">
+                <option>请选择</option>
+                <option value="南阳">南阳</option>
+                <option value="贵阳">贵阳</option>
+                <option value="南京">南京</option>
+                <option value="仙武">仙武</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <select id="chushengdi3" class="form-control" name="">
+                <option>请选择</option>
+                <option value="新野县">新野县</option>
+                <option value="刘安县">刘安县</option>
+                <option value="兴业县">兴业县</option>
+                <option value="汉华区">汉华区</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="" class="col-md-2 text-right">考生档案所在地:</label>
+            <div class="col-md-10">
+              <input id="dangansuozaidi" class="form-control " />
+            </div>
+          </div>
 
-            <div class="form-group row">
-                <label class="col-md-2 text-right ">户口所在地:</label>
-                <div class="col-md-3">
-                    <select id="hukou1" class="form-control" name="">
-                        <option>请选择</option>
-                        <option value="北京">北京</option>
-                        <option value="天津">天津</option>
-                        <option value="福建">福建</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select id="hukou2" class="form-control" name="">
-                        <option>请选择</option>
-                        <option value="北京">北京</option>
-                        <option value="天津">天津市</option>
-                        <option value="永定区">永定区</option>
-                        <option value="平和县">平和县</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select id="hukou3" class="form-control" name="">
-                        <option>请选择</option>
-                        <option value="北京">北京</option>
-                        <option value="天津">天津</option>
-                        <option value="福建">福建</option>
-                    </select>
-                </div>
+          <div class="form-group row">
+            <label for="" class="col-md-2 text-right"
+              >考生档案所在单位名称:</label
+            >
+            <div class="col-md-10">
+              <input id="danganmingzi" class="form-control " />
             </div>
-            <div class="form-group row">
-                <label for="" class="col-md-2 text-right">户口所在地详细地址:</label>
-                <div class="col-md-10">
-                    <input id="hukouxiangxixinxi" class="form-control ">
-                </div>
+          </div>
+          <div class="form-group row">
+            <label for="" class="col-md-2 text-right"
+              >考生档案所在单位地址:</label
+            >
+            <div class="col-md-10">
+              <input id="dangandizhi" class="form-control " />
             </div>
-            <div class="form-group row">
-                <label class="col-md-2 text-right ">出生地省市:</label>
-                <div class="col-md-3">
-                    <select id="chushengdi1" class="form-control" name="">
-                        <option>请选择</option>
-                        <option value="北京">北京</option>
-                        <option value="江苏">江苏</option>
-                        <option value="河南">河南</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select id="chushengdi2" class="form-control" name="">
-                        <option>请选择</option>
-                        <option value="南阳">南阳</option>
-                        <option value="贵阳">贵阳</option>
-                        <option value="南京">南京</option>
-                        <option value="仙武">仙武</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select id="chushengdi3" class="form-control" name="">
-                        <option>请选择</option>
-                        <option value="新野县">新野县</option>
-                        <option value="刘安县">刘安县</option>
-                        <option value="兴业县">兴业县</option>
-                        <option value="汉华区">汉华区</option>
-                    </select>
-                </div>
+          </div>
+          <div class="form-group row">
+            <label for="" class="col-md-2 text-right"
+              >考生档案所在单位邮编:</label
+            >
+            <div class="col-md-10">
+              <input id="danganyoubian" class="form-control " />
             </div>
-            <div class="form-group row">
-                <label for="" class="col-md-2 text-right">考生档案所在地:</label>
-                <div class="col-md-10">
-                    <input id="dangansuozaidi" class="form-control ">
-                </div>
+          </div>
+          <div class="form-group row">
+            <label for="" class="col-md-2 text-right"
+              >何时何地受到的奖励或者处分:</label
+            >
+            <div class="col-md-10">
+              <textarea id="jianglichufen" class="form-control "></textarea>
             </div>
-
-            <div class="form-group row">
-                <label for="" class="col-md-2 text-right">考生档案所在单位名称:</label>
-                <div class="col-md-10">
-                    <input id="danganmingzi" class="form-control ">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="" class="col-md-2 text-right">考生档案所在单位地址:</label>
-                <div class="col-md-10">
-                    <input id="dangandizhi" class="form-control ">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="" class="col-md-2 text-right">考生档案所在单位邮编:</label>
-                <div class="col-md-10">
-                    <input id="danganyoubian" class="form-control ">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="" class="col-md-2 text-right">何时何地受到的奖励或者处分:</label>
-                <div class="col-md-10">
-                    <textarea id="jianglichufen" class="form-control "></textarea>
-                </div>
-            </div>
-            <div class="text-center">
-                <button id="uptopersoninfo1" class="btn btn-primary ">上一步</button>
-                <button id="showbaokaodanwei" class="btn btn-primary ">下一步</button>
-            </div>
+          </div>
+          <div class="text-center">
+            <button id="uptopersoninfo1" class="btn btn-primary ">
+              上一步
+            </button>
+            <button id="showbaokaodanwei" class="btn btn-primary ">
+              下一步
+            </button>
+          </div>
         </div>
         <div class="col-md-12" id="baokaodanwei" style="display: none">
-            <div class="progress">
-
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 75%"
+            ></div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-2 text-right">报考单位名称:</label>
+            <div class="col-md-10">
+              <p id="examPointName">不不不</p>
             </div>
-            <div class="form-group row">
-                <label class="col-md-2 text-right">报考单位名称:</label>
-                <div class="col-md-10">
-                    <p id="examPointName">不不不</p>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-md-2 text-right">报考院系所名称:</label>
-                <div class="col-md-10">
-                    <select id="baokaoyuanxiao" class="form-control" name="">
-                        <option>请选择</option>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-2 text-right">报考院系所名称:</label>
+            <div class="col-md-10">
+              <select id="baokaoyuanxiao" class="form-control" name="">
+                <option>请选择</option>
 
-                        <option value="哲学">(01)哲学</option>
-                        <option value="02">(02)经济学</option>
-                        <option value="03">(03)法学</option>
-                        <option value="04">(04)教育学</option>
-                        <option value="05">(05)文学</option>
-                        <option value="06">(06)历史学</option>
-                        <option value="07">(07)理学</option>
-                        <option value="08">(08)工学</option>
-                        <option value="09">(09)农学</option>
-                        <option value="10">(10)医学</option>
-                        <option value="11">(11)军事学</option>
-                        <option value="12">(12)管理学</option>
-                        <option value="13">(13)艺术学</option>
-
-                    </select>
-                </div>
+                <option value="哲学">(01)哲学</option>
+                <option value="02">(02)经济学</option>
+                <option value="03">(03)法学</option>
+                <option value="04">(04)教育学</option>
+                <option value="05">(05)文学</option>
+                <option value="06">(06)历史学</option>
+                <option value="07">(07)理学</option>
+                <option value="08">(08)工学</option>
+                <option value="09">(09)农学</option>
+                <option value="10">(10)医学</option>
+                <option value="11">(11)军事学</option>
+                <option value="12">(12)管理学</option>
+                <option value="13">(13)艺术学</option>
+              </select>
             </div>
-            <div class="form-group row">
-                <label class="col-md-2 text-right">报考专业:</label>
-                <div class="col-md-10">
-                    <select id="baokaozhuanye" class="form-control" name="">
-                        <option>请选择</option>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-2 text-right">报考专业:</label>
+            <div class="col-md-10">
+              <select id="baokaozhuanye" class="form-control" name="">
+                <option>请选择</option>
 
-                        <option value="0101">(0101)哲学</option>
-                        <option value="0201">(0201)理论经济学</option>
-                        <option value="0202">(0202)应用经济学</option>
-                        <option value="0251">(0251)金融</option>
-                        <option value="0252">(0252)应用统计</option>
-                        <option value="0253">(0253)税务</option>
-                        <option value="0254">(0254)国际商务</option>
-                        <option value="0255">(0255)保险</option>
-                        <option value="0256">(0256)资产评估</option>
-                        <option value="0257">(0257)审计</option>
-                        <option value="0270">(0270)统计学</option>
-                        <option value="0301">(0301)法学</option>
-                        <option value="0302">(0302)政治学</option>
+                <option value="0101">(0101)哲学</option>
+                <option value="0201">(0201)理论经济学</option>
+                <option value="0202">(0202)应用经济学</option>
+                <option value="0251">(0251)金融</option>
+                <option value="0252">(0252)应用统计</option>
+                <option value="0253">(0253)税务</option>
+                <option value="0254">(0254)国际商务</option>
+                <option value="0255">(0255)保险</option>
+                <option value="0256">(0256)资产评估</option>
+                <option value="0257">(0257)审计</option>
+                <option value="0270">(0270)统计学</option>
+                <option value="0301">(0301)法学</option>
+                <option value="0302">(0302)政治学</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-2 text-right">研究方向:</label>
+            <div class="col-md-10">
+              <select id="yanjiufangxiang" class="form-control" name="">
+                <option value="0">请选择</option>
 
-
-                    </select>
-                </div>
+                <option value="国际经济">国际经济</option>
+                <option value="国际贸易学">国际贸易学</option>
+                <option value="国际投资">国际投资</option>
+                <option value="国际文化贸易">国际文化贸易</option>
+                <option value="国民经济动员学">国民经济动员学</option>
+                <option value="国民经济学">国民经济学</option>
+                <option value="合作经济">合作经济</option>
+                <option value="互联网金融">互联网金融</option>
+                <option value="互联网金融学">互联网金融学</option>
+                <option value="技术经济学">技术经济学</option>
+                <option value="金融工程">金融工程</option>
+                <option value="金融数学与金融工程">金融数学与金融工程</option>
+                <option value="金融学">金融学</option>
+                <option value="精算学">精算学</option>
+                <option value="经济大数据分析">经济大数据分析</option>
+                <option value="经济数学">经济数学</option>
+                <option value="跨国公司管理">跨国公司管理</option>
+                <option value="劳动关系">劳动关系</option>
+                <option value="劳动经济学">劳动经济学</option>
+                <option value="流通经济与管理">流通经济与管理</option>
+                <option value="能源经济">能源经济</option>
+                <option value="能源经济学">能源经济学</option>
+                <option value="能源与气候经济">能源与气候经济</option>
+                <option value="农村经济学">农村经济学</option>
+                <option value="农业经济学">农业经济学</option>
+                <option value="区域经济学">区域经济学</option>
+                <option value="全球价值链">全球价值链</option>
+                <option value="人力资源开发与人才发展"
+                  >人力资源开发与人才发展</option
+                >
+                <option value="商务英语研究">商务英语研究</option>
+                <option value="商业经济学">商业经济学</option>
+                <option value="数量经济学">数量经济学</option>
+                <option value="税收学">税收学</option>
+                <option value="统计学">统计学</option>
+              </select>
             </div>
-            <div class="form-group row">
-                <label class="col-md-2 text-right">研究方向:</label>
-                <div class="col-md-10">
-                    <select id="yanjiufangxiang" class="form-control" name="">
-                        <option value="0">请选择</option>
-
-                        <option value="国际经济">国际经济</option>
-                        <option value="国际贸易学">国际贸易学</option>
-                        <option value="国际投资">国际投资</option>
-                        <option value="国际文化贸易">国际文化贸易</option>
-                        <option value="国民经济动员学">国民经济动员学</option>
-                        <option value="国民经济学">国民经济学</option>
-                        <option value="合作经济">合作经济</option>
-                        <option value="互联网金融">互联网金融</option>
-                        <option value="互联网金融学">互联网金融学</option>
-                        <option value="技术经济学">技术经济学</option>
-                        <option value="金融工程">金融工程</option>
-                        <option value="金融数学与金融工程">金融数学与金融工程</option>
-                        <option value="金融学">金融学</option>
-                        <option value="精算学">精算学</option>
-                        <option value="经济大数据分析">经济大数据分析</option>
-                        <option value="经济数学">经济数学</option>
-                        <option value="跨国公司管理">跨国公司管理</option>
-                        <option value="劳动关系">劳动关系</option>
-                        <option value="劳动经济学">劳动经济学</option>
-                        <option value="流通经济与管理">流通经济与管理</option>
-                        <option value="能源经济">能源经济</option>
-                        <option value="能源经济学">能源经济学</option>
-                        <option value="能源与气候经济">能源与气候经济</option>
-                        <option value="农村经济学">农村经济学</option>
-                        <option value="农业经济学">农业经济学</option>
-                        <option value="区域经济学">区域经济学</option>
-                        <option value="全球价值链">全球价值链</option>
-                        <option value="人力资源开发与人才发展">人力资源开发与人才发展</option>
-                        <option value="商务英语研究">商务英语研究</option>
-                        <option value="商业经济学">商业经济学</option>
-                        <option value="数量经济学">数量经济学</option>
-                        <option value="税收学">税收学</option>
-                        <option value="统计学">统计学</option>
-
-                    </select>
-                </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-2 text-right">学习方式:</label>
+            <div class="col-md-10">
+              <select id="xuexifangshi" class="form-control" name="">
+                <option value="0">请选择</option>
+                <option value="全日制">全日制</option>
+                <option value="非全日制">非全日制</option>
+              </select>
             </div>
-            <div class="form-group row">
-                <label class="col-md-2 text-right">学习方式:</label>
-                <div class="col-md-10">
-                    <select id="xuexifangshi" class="form-control" name="">
-                        <option value="0">请选择</option>
-                        <option value="全日制">全日制</option>
-                        <option value="非全日制">非全日制</option>
-                    </select>
-                </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-2 text-right">考试科目:</label>
+            <div class="col-md-10">
+              <select id="kaoshikemu" class="form-control" name="">
+                <option value="数学一">数学一</option>
+                <option value="英语">英语</option>
+                <option value="政治">政治</option>
+                <option value="专业课">专业课</option>
+              </select>
             </div>
-            <div class="form-group row">
-                <label class="col-md-2 text-right">考试科目:</label>
-                <div class="col-md-10">
-                    <select id="kaoshikemu" class="form-control" name="">
-                        <option value="数学一">数学一</option>
-                        <option value="英语">英语</option>
-                        <option value="政治">政治</option>
-                        <option value="专业课">专业课</option>
-                    </select>
-                </div>
-            </div>
-            <div class="text-center">
-                <button id="uptopersoninfo2" class="btn btn-primary ">上一步</button>
-                <button id="showbaokaodian" class="btn btn-primary ">下一步</button>
-            </div>
+          </div>
+          <div class="text-center">
+            <button id="uptopersoninfo2" class="btn btn-primary ">
+              上一步
+            </button>
+            <button id="showbaokaodian" class="btn btn-primary ">下一步</button>
+          </div>
         </div>
         <div class="col-md-12" id="baokaodian" style="display: none;">
-            <div class="progress">
-
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 90%"></div>
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 90%"
+            ></div>
+          </div>
+          <h2 class="text-center">
+            <strong>请选择报考点所在城市及报考点名称</strong>
+          </h2>
+          <div class="form-group row">
+            <label class="col-md-2 text-right">报考点所在城市:</label>
+            <div class="col-md-10">
+              <select id="baokaodianchengshi" class="form-control" name="">
+                <option value="0">请选择</option>
+                <option value="北京市">北京市</option>
+                <option value="天津市">天津市</option>
+                <option value="河北省">河北省</option>
+                <option value="山西省">山西省</option>
+                <option value="内蒙古">内蒙古自治区</option>
+                <option value="辽宁省">辽宁省</option>
+                <option value="吉林省">吉林省</option>
+                <option value="黑龙江">黑龙江省</option>
+              </select>
             </div>
-            <h2 class="text-center"><strong>请选择报考点所在城市及报考点名称</strong></h2>
-            <div class="form-group row">
-                <label class="col-md-2 text-right">报考点所在城市:</label>
-                <div class="col-md-10">
-                    <select id="baokaodianchengshi" class="form-control" name="">
-                        <option value="0">请选择</option>
-                        <option value="北京市">北京市</option>
-                        <option value="天津市">天津市</option>
-                        <option value="河北省">河北省</option>
-                        <option value="山西省">山西省</option>
-                        <option value="内蒙古">内蒙古自治区</option>
-                        <option value="辽宁省">辽宁省</option>
-                        <option value="吉林省">吉林省</option>
-                        <option value="黑龙江">黑龙江省</option>
-                    </select>
-                </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-2 text-right">报考点名称:</label>
+            <div class="col-md-10">
+              <select id="baokaodianmingcheng" class="form-control" name="">
+                <option value="0">请选择</option>
+                <option value="合肥工业大学">合肥工业大学</option>
+                <option value="中国科技大学">中国科技大学</option>
+                <option value="北京大学">北京大学</option>
+                <option value="浙江大学">浙江大学</option>
+                <option value="复旦大学">复旦大学</option>
+                <option value="武汉大学">武汉大学</option>
+              </select>
             </div>
-            <div class="form-group row">
-                <label class="col-md-2 text-right">报考点名称:</label>
-                <div class="col-md-10">
-                    <select id="baokaodianmingcheng" class="form-control" name="">
-                        <option value="0">请选择</option>
-                        <option value="合肥工业大学">合肥工业大学</option>
-                        <option value="中国科技大学">中国科技大学</option>
-                        <option value="北京大学">北京大学</option>
-                        <option value="浙江大学">浙江大学</option>
-                        <option value="复旦大学">复旦大学</option>
-                        <option value="武汉大学">武汉大学</option>
-
-
-                    </select>
-                </div>
-            </div>
-            <div class="text-center">
-                <button id="uptobaokaodanwei" class="btn btn-primary ">上一步</button>
-                <button id="showyanzhengma" class="btn btn-primary ">下一步</button>
-            </div>
+          </div>
+          <div class="text-center">
+            <button id="uptobaokaodanwei" class="btn btn-primary ">
+              上一步
+            </button>
+            <button id="showyanzhengma" class="btn btn-primary ">下一步</button>
+          </div>
         </div>
         <div class="col-md-12" id="yanzhengma" style="display: none;">
-            <div class="progress">
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 95%"
+            ></div>
+          </div>
+          <div class="form-group row">
+            <div class="center-form">
+              <p>
+                <label class="text-danger" for="allowed"
+                  >本人承诺信息完整属实,符合相关规定&nbsp;</label
+                ><input id="allowed" value="" type="checkbox" />
+              </p>
+              <label for="yanzhengmainput">验证码:</label>
+              <input
+                id="yanzhengmainput"
+                class="form-control"
+                value="WEwT"
+                width="300px"
+              />
+              <br />
+              <div class="text-center ">
+                <button id="uptobaokaodian" class="btn btn-primary ">
+                  上一步
+                </button>
 
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
+                <button id="genkaoshenghao" class="btn btn-primary ">
+                  核对无误,生成报名号
+                </button>
+              </div>
             </div>
-            <div class="form-group row">
-
-                <div class="center-form">
-                    <p><label class="text-danger" for="allowed"
-                    >本人承诺信息完整属实,符合相关规定&nbsp;</label><input id="allowed" value="" type="checkbox"/>
-                    </p><label for="yanzhengmainput">验证码:</label>
-                    <input id="yanzhengmainput" class="form-control" value="WEwT" width="300px">
-                    <br>
-                    <div class="text-center ">
-                        <button id="uptobaokaodian" class="btn btn-primary ">上一步</button>
-
-                        <button id="genkaoshenghao" class="btn btn-primary ">核对无误,生成报名号</button>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</body>
-
+  </body>
 </html>
